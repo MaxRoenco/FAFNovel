@@ -10,6 +10,17 @@ define c = Character("Catan")
 
 default player = "Player"
 
+image boloto = "boloto.jpg"
+image war:
+    "war.jpg"
+    xysize(1920,1080)
+
+image Army = "Army.png"
+
+image bbg:
+    "images/bg boloto.jpg"
+    xysize(1920,1080)
+
 label start:
     scene bg room
     menu start_choose:
@@ -24,7 +35,6 @@ label start:
             jump war
     return
 
-
 label utm:
     scene bg room with fade
     b "Welcome, freshmen! You are about to embark on the most important journey of your life. Choose wisely!"
@@ -36,22 +46,21 @@ label utm:
     return
 
 label asem:
+    scene bg room
     b "OMG are you freak???????"
     return
 
 label ptu:
-    image boloto = "boloto.png"
-    scene boloto
+    scene bbg with fade
     ia "You are dead"
     return
 
 label war:
-    image Army = "Army.png"
-    image war = "war.png"
-    scene bg war
+    scene war with fade
     show Army
     ba "You are dead"
     return
+
 
 
 
@@ -64,14 +73,14 @@ label next_class:
     scene bg hallway with fade
     "You stand before an open door."
     menu:
-        "Are you sure you want to leave?"
-        "Yes, Leave":
+        "Are you sure you want to come in?"
+        "Yes, Come In":
+            jump comein
+        "No, Leave":
             jump leave
-        "No, Stay":
-            jump stay
     return
 
-label leave:
+label comein:
     scene bg classroom with fade
     f "Okey."
     f "Hmm..."
@@ -85,7 +94,7 @@ label leave:
     jump new_day
     return
 
-label stay:
+label leave:
     scene bg corridor with fade
     "You walk down the empty corridor. You see the door to the Programming Systems classroom."
     "Inside, students are crying during lab presentations, the room is on fire."
