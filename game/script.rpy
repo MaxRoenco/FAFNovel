@@ -30,15 +30,15 @@ image bbg:
     xysize(1920,1080)
 
 label start:
+    elena "Today is June 22, and you have just passed all your school exams."
+    elena "You were the best student in your area, and now all doors are open to you."
+    elena "Your mother insists that you go to Medical University. She knows you don't like biology, but nobody seems to care about that."
+    elena "Your father wants you to be a real MAN, so he insists that you join the army to harden your heart and soul."
+    elena "Your grandparents, being traditional, want you to become a good farmer and go to PTU."
+    elena "On the other hand, you have always been inspired to become a great programmer... or maybe you just liked playing computer games. I'm not sure yet."
+    elena "You need to choose a path where you will conquer new heights."
+    elena "I hope you choose with your heart."
     menu start_choose:
-        elena "Today is June 22, and you have just passed all your school exams."
-        elena "You were the best student in your area, and now all doors are open to you."
-        elena "Your mother insists that you go to Medical University. She knows you don't like biology, but nobody seems to care about that."
-        elena "Your father wants you to be a real MAN, so he insists that you join the army to harden your heart and soul."
-        elena "Your grandparents, being traditional, want you to become a good farmer and go to PTU."
-        elena "On the other hand, you have always been inspired to become a great programmer... or maybe you just liked playing computer games. I'm not sure yet."
-        elena "You need to choose a path where you will conquer new heights."
-        elena "I hope you choose with your heart."
         
         "Go to UTM and become a great programmer":
             jump utm

@@ -1,32 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 45, in script
-    player "Yes." (shows a cute hamster meme)
-SyntaxError: invalid syntax (game/script.rpy, line 45)
+  File "game/script.rpy", line 56, in script
+    bostan "You should know that only 60% of students survive here, so I'll give you one last chance to change your mind."
+TypeError: %o format: an integer is required, not TagQuotingDict
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 45, in script
-    player "Yes." (shows a cute hamster meme)
+  File "game/script.rpy", line 56, in script
+    bostan "You should know that only 60% of students survive here, so I'll give you one last chance to change your mind."
   File "C:\Users\Admin\Downloads\renpy-8.3.4-sdk\renpy\ast.py", line 2579, in execute
     Say.execute(self)
-  File "C:\Users\Admin\Downloads\renpy-8.3.4-sdk\renpy\ast.py", line 607, in execute
-    args, kwargs = self.arguments.evaluate()
-  File "C:\Users\Admin\Downloads\renpy-8.3.4-sdk\renpy\parameter.py", line 503, in evaluate
-    value = renpy.python.py_eval(v, locals=scope)
-  File "C:\Users\Admin\Downloads\renpy-8.3.4-sdk\renpy\python.py", line 1207, in py_eval
-    code = py_compile(code, 'eval')
-  File "C:\Users\Admin\Downloads\renpy-8.3.4-sdk\renpy\python.py", line 1144, in py_compile
-    raise e
-  File "C:\Users\Admin\Downloads\renpy-8.3.4-sdk\renpy\python.py", line 1081, in py_compile
-    raise orig_e
-  File "C:\Users\Admin\Downloads\renpy-8.3.4-sdk\renpy\python.py", line 1073, in py_compile
-    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
-SyntaxError: invalid syntax (game/script.rpy, line 45)
+  File "C:\Users\Admin\Downloads\renpy-8.3.4-sdk\renpy\ast.py", line 621, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\Admin\Downloads\renpy-8.3.4-sdk\renpy\exports\sayexports.py", line 121, in say
+    what = what % tag_quoting_dict
+TypeError: %o format: an integer is required, not TagQuotingDict
 
 Windows-10-10.0.26100 AMD64
 Ren'Py 8.3.4.24120703
 FafNovel 1.0
-Fri Feb 28 09:53:14 2025
+Sun Mar  2 20:09:00 2025
