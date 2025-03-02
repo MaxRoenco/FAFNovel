@@ -8,12 +8,20 @@ define ilico = Character("Ilico Artemie")
 define maxim = Character("Roenco Maxim")
 define islam = Character("Islam AbuKoush")
 
+define kulev = Character("Kulev")
 define bostan = Character("Bostan")
 define furdui = Character("Furdui")
 define cristofor = Character("Christofor")
-define gogoi = Character("Goga")
+define gogoi = Character("Gogoi")
 
 default player = "Player"
+
+default karma = 100
+
+default bozadjiRelation = 0
+default ilicoRelation = 0
+default maximRelation = 0
+default islamRelation = 0
 
 image war:
     "war.jpg"
@@ -39,7 +47,6 @@ label start:
     elena "You need to choose a path where you will conquer new heights."
     elena "I hope you choose with your heart."
     menu start_choose:
-        
         "Go to UTM and become a great programmer":
             jump utm
         "Go to USMF and become a great doctor":
@@ -53,74 +60,82 @@ label start:
 label utm:
     scene aula3 with fade
     bostan "Hello! Welcome to FAF. Bla bla bla... a very cool but cruel place."
-    bostan "You should know that only 60% of students survive here, so I'll give you one last chance to change your mind."
-    
-    menu optional_name:
+    bostan "You should know that only 60%% of students survive here, so I will give you one last chance to change your mind."
+
+    menu:
         "Give up":
             jump give_up
         "Become part of the FAF community":
             bostan "Congratulations!!! Today marks the beginning of the worst days of your life."
-            bostan "Good luck surviving in FAF!"
-            jump next_class
+            bostan "Good luck surviving in FAF! UA-HA-HA-HA-HA"
+            jump pc_class
     return
-
-
-label usmf:
-    bostan "Are you kidding me???????"
-    bostan "Fine, it's your life, and only you decide who will manipulate you—me or this Medical University."
-    elena "Don't pay attention to him. Bostan just doesn't like students from USMF or ASEM."
-    bostan "Did you just say ASEM??? Those idiots will regret ever being born..."
-    elena "Calm down, dear. You have a weak heart; you shouldn't get nervous."
-    bostan "Fine, I'll go relax for a bit."
-    
-    elena "Let's continue. Unfortunately, you were accepted into Medical University."
-    player "Why 'unfortunately'???"
-    elena "You'll understand soon. HE-HE-HE-HE."
-    
-    elena "You attend your first lecture, where you meet a lot of cool friends and a very pleasant professor."
-    elena "You actively participate in class, so the professor asks you to stay after the lecture."
-    elena "Everyone leaves the auditorium, and only you and the professor remain."
-    
-    elena "Awkward silence... He gets closer and closer."  
-
-    # elena "It turns out that the professor is obsessed with overloading students with medical research!"
-    # elena "You try to leave, but he hands you a 500-page book and says you have to memorize it by tomorrow."
-    # elena "No escape. No mercy. Only endless anatomy textbooks."
-    # elena "Congratulations, you are now trapped in the world of sleepless nights and coffee addiction!"
-    elena "It turns out that the teacher was a pedophile maniac"
-    elena "You try to run away but with him was very big knife. You don't have any chances..."
-    elena "You left only give up"
-    elena "You were raped and killed"
-    return
-
-label ptu:
-    elena "Good choice, but not the best one. HE-HE-HE-HE-HE."
-    elena "At first, everything goes smoothly, but one day, you go on a picnic with friends."
-    elena "The location for the party is near a lake."
-    elena "You see the dirty water and try to touch it..."
-    scene bbg with fade
-    elena "But someone pushes you from behind, and you fall into the water. Unexpectedly, this isn't a lake—it's a marsh!"
-    elena "You try to escape from the swamp, but all your movements only make things worse."
-    elena "Everyone panics and tries to help you, but your head is almost underwater."
-    elena "Three more seconds, and you can't breathe because your entire body is no longer under your control..."
-    elena "All you can do is give up..."
-    elena "You are dead."
-    return
-
-
-label war:
-    elena "Good choice, your father would be happy if not for what will happen next..."
-    elena "You are strong beautiful guy, moreover very good physically prepared, because of it everyone want to communicate with oyu and be your friend."
-    elena "But later everyone getting envies you, that you are the best on each exam."
-    elena "Your fellow soldiers kicked you to death."
-    elena "You are dead"
-    return
-
 
 label give_up:
     scene bg dark with fade
     bostan "You gave up too early. Better luck next time."
     return
+
+label pc_class:
+    gogoi "You have a lecture with Mujik—oh, I mean Kulev—so don't be late and be obedient."
+    elena "You enter the classroom, but all the chairs are occupied except for one next to a dark-skinned guy of Jordanian appearance."
+    menu: 
+        "Leave the lecture because this dark-skinned guy looks creepy.":
+            $ islamRelation -= 10
+            $ karma -= 10
+            jump leave_pc
+        "Sit next to him despite his miserable appearance.":
+            $ islamRelation += 10
+            jump islamMeeting
+    return
+
+label islamMeeting:
+    islam "Salam, Marhaba! Islam. Ce fac?"
+    menu:
+        "Hi, I don't speak Arabic. Do you understand English?":
+            $ islamRelation -= 10
+            islam "Yeah, I speak English."
+        "Hamdulillah, ce fac?":
+            $ islamRelation += 10
+            islam "Ooh, do you speak Arabic?"
+            player "Yeah, of course!"
+    islam "Nice to meet you. My name is Islam, and I am from Jordan."
+    player "How did you end up in Moldova?"
+    islam "I'm here for education. Moldova has a very high level of programming education... (not really)."
+    player "Yeah, I agree. Moldova is famous for its smart students. Tell me something about yourself."
+    islam "Alright. My family is not very rich, so I want to make money as soon as possible. I have some ideas about it."
+    player "Do you know how to find a good job?"
+    islam "Mmm... not really. If my main plan fails, I'll look for a job."
+    player "Can you tell me abo—"
+    kulev "Hello, everyone. Today we will learn the C language."
+    kulev "Let's start with a very simple task. Open your laptops and get started."
+    elena "You open the task and see this..."
+    # Here should be a photo of a difficult C programming task
+    islam "Oh, this is very easy. Wait a bit; I'm almost finished."
+    player "Bro, be my friend."
+    return
+
+label leave_pc:
+    elena "You are walking down the street when you see someone who was also at the initiation for FAFT students."
+    menu:
+        "Approach him":
+            $ bozadjiRelation += 10
+            player "Hello, I saw you at the previous lecture."
+            bozadji "Hello, yeah, I was there."
+            player "Why aren't you at the PC lecture?"
+            bozadji "Because I'm busy right now. I'm heading to work."
+            player "How did you get a job if you're only a first-year student? Also, why did you enroll in university if you already have a job?"
+            bozadji "I just used ChatGPT in interviews, that's all. As for university, I'm not really sure why I'm here—just for fun."
+            player "Bro, you're a very weird person, but I respect strong-willed people."
+            $ bozadjiRelation += 10
+            jump next_class
+        "Move on":
+            jump next_class
+    return
+
+
+
+
 
 label next_class:
     scene bg hallway with fade
@@ -213,6 +228,56 @@ label wrong_choice:
 
 label correct_choice:
     "You stand in a queue of students with laptops. Outside, it's night, the stars and moon shine."
+    return
+
+label usmf:
+    bostan "Are you kidding me???????"
+    bostan "Fine, it's your life, and only you decide who will manipulate you—me or this Medical University."
+    elena "Don't pay attention to him. Bostan just doesn't like students from USMF or ASEM."
+    bostan "Did you just say ASEM??? Those idiots will regret ever being born..."
+    elena "Calm down, dear. You have a weak heart; you shouldn't get nervous."
+    bostan "Fine, I'll go relax for a bit."
+    
+    elena "Let's continue. Unfortunately, you were accepted into Medical University."
+    player "Why 'unfortunately'???"
+    elena "You'll understand soon. HE-HE-HE-HE."
+    
+    elena "You attend your first lecture, where you meet a lot of cool friends and a very pleasant professor."
+    elena "You actively participate in class, so the professor asks you to stay after the lecture."
+    elena "Everyone leaves the auditorium, and only you and the professor remain."
+    elena "Awkward silence... He gets closer and closer."  
+
+    # elena "It turns out that the professor is obsessed with overloading students with medical research!"
+    # elena "You try to leave, but he hands you a 500-page book and says you have to memorize it by tomorrow."
+    # elena "No escape. No mercy. Only endless anatomy textbooks."
+    # elena "Congratulations, you are now trapped in the world of sleepless nights and coffee addiction!"
+
+    elena "It turns out that the teacher was a pedophile maniac"
+    elena "You try to run away but with him was very big knife. You don't have any chances..."
+    elena "You left only give up"
+    elena "You were raped and killed"
+    return
+
+label ptu:
+    elena "Good choice, but not the best one. HE-HE-HE-HE-HE."
+    elena "At first, everything goes smoothly, but one day, you go on a picnic with friends."
+    elena "The location for the party is near a lake."
+    elena "You see the dirty water and try to touch it..."
+    scene bbg with fade
+    elena "But someone pushes you from behind, and you fall into the water. Unexpectedly, this isn't a lake—it's a marsh!"
+    elena "You try to escape from the swamp, but all your movements only make things worse."
+    elena "Everyone panics and tries to help you, but your head is almost underwater."
+    elena "Three more seconds, and you can't breathe because your entire body is no longer under your control..."
+    elena "All you can do is give up..."
+    elena "You are dead."
+    return
+
+label war:
+    elena "Good choice, your father would be happy if not for what will happen next..."
+    elena "You are strong beautiful guy, moreover very good physically prepared, because of it everyone want to communicate with oyu and be your friend."
+    elena "But later everyone getting envies you, that you are the best on each exam."
+    elena "Your fellow soldiers kicked you to death."
+    elena "You are dead"
     return
 
 # label final_choice:
