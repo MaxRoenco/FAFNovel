@@ -347,15 +347,15 @@ label usmf:
     elena "Everyone leaves the auditorium, and only you and the professor remain."
     elena "Awkward silence... He gets closer and closer."  
 
-    elena "It turns out that the professor is obsessed with overloading students with medical research!"
-    elena "You try to leave, but he hands you a 500-page book and says you have to memorize it by tomorrow."
-    elena "No escape. No mercy. Only endless anatomy textbooks."
-    elena "Congratulations, you are now trapped in the world of sleepless nights and coffee addiction!"
+    # elena "It turns out that the professor is obsessed with overloading students with medical research!"
+    # elena "You try to leave, but he hands you a 500-page book and says you have to memorize it by tomorrow."
+    # elena "No escape. No mercy. Only endless anatomy textbooks."
+    # elena "Congratulations, you are now trapped in the world of sleepless nights and coffee addiction!"
 
-    # elena "It turns out that the teacher was a pedophile maniac"
-    # elena "You try to run away but with him was very big knife. You don't have any chances..."
-    # elena "You left only give up"
-    # elena "You were raped and killed"
+    elena "It turns out that the teacher was a pedophile maniac"
+    elena "You try to run away but with him was very big knife. You don't have any chances..."
+    elena "You left only give up"
+    elena "You were raped and killed"
     return
 
 label ptu:
