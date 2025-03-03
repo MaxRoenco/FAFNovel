@@ -27,6 +27,10 @@ image war:
     "war.jpg"
     xysize(1920,1080)
 
+image dark:
+    "dark.png"
+    xysize(1920,1080)
+
 image aula3:
     "aula3.jpg"
     xysize(1920,1080)
@@ -39,14 +43,25 @@ image bbg:
 
 label start:
     scene aula3 with fade
+    show elena happy with fade
     elena "Today is June 22, and you have just passed all your school exams."
+    show elena smile
     elena "You were the best student in your area, and now all doors are open to you."
+    show elena annoyed
     elena "Your mother insists that you go to Medical University. She knows you don't like biology, but nobody seems to care about that."
+    show elena smug
     elena "Your father wants you to be a real MAN, so he insists that you join the army to harden your heart and soul."
+    show elena smile 2
     elena "Your grandparents, being traditional, want you to become a good farmer and go to PTU."
-    elena "On the other hand, you have always been inspired to become a great programmer... or maybe you just liked playing computer games. I'm not sure yet."
+    show elena laugh
+    elena "On the other hand, you have always been inspired to become a great programmer..."
+    show elena sleepy
+    elena "Or maybe you just liked playing computer games. I'm not sure yet."
+    show elena smug
     elena "You need to choose a path where you will conquer new heights."
+    show elena happy
     elena "I hope you choose with your heart."
+    hide elena happy
     menu start_choose:
         "Go to UTM and become a great programmer":
             jump utm
@@ -60,6 +75,8 @@ label start:
 
 label utm:
     scene aula3 with fade
+    show bostan:
+        zoom 0.9
     bostan "Hello! Welcome to FAF. Bla bla bla... a very cool but cruel place."
     bostan "You should know that only 60%% of students survive here, so I will give you one last chance to change your mind."
 
@@ -73,7 +90,10 @@ label utm:
     return
 
 label give_up:
-    scene bg dark with fade
+    scene dark with fade
+    show bostan with fade:
+        zoom 0.6
+        yalign 0.2
     bostan "You gave up too early. Better luck next time."
     return
 
@@ -261,13 +281,31 @@ label correct_choice:
     return
 
 label usmf:
+    show bostan with fade:
+        zoom 0.6
+        yalign 0.2
     bostan "Are you kidding me???????"
     bostan "Fine, it's your life, and only you decide who will manipulate you—me or this Medical University."
+
+    show elena:
+        zoom 0.7
+        yalign 0.05
     elena "Don't pay attention to him. Bostan just doesn't like students from USMF or ASEM."
+    show bostan with fade:
+        zoom 0.6
+        yalign 0.2
     bostan "Did you just say ASEM??? Those idiots will regret ever being born..."
+    show elena sad:
+        zoom 0.7
+        yalign 0.05
     elena "Calm down, dear. You have a weak heart; you shouldn't get nervous."
+    show bostan with fade:
+        zoom 0.6
+        yalign 0.2
     bostan "Fine, I'll go relax for a bit."
-    
+    show elena sad:
+        zoom 0.7
+        yalign 0.05
     elena "Let's continue. Unfortunately, you were accepted into Medical University."
     player "Why 'unfortunately'???"
     elena "You'll understand soon. HE-HE-HE-HE."
@@ -303,10 +341,20 @@ label ptu:
     return
 
 label war:
-    elena "Good choice, your father would be happy if not for what will happen next..."
-    elena "You are strong beautiful guy, moreover very good physically prepared, because of it everyone want to communicate with oyu and be your friend."
-    elena "But later everyone getting envies you, that you are the best on each exam."
+    show elena happy with fade
+    elena "Good choice, your father would be happy!"
+    show elena sleepy
+    elena "If not for what will happen next..."
+    show elena smile
+    elena "You are strong attractive, muscular guy, and because of that everyone wants to talk to you and be your friend."
+    show elena
+    elena "But later everyone starts enving you, because you excel at every exam."
+    show elena shocked
     elena "Your fellow soldiers kicked you to death."
+    scene dark with fade
+    show elena sad:
+        zoom 0.7
+        yalign 0.05
     elena "You are dead"
     return
 

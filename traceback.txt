@@ -1,27 +1,28 @@
-<<<<<<< HEAD
-=======
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 155, in script
-    furduif "Uh-huh."
-Exception: Sayer 'furduif' is not defined.
+  File "game/script.rpy", line 78, in script
+    bostan "Hello! Welcome to FAF. Bla bla bla... a very cool but cruel place."
+TypeError: got an unexpected keyword argument 'interact'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 155, in script
-    furduif "Uh-huh."
-  File "C:\Users\Admin\Downloads\renpy-8.3.4-sdk\renpy\ast.py", line 2579, in execute
+  File "game/script.rpy", line 78, in script
+    bostan "Hello! Welcome to FAF. Bla bla bla... a very cool but cruel place."
+  File "C:\Users\iabuk\Downloads\renpy-8.3.4-sdk\renpy\ast.py", line 2579, in execute
     Say.execute(self)
-  File "C:\Users\Admin\Downloads\renpy-8.3.4-sdk\renpy\ast.py", line 581, in execute
-    who = eval_who(self.who, self.who_fast)
-  File "C:\Users\Admin\Downloads\renpy-8.3.4-sdk\renpy\ast.py", line 470, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'furduif' is not defined.
+  File "C:\Users\iabuk\Downloads\renpy-8.3.4-sdk\renpy\ast.py", line 621, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\iabuk\Downloads\renpy-8.3.4-sdk\renpy\exports\sayexports.py", line 132, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\iabuk\Downloads\renpy-8.3.4-sdk\renpy\atl.py", line 623, in __call__
+    new_scope = signature.apply(args, kwargs, partial=True, apply_defaults=False)
+  File "C:\Users\iabuk\Downloads\renpy-8.3.4-sdk\renpy\parameter.py", line 384, in apply
+    raise TypeError(
+TypeError: got an unexpected keyword argument 'interact'
 
 Windows-10-10.0.26100 AMD64
 Ren'Py 8.3.4.24120703
 FafNovel 1.0
-Sun Mar  2 23:36:36 2025
->>>>>>> ec601b19e0e9831f46361730368f00e276065352
+Mon Mar  3 12:31:01 2025
