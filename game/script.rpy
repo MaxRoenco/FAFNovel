@@ -191,13 +191,42 @@ label gogoiLecture:
     return
 
 label finishedFirstDay:
-    elena "The last today lecture was finished and everyone go at home relax."
-    elena "Suddenly you remembered that you live in a dorm with a huge number of cockroaches."
-    elena "You even don't know who is your neighbour."
-    elena "You see how blond athletic guy in an expensive suit with a rolex on his hand entered the room."
-    maxim "What's up, this is 318 room?"
-    player "MMM... Yes"
-    elena ""
+    elena "The last lecture of the day has ended, and everyone is heading home to relax."
+    elena "Suddenly, you remember that you live in a dorm with a huge number of cockroaches."
+    elena "You don’t even know who your roommate is."
+    elena "You see a blond, athletic guy in an expensive suit with a Rolex on his wrist entering the room."
+    maxim "What's up? Is this room 318?"
+    player "Umm... Yes. Who are you?"
+    maxim "I live here. What about you? Who are you?"
+    player "Oh, I live here too. You look like a very rich person. Why are you staying in a dorm?"
+    maxim "I have a very sad story about how I ended up here. Do you want to hear it?"
+    menu:
+        "Of course not, nobody cares about your story.":
+            $ maximRelation -= 10
+            maxim "Bro, you are a very rude person."
+        "Yeah, I want to hear your story.":
+            $ maximRelation += 10
+            jump maximStory
+
+    elena "You were very tired from today's events."
+    elena "You put your head on the pillow and instantly fell asleep."
+
+label maximStory:
+    maxim "When I was a child, I had a best friend. We would constantly play, watch movies, and imagine that we would be rich and successful in the future."
+    maxim "We even created a plan on how to achieve this success, but one day he told me that he was leaving with his family for another country."
+    maxim "I lost my only friend, and it affected me deeply."
+    maxim "After that, I became obsessed with making money. However, I can't make friends anymore."
+    maxim "Not long ago, I earned a large sum of money, so I don’t need money anymore."
+    maxim "But there's one goal I haven't achieved—I want to find good friends."
+    maxim "Let's be friends?"
+    menu:
+        "Yeah, of course. I will help you with your goals.":
+            $ maximRelation += 10
+        "No, you sound like a little kid with psychological trauma.":
+            $ maximRelation -= 10
+    maxim "Fine, I'm a bit tired. Let's go to sleep."
+    player "Together???"
+    maxim "Ew, of course not! I'm not gay."
 
 label comein:
     scene bg classroom with fade
