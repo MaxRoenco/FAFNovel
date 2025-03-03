@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
@@ -22,3 +24,4 @@ Windows-10-10.0.26100 AMD64
 Ren'Py 8.3.4.24120703
 FafNovel 1.0
 Sun Mar  2 23:36:36 2025
+>>>>>>> ec601b19e0e9831f46361730368f00e276065352
