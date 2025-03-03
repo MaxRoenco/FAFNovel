@@ -1,95 +1,222 @@
-﻿define e = Character("Elena")
-define b = Character("Bostan")
-define ba = Character("Bozadji Artemie")
-define ia = Character("Ilico Artemie")
-define f = Character("Furdui")
-define k = Character("Christofor")
-define p = Character("Pistachio")
-define g = Character("Goga")
-define c = Character("Catan")
+﻿
+# Ведущий
+define elena = Character("Elena")
+
+# Suspectors
+define bozadji = Character("Bozadji Artemie")
+define ilico = Character("Ilico Artemie")
+define maxim = Character("Roenco Maxim")
+define islam = Character("Islam AbuKoush")
+
+define kulev = Character("Kulev")
+define bostan = Character("Bostan")
+define furdui = Character("Furdui")
+define cristofor = Character("Christofor")
+define gogoi = Character("Gogoi")
 
 default player = "Player"
 
+default karma = 100
+
+default bozadjiRelation = 0
+default ilicoRelation = 0
+default maximRelation = 0
+default islamRelation = 0
+
+image war:
+    "war.jpg"
+    xysize(1920,1080)
+
+image aula3:
+    "aula3.jpg"
+    xysize(1920,1080)
+
+image Army = "Army.png"
+
+image bbg:
+    "images/bg boloto.jpg"
+    xysize(1920,1080)
+
 label start:
-    scene bg room
+    scene aula3 with fade
+    elena "Today is June 22, and you have just passed all your school exams."
+    elena "You were the best student in your area, and now all doors are open to you."
+    elena "Your mother insists that you go to Medical University. She knows you don't like biology, but nobody seems to care about that."
+    elena "Your father wants you to be a real MAN, so he insists that you join the army to harden your heart and soul."
+    elena "Your grandparents, being traditional, want you to become a good farmer and go to PTU."
+    elena "On the other hand, you have always been inspired to become a great programmer... or maybe you just liked playing computer games. I'm not sure yet."
+    elena "You need to choose a path where you will conquer new heights."
+    elena "I hope you choose with your heart."
     menu start_choose:
-        "Choose UTM if you want to be rich, successful and sexy man"
-        "UTM":
+        "Go to UTM and become a great programmer":
             jump utm
-        "ASEM":
-            jump asem
-        "PTU":
+        "Go to USMF and become a great doctor":
+            jump usmf
+        "Go to PTU and become a skilled farmer":
             jump ptu
-        "WAR":
+        "Go to the army and become a real MAN":
             jump war
     return
 
-
 label utm:
-    scene bg room with fade
-    b "Welcome, freshmen! You are about to embark on the most important journey of your life. Choose wisely!"
-    menu optional_name:
+    scene aula3 with fade
+    bostan "Hello! Welcome to FAF. Bla bla bla... a very cool but cruel place."
+    bostan "You should know that only 60%% of students survive here, so I will give you one last chance to change your mind."
+
+    menu:
         "Give up":
             jump give_up
-        "Go to the next class":
-            jump next_class
+        "Become part of the FAF community":
+            bostan "Congratulations!!! Today marks the beginning of the worst days of your life."
+            bostan "Good luck surviving in FAF! UA-HA-HA-HA-HA"
+            jump pc_class
     return
-
-label asem:
-    b "OMG are you freak???????"
-    return
-
-label ptu:
-    image boloto = "boloto.png"
-    scene boloto
-    ia "You are dead"
-    return
-
-label war:
-    image Army = "Army.png"
-    image war = "war.png"
-    scene bg war
-    show Army
-    ba "You are dead"
-    return
-
-
 
 label give_up:
     scene bg dark with fade
-    b "You gave up too early. Better luck next time."
+    bostan "You gave up too early. Better luck next time."
     return
+
+label pc_class:
+    gogoi "You have a lecture with Mujik—oh, I mean Kulev—so don't be late and be obedient."
+    elena "You enter the classroom, but all the chairs are occupied except for one next to a dark-skinned guy of Jordanian appearance."
+    menu: 
+        "Leave the lecture because this dark-skinned guy looks creepy.":
+            $ islamRelation -= 10
+            $ karma -= 10
+            jump leave_pc
+        "Sit next to him despite his miserable appearance.":
+            $ islamRelation += 10
+            jump islamMeeting
+    return
+
+label islamMeeting:
+    islam "Salam, Marhaba Islam. Ke fac?"
+    menu:
+        "Hi, I don't speak Arabic. Do you understand English?":
+            $ islamRelation -= 10
+            islam "Yeah, I speak English."
+        "Hamdulillah, ce fac?":
+            $ islamRelation += 10
+            islam "Ooh, do you speak Arabic?"
+            player "Yeah, of course!"
+    islam "Nice to meet you. My name is Islam, and I am from Jordan."
+    player "How did you end up in Moldova?"
+    islam "I'm here for education. Moldova has a very high level of programming education... (not really)."
+    player "Yeah, I agree. Moldova is famous for its smart students. Tell me something about yourself."
+    islam "Alright. My family is not very rich, so I want to make money as soon as possible. I have some ideas about it."
+    player "Do you know how to find a good job?"
+    islam "Mmm... not really. If my main plan fails, I'll look for a job."
+    player "Can you tell me abo—"
+    kulev "Hello, everyone. Today we will learn the C language."
+    kulev "Let's start with a very simple task. Open your laptops and get started."
+    elena "You open the task and see this..."
+    # Here should be a photo of a difficult C programming task
+    islam "Oh, this is very easy. Wait a bit; I'm almost finished."
+    player "Bro, be my friend."
+    jump next_class
+    return
+
+label leave_pc:
+    elena "You are walking down the street when you see someone who was also at the initiation for FAFT students."
+    menu:
+        "Approach him":
+            $ bozadjiRelation += 10
+            jump bozadjiMeeting
+        "Move on":
+            jump next_class
+    return
+
+label bozadjiMeeting:
+    player "Hello, I saw you at the previous lecture."
+    bozadji "Hello, yeah, I was there."
+    player "Why aren't you at the PC lecture?"
+    bozadji "Because I'm busy right now. I'm heading to work."
+    player "How did you get a job if you're only a first-year student? Also, why did you enroll in university if you already have a job?"
+    bozadji "I just used ChatGPT in interviews, that's all. As for university, I'm not really sure why I'm here—just for fun."
+    player "Bro, you're a very weird person, but I respect strong-willed people."
+    bozadji "Thx, sorry, but I need to go. Goodbye."
+    player "Goodbye."
+    $ bozadjiRelation += 10
+    elena "You decide to return to the university and wait for the next lecture."
+    jump next_class
 
 label next_class:
-    scene bg hallway with fade
-    "You stand before an open door."
+    gogoi "Today, after dinner, you have one more lecture with me in room 113, so don't be late."
+    elena "You are walking down the corridor, and you see someone sitting near room 113 with a very sad expression."
     menu:
-        "Are you sure you want to leave?"
-        "Yes, Leave":
-            jump leave
-        "No, Stay":
-            jump stay
+        "Ask why he is so sad":
+            $ ilicoRelation += 10
+            jump ilicoMeeting
+        "Move on":
+            $ ilicoRelation -= 10
+            jump gogoiLecture
+
+label ilicoMeeting:
+    player "Hi, why are you so upset?"
+    ilico "I am very nervous about the upcoming exams... I can't find peace."
+    player "Bro, it's only the first day of classes. We won't have an exam anytime soon."
+    ilico "Even after hearing that, I still have a bad feeling about this university."
+    menu:
+        "Let's go to Das Kebab. Maybe some kebab will improve your mood.":
+            $ ilicoRelation += 10
+            ilico "Alright, let's go and eat some delicious kebabs."
+            player "Alright!"
+            jump gogoiLecture
+        "I'm going to develop schizophrenia soon because of people like this.":
+            $ ilicoRelation -= 10
+            ilico "Starts crying because of his worthless fate."
+            player "OMG, I should have gone to medical school instead."
+            jump gogoiLecture
     return
 
-label leave:
+# Gogoi's class
+
+label gogoiLecture:
     scene bg classroom with fade
-    f "Okey."
-    f "Hmm..."
-    f "Uh-huh."
-    f "You see this block of code?"
+    gogoi "Hello, everyone. Today, we will analyze ourselves and reflect a bit."
+    gogoi "I wrote down some activities on the table. Please choose one."
+    gogoi "So, let's do an activity!"
+    menu:
+        "Johari Window":
+            gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
+        "MBTI Personality Test":
+            gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
+        "Europass CV":
+            gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
+        "Emotional Intelligence":
+            gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
+    player "Omg, another freak in this freaking university."
+    jump finishedFirstDay
+    return
+
+label finishedFirstDay:
+    elena "The last today lecture was finished and everyone go at home relax."
+    elena "Suddenly you remembered that you live in a dorm with a huge number of cockroaches."
+    elena "You even don't know who is your neighbour."
+
+
+label comein:
+    scene bg classroom with fade
+    furdui "Okey."
+    furdui "Hmm..."
+    furduif "Uh-huh."
+    furdui "You see this block of code?"
     player "Yes."
-    f "Rewrite this using recursion in one for loop with customized radix sort. Also, display results in WebAssembly with real-time visualization. You have 7 minutes. Start working."
+    furdui "Rewrite this using recursion in one for loop with customized radix sort. Also, display results in WebAssembly with real-time visualization. You have 7 minutes. Start working."
     player "May I ask a ques..."
-    f "NO QUESTIONS! 5 and you are free."
+    furdui "NO QUESTIONS! 5 and you are free."
     "You are defeated."
     jump new_day
     return
 
-label stay:
+label leave:
     scene bg corridor with fade
     "You walk down the empty corridor. You see the door to the Programming Systems classroom."
     "Inside, students are crying during lab presentations, the room is on fire."
     return
+
+# Cristofor class
 
 label new_day:
     scene bg room_night with fade
@@ -108,25 +235,11 @@ label pistachio_class:
     jump boba_class
     return
 
-label boba_class:
-    scene bg classroom with fade
-    g "Blah blah blah... So, let's do an activity!"
-    menu:
-        "Johari Window":
-            g "GREAT CHOICE! NOW, DO ALL OF THEM."
-        "MBTI Personality Test":
-            g "GREAT CHOICE! NOW, DO ALL OF THEM."
-        "Europass CV":
-            g "GREAT CHOICE! NOW, DO ALL OF THEM."
-        "Emotional Intellect":
-            g "GREAT CHOICE! NOW, DO ALL OF THEM."
-    g "GREAT CHOICE! NOW, DO ALL OF THEM."
-    jump pistachio_class
-    return
+# Cristofor Labs
 
 label pistachio_lab:
     scene bg lab with fade
-    p "What time do you want to present the labs?"
+    cristofor "What time do you want to present the labs?"
     menu:
         "8:00":
             jump wrong_choice
@@ -140,49 +253,100 @@ label pistachio_lab:
 
 label wrong_choice:
     "Wrong answer."
+    jump pistachio_lab
     return
 
 label correct_choice:
     "You stand in a queue of students with laptops. Outside, it's night, the stars and moon shine."
     return
 
-label final_choice:
-    scene bg calendar with fade
-    "It's December, the end of the semester."
-    menu:
-        "Stay home":
-            jump stay_home
-        "Meet the Big Boss":
-            jump big_boss
+label usmf:
+    bostan "Are you kidding me???????"
+    bostan "Fine, it's your life, and only you decide who will manipulate you—me or this Medical University."
+    elena "Don't pay attention to him. Bostan just doesn't like students from USMF or ASEM."
+    bostan "Did you just say ASEM??? Those idiots will regret ever being born..."
+    elena "Calm down, dear. You have a weak heart; you shouldn't get nervous."
+    bostan "Fine, I'll go relax for a bit."
+    
+    elena "Let's continue. Unfortunately, you were accepted into Medical University."
+    player "Why 'unfortunately'???"
+    elena "You'll understand soon. HE-HE-HE-HE."
+    
+    elena "You attend your first lecture, where you meet a lot of cool friends and a very pleasant professor."
+    elena "You actively participate in class, so the professor asks you to stay after the lecture."
+    elena "Everyone leaves the auditorium, and only you and the professor remain."
+    elena "Awkward silence... He gets closer and closer."  
+
+    elena "It turns out that the professor is obsessed with overloading students with medical research!"
+    elena "You try to leave, but he hands you a 500-page book and says you have to memorize it by tomorrow."
+    elena "No escape. No mercy. Only endless anatomy textbooks."
+    elena "Congratulations, you are now trapped in the world of sleepless nights and coffee addiction!"
+
+    # elena "It turns out that the teacher was a pedophile maniac"
+    # elena "You try to run away but with him was very big knife. You don't have any chances..."
+    # elena "You left only give up"
+    # elena "You were raped and killed"
     return
 
-label stay_home:
-    scene bg prayer with fade
-    "You pray to Bostan to cancel the quiz."
-    "Suddenly, in Discord, Catan announces:"
-    c "GUYS, WE HAVE A QUIZ TODAY."
-    "You rush to university."
-    jump big_boss
+label ptu:
+    elena "Good choice, but not the best one. HE-HE-HE-HE-HE."
+    elena "At first, everything goes smoothly, but one day, you go on a picnic with friends."
+    elena "The location for the party is near a lake."
+    elena "You see the dirty water and try to touch it..."
+    scene bbg with fade
+    elena "But someone pushes you from behind, and you fall into the water. Unexpectedly, this isn't a lake—it's a marsh!"
+    elena "You try to escape from the swamp, but all your movements only make things worse."
+    elena "Everyone panics and tries to help you, but your head is almost underwater."
+    elena "Three more seconds, and you can't breathe because your entire body is no longer under your control..."
+    elena "All you can do is give up..."
+    elena "You are dead."
     return
 
-label big_boss:
-    scene bg aula with fade
-    "You are in Amdaris, the final quiz begins."
-    "Absurd questions appear."
-    "A Gaussian distribution diagram appears, showing you are in the golden middle."
-    "Congratulations! You completed the first semester, but there are 7 more to go."
+label war:
+    elena "Good choice, your father would be happy if not for what will happen next..."
+    elena "You are strong beautiful guy, moreover very good physically prepared, because of it everyone want to communicate with oyu and be your friend."
+    elena "But later everyone getting envies you, that you are the best on each exam."
+    elena "Your fellow soldiers kicked you to death."
+    elena "You are dead"
     return
 
+# label final_choice:
+#     scene bg calendar with fade
+#     "It's December, the end of the semester."
+#     menu:
+#         "Stay home":
+#             jump stay_home
+#         "Meet the Big Boss":
+#             jump big_boss
+#     return
 
-label test:
-    scene bg room
-    image SilverSexyWoman = "SilverSexyWoman.png"
-    image SilverSexyWoman2 = "SilverSexyWoman2.png"
-    show SilverSexyWoman 
-    e "Hello very gorgeous guuyy."
-    e "How are ?? UwU"
-    $ player = renpy.input("What is your name beautiful guy: ")
-    define p = Character("[player]")
-    show SilverSexyWoman2
-    e "I am horny of you [player]"
-    return
+# label stay_home:
+#     scene bg prayer with fade
+#     "You pray to Bostan to cancel the quiz."
+#     "Suddenly, in Discord, Catan announces:"
+#     c "GUYS, WE HAVE A QUIZ TODAY."
+#     "You rush to university."
+#     jump big_boss
+#     return
+
+# label big_boss:
+#     scene bg aula with fade
+#     "You are in Amdaris, the final quiz begins."
+#     "Absurd questions appear."
+#     "A Gaussian distribution diagram appears, showing you are in the golden middle."
+#     "Congratulations! You completed the first semester, but there are 7 more to go."
+#     return
+
+
+# label test:
+#     scene bg room
+#     image SilverSexyWoman = "SilverSexyWoman.png"
+#     image SilverSexyWoman2 = "SilverSexyWoman2.png"
+#     show SilverSexyWoman 
+#     e "Hello very gorgeous guuyy."
+#     e "How are ?? UwU"
+#     $ player = renpy.input("What is your name beautiful guy: ")
+#     define p = Character("[player]")
+#     show SilverSexyWoman2
+#     e "I am horny of you [player]"
+#     return
