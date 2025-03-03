@@ -1,11 +1,11 @@
 ﻿
 # Ведущий
-define elena = Character("Elena")
+define elena = Character("Elena Romasenco")
 
 # Suspectors
-define bozadji = Character("Bozadji Artemie")
-define ilico = Character("Ilico Artemie")
-define maxim = Character("Roenco Maxim")
+define bozadji = Character("Artemie Bozadji")
+define ilico = Character("Artemie Ilico")
+define maxim = Character("Maxim Roenco")
 define islam = Character("Islam AbuKoush")
 
 define kulev = Character("Kulev")
@@ -163,7 +163,7 @@ label bozadjiMeeting:
 
 label next_class:
     gogoi "Today, after dinner, you have one more lecture with me in room 113, so don't be late."
-    elena "You are walking down the corridor, and you see someone sitting near room 113 with a very sad expression."
+    elena "You are walking down the corridor, and you see a curly blond guy sitting near room 113 with a very sad expression."
     menu:
         "Ask why he is so sad":
             $ ilicoRelation += 10
@@ -206,7 +206,7 @@ label gogoiLecture:
             gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
         "Emotional Intelligence":
             gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
-    player "Omg, another freak in this freaking university."
+    player "Omg, my mental health get affected."
     jump finishedFirstDay
     return
 
@@ -214,7 +214,10 @@ label finishedFirstDay:
     elena "The last today lecture was finished and everyone go at home relax."
     elena "Suddenly you remembered that you live in a dorm with a huge number of cockroaches."
     elena "You even don't know who is your neighbour."
-
+    elena "You see how blond athletic guy in an expensive suit with a rolex on his hand entered the room."
+    maxim "What's up, this is 318 room?"
+    player "MMM... Yes"
+    elena ""
 
 label comein:
     scene bg classroom with fade
