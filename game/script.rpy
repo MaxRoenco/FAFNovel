@@ -38,6 +38,7 @@ image bbg:
     xysize(1920,1080)
 
 label start:
+    scene aula3 with fade
     elena "Today is June 22, and you have just passed all your school exams."
     elena "You were the best student in your area, and now all doors are open to you."
     elena "Your mother insists that you go to Medical University. She knows you don't like biology, but nobody seems to care about that."
@@ -90,7 +91,7 @@ label pc_class:
     return
 
 label islamMeeting:
-    islam "Salam, Marhaba! Islam. Ce fac?"
+    islam "Salam, Marhaba Islam. Ke fac?"
     menu:
         "Hi, I don't speak Arabic. Do you understand English?":
             $ islamRelation -= 10
@@ -113,6 +114,7 @@ label islamMeeting:
     # Here should be a photo of a difficult C programming task
     islam "Oh, this is very easy. Wait a bit; I'm almost finished."
     player "Bro, be my friend."
+    jump next_class
     return
 
 label leave_pc:
@@ -120,33 +122,79 @@ label leave_pc:
     menu:
         "Approach him":
             $ bozadjiRelation += 10
-            player "Hello, I saw you at the previous lecture."
-            bozadji "Hello, yeah, I was there."
-            player "Why aren't you at the PC lecture?"
-            bozadji "Because I'm busy right now. I'm heading to work."
-            player "How did you get a job if you're only a first-year student? Also, why did you enroll in university if you already have a job?"
-            bozadji "I just used ChatGPT in interviews, that's all. As for university, I'm not really sure why I'm here—just for fun."
-            player "Bro, you're a very weird person, but I respect strong-willed people."
-            $ bozadjiRelation += 10
-            jump next_class
+            jump bozadjiMeeting
         "Move on":
             jump next_class
     return
 
-
-
-
+label bozadjiMeeting:
+    player "Hello, I saw you at the previous lecture."
+    bozadji "Hello, yeah, I was there."
+    player "Why aren't you at the PC lecture?"
+    bozadji "Because I'm busy right now. I'm heading to work."
+    player "How did you get a job if you're only a first-year student? Also, why did you enroll in university if you already have a job?"
+    bozadji "I just used ChatGPT in interviews, that's all. As for university, I'm not really sure why I'm here—just for fun."
+    player "Bro, you're a very weird person, but I respect strong-willed people."
+    bozadji "Thx, sorry, but I need to go. Goodbye."
+    player "Goodbye."
+    $ bozadjiRelation += 10
+    elena "You decide to return to the university and wait for the next lecture."
+    jump next_class
 
 label next_class:
-    scene bg hallway with fade
-    "You stand before an open door."
+    gogoi "Today, after dinner, you have one more lecture with me in room 113, so don't be late."
+    elena "You are walking down the corridor, and you see someone sitting near room 113 with a very sad expression."
     menu:
-        "Are you sure you want to come in?"
-        "Yes, Come In":
-            jump comein
-        "No, Leave":
-            jump leave
+        "Ask why he is so sad":
+            $ ilicoRelation += 10
+            jump ilicoMeeting
+        "Move on":
+            $ ilicoRelation -= 10
+            jump gogoiLecture
+
+label ilicoMeeting:
+    player "Hi, why are you so upset?"
+    ilico "I am very nervous about the upcoming exams... I can't find peace."
+    player "Bro, it's only the first day of classes. We won't have an exam anytime soon."
+    ilico "Even after hearing that, I still have a bad feeling about this university."
+    menu:
+        "Let's go to Das Kebab. Maybe some kebab will improve your mood.":
+            $ ilicoRelation += 10
+            ilico "Alright, let's go and eat some delicious kebabs."
+            player "Alright!"
+            jump gogoiLecture
+        "I'm going to develop schizophrenia soon because of people like this.":
+            $ ilicoRelation -= 10
+            ilico "Starts crying because of his worthless fate."
+            player "OMG, I should have gone to medical school instead."
+            jump gogoiLecture
     return
+
+# Gogoi's class
+
+label gogoiLecture:
+    scene bg classroom with fade
+    gogoi "Hello, everyone. Today, we will analyze ourselves and reflect a bit."
+    gogoi "I wrote down some activities on the table. Please choose one."
+    gogoi "So, let's do an activity!"
+    menu:
+        "Johari Window":
+            gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
+        "MBTI Personality Test":
+            gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
+        "Europass CV":
+            gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
+        "Emotional Intelligence":
+            gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
+    player "Omg, another freak in this freaking university."
+    jump finishedFirstDay
+    return
+
+label finishedFirstDay:
+    elena "The last today lecture was finished and everyone go at home relax."
+    elena "Suddenly you remembered that you live in a dorm with a huge number of cockroaches."
+    elena "You even don't know who is your neighbour."
+
 
 label comein:
     scene bg classroom with fade
@@ -185,24 +233,6 @@ label pistachio_class:
     "8:30... 8:50... 9:25..."
     "You see Pistachio's silhouette appear, then disappear."
     jump boba_class
-    return
-
-# Gogoi class
-
-label boba_class:
-    scene bg classroom with fade
-    gogoi "Blah blah blah... So, let's do an activity!"
-    menu:
-        "Johari Window":
-            gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
-        "MBTI Personality Test":
-            gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
-        "Europass CV":
-            gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
-        "Emotional Intellect":
-            gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
-    gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
-    jump pistachio_class
     return
 
 # Cristofor Labs
@@ -247,15 +277,15 @@ label usmf:
     elena "Everyone leaves the auditorium, and only you and the professor remain."
     elena "Awkward silence... He gets closer and closer."  
 
-    # elena "It turns out that the professor is obsessed with overloading students with medical research!"
-    # elena "You try to leave, but he hands you a 500-page book and says you have to memorize it by tomorrow."
-    # elena "No escape. No mercy. Only endless anatomy textbooks."
-    # elena "Congratulations, you are now trapped in the world of sleepless nights and coffee addiction!"
+    elena "It turns out that the professor is obsessed with overloading students with medical research!"
+    elena "You try to leave, but he hands you a 500-page book and says you have to memorize it by tomorrow."
+    elena "No escape. No mercy. Only endless anatomy textbooks."
+    elena "Congratulations, you are now trapped in the world of sleepless nights and coffee addiction!"
 
-    elena "It turns out that the teacher was a pedophile maniac"
-    elena "You try to run away but with him was very big knife. You don't have any chances..."
-    elena "You left only give up"
-    elena "You were raped and killed"
+    # elena "It turns out that the teacher was a pedophile maniac"
+    # elena "You try to run away but with him was very big knife. You don't have any chances..."
+    # elena "You left only give up"
+    # elena "You were raped and killed"
     return
 
 label ptu:
