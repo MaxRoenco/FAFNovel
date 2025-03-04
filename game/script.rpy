@@ -11,7 +11,7 @@ define islam = Character("Islam AbuKoush")
 define kulev = Character("Kulev")
 define bostan = Character("Bostan")
 define furdui = Character("Furdui")
-define cristofor = Character("Christofor")
+define cristofor = Character("Cristofor")
 define gogoi = Character("Gogoi")
 
 default player = "Player"
@@ -42,6 +42,11 @@ image bbg:
     xysize(1920,1080)
 
 label start:
+    # jump schoolStory
+    jump maximStory
+    return
+
+label schoolStory:
     scene aula3 with fade
     show elena happy with fade
     elena "Today is June 22, and you have just passed all your school exams."
@@ -71,7 +76,6 @@ label start:
             jump ptu
         "Go to the army and become a real MAN":
             jump war
-    return
 
 label utm:
     scene aula3 with fade
@@ -110,6 +114,8 @@ label pc_class:
             jump islamMeeting
     return
 
+# islam meeting
+
 label islamMeeting:
     islam "Salam, Marhaba Islam. Ke fac?"
     menu:
@@ -146,6 +152,8 @@ label leave_pc:
         "Move on":
             jump next_class
     return
+
+# bozadji meeting
 
 label bozadjiMeeting:
     player "Hello, I saw you at the previous lecture."
@@ -247,6 +255,68 @@ label maximStory:
     maxim "Fine, I'm a bit tired. Let's go to sleep."
     player "Together???"
     maxim "Ew, of course not! I'm not gay."
+    jump secondDay
+
+label secondDay:
+    elena "You wake up and see how sweetly your neighbor sleeps, hugging his pillow like it's the last kebab in Chisinau."
+    menu:
+        "Wake up the neighbor and go to University":
+            player "Hey, Maxim, wake up! We need to go to university, we have Cristofor's lecture."
+            maxim "Omg, I don't even know who that is... fuck off."
+            elena "You decide to apply the legendary *morning slap* technique to wake him up."
+            elena "However, your neighbor turns out to be built like a bear and nearly performs a *UFC takedown* on you."
+            elena "Just kidding... somehow you're still alive, and both of you head to university, slightly traumatized."
+        "Go to University without your friend":
+            elena "You quietly leave like a ninja, abandoning your comrade to his sweet dreams."
+            $ maximRelation -= 10
+            elena "But deep down, you feel the heavy burden of betrayal... or maybe that's just the kebab from last night."
+        "Continue sleeping":
+            $ karma -= 10
+            elena "You embrace the warmth of your blanket, choosing to sleep through your responsibilities like a true IT student."
+            elena "The universe doesn't forgive laziness... but at least your dreams are full of unlimited Wi-Fi and bug-free code."
+    jump ilicoMeeting2
+
+
+label ilicoMeeting2:
+    elena "You go down the corridor and you see again this weird curly blond person around 113 cabinet."
+    elena "But this time he is not upset, he has mad face expression."
+    menu:
+        "Go to him and ask about his mood":
+            $ ilicoRelation += 10
+            player "Hi, how are you?"
+            ilico "I am busy right now."
+            elena "You see how he very fastly writes some weird simbols on his blocknot with strengh and mad eyes."
+            player "What are you doing?"
+            ilico "I am improving my traiding strategy, I almost have the ideal market strategy BUT there is a small detail missing. I CAN'T FIND IT."
+            player "What are you talking about?"
+            elena "Actively swinging he plunges into his thoughts."
+            ilico "MM... Arbitrage... Slippage... Pump and dump... Dark pools... OH! Maybe it's the liquidity trap?! No... NO! The flash crash paradox?!"
+            elena "His eyes shine as he keeps muttering."
+            ilico "AHH! It's the MARKET MAKER'S REVENGE! OR... OR... THE DEAD CAT BOUNCE?!"
+            player "I have no idea what you're saying."
+            ilico "HEDGE! HEDGE EVERYTHING! THE TREND IS YOUR FRIEND UNTIL IT'S NOT!"
+            elena "He starts aggressively drawing candlestick patterns in the air."
+            player "Are you okay?"
+            ilico "OF COURSE NOT! I'M IN A BEAR MARKET OF EMOTIONS!"
+            elena "You decide to leave him to his thoughts."
+        "Move on":
+            $ ilicoRelation -= 10
+            ilico "MMMmMMmMMmMm"
+    jump cristoforLecture
+
+
+# Cristofor class
+
+label cristoforLecture:
+    # 113 cabinet maybe or think of something
+    elena "You enter the class and you see very elegant person in the suit with black long haircut."
+    cristofor "Hello, everyone, today we will learn Descrete Math, but Unfortunately i don't know math, so just use ChatGPT for solving all your homeworks"
+    cristofor "Now i will just show you all labs which you need to finish in two days."
+    # Here appear very difficult labs
+    cristofor "Just chill right now... Although i guess you don't have time for relaxing. UA-HA-HA"
+    elena "After this words he just wake up and go out the class, although only 10 minutes of the lesson have passed."
+    elena "At first you were a little shocked by what happened but after 5 minutes you started to do homework."
+    elena "The first lecture with new teacher was finished, but after this lecture you have pair with another one proffesor Furdui."
 
 label comein:
     scene bg classroom with fade
@@ -268,24 +338,6 @@ label leave:
     "Inside, students are crying during lab presentations, the room is on fire."
     return
 
-# Cristofor class
-
-label new_day:
-    scene bg room_night with fade
-    "After a sleepless night, traumatized by Furdui, you wake up."
-    "Excited for a productive day, you check Outlook for your schedule."
-    "BAM - Christofor. You decide to go to university."
-    jump pistachio_class
-    return
-
-label pistachio_class:
-    scene bg hallway with fade
-    "You arrive at the class, but the door is locked."
-    "You check your watch: 8:00 AM."
-    "8:30... 8:50... 9:25..."
-    "You see Pistachio's silhouette appear, then disappear."
-    jump boba_class
-    return
 
 # Cristofor Labs
 
