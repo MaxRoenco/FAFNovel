@@ -216,7 +216,18 @@ label gogoiLecture:
             gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
     player "Omg, my mental health get affected."
     jump finishedFirstDay
-    return
+
+label newstory:
+    elena "BLABLABLA I am lena"
+    maxim "sdkjflksjdfj I am maxim"
+    menu:
+        "I want to sleep":
+            $ maximRelation += 10
+            jump option1
+        "option2":
+            jump option2
+
+label option1:
 
 label finishedFirstDay:
     elena "The last lecture of the day has ended, and everyone is heading home to relax."
@@ -258,6 +269,7 @@ label maximStory:
     jump secondDay
 
 label secondDay:
+    # dorm
     elena "You wake up and see how sweetly your neighbor sleeps, hugging his pillow like it's the last kebab in Chisinau."
     menu:
         "Wake up the neighbor and go to University":
@@ -278,6 +290,7 @@ label secondDay:
 
 
 label ilicoMeeting2:
+    # corridor
     elena "You go down the corridor and you see again this weird curly blond person around 113 cabinet."
     elena "But this time he is not upset, he has mad face expression."
     menu:
@@ -307,62 +320,43 @@ label ilicoMeeting2:
 
 # Cristofor class
 
-label cristoforLecture:
-    # 113 cabinet maybe or think of something
-    elena "You enter the class and you see very elegant person in the suit with black long haircut."
-    cristofor "Hello, everyone, today we will learn Descrete Math, but Unfortunately i don't know math, so just use ChatGPT for solving all your homeworks"
-    cristofor "Now i will just show you all labs which you need to finish in two days."
-    # Here appear very difficult labs
-    cristofor "Just chill right now... Although i guess you don't have time for relaxing. UA-HA-HA"
-    elena "After this words he just wake up and go out the class, although only 10 minutes of the lesson have passed."
-    elena "At first you were a little shocked by what happened but after 5 minutes you started to do homework."
-    elena "The first lecture with new teacher was finished, but after this lecture you have pair with another one proffesor Furdui."
+label cristoforLecture:  
+    # 113 cabinet maybe, or think of something else  
+    elena "You enter the class and see a very elegant person in a suit with long black hair."  
+    cristofor "Hello, everyone. Today we will learn Discrete Math, but unfortunately, I don't know math, so just use ChatGPT to solve all your homework."  
+    cristofor "Now, I will just show you all the labs you need to finish in two days."  
+    # Here, very difficult labs appear  
+    cristofor "Just chill right now... Although, I guess you don't have time to relax. UA-HA-HA!"  
+    elena "After these words, he just woke up and left the class, even though only 10 minutes of the lesson had passed."  
+    elena "At first, you were a little shocked by what happened, but after 5 minutes, you started doing homework."  
+    elena "The first lecture with the new teacher was finished, but after this lecture, you had a pair with another professor, Furdui."  
+    elena "Unexpectedly, Elena Gogoi came in with a frightened expression on her face."  
+    gogoi "There is news that one of the students took part in a bank robbery. The police are trying to find him, but all attempts have failed. He is very good at stealth."  
+    gogoi "Today, everyone is free because lectures were canceled, but tomorrow all pairs will take place, so don't be late."  
+    elena "You look at everyone after hearing this news and notice some strange reactions."  
+    elena "A curly blond person’s eyes dart around the room very quickly, although I guess that's just his default behavior."  
+    elena "A dark-skinned guy with a Jordanian appearance tries to hide his face under his sweater—maybe he smelled something bad."  
+    elena "However, you can’t see your neighbor Maxim. He was at this lecture, but somehow, he disappeared."  
+    elena "And, of course, the guy who's in his first year, Bozadji, is absent too."  
+    elena "Each of these people is very weird and suspicious. Aaah, this is so tiring. I'll just go home and relax..."  
+    jump thirdDay
 
-label comein:
-    scene bg classroom with fade
-    furdui "Okey."
-    furdui "Hmm..."
-    furduif "Uh-huh."
-    furdui "You see this block of code?"
-    player "Yes."
-    furdui "Rewrite this using recursion in one for loop with customized radix sort. Also, display results in WebAssembly with real-time visualization. You have 7 minutes. Start working."
-    player "May I ask a ques..."
-    furdui "NO QUESTIONS! 5 and you are free."
-    "You are defeated."
-    jump new_day
-    return
-
-label leave:
-    scene bg corridor with fade
-    "You walk down the empty corridor. You see the door to the Programming Systems classroom."
-    "Inside, students are crying during lab presentations, the room is on fire."
-    return
+label thirdDay:
+    # dorm
+    maxim "Good morning my friend"
+    player "How did you get here?"
+    maxim "I was yesterday a bit busy, because i worked on my another project."
+    player "Oh, cool, did you hear about last news in the University?"
+    maxim "Oh no, what are you talking about?"
+    player "Yesterday, one of student from our group took part in a bank robbery."
+    maxim "Ooh, really?? I always knew that Arabic guy looked like a robber."
+    player "Ye, he is very weird. Let's go to University and discover the last news about it."
+    maxim "Ye Let's go"
+    # University
+    jump 
 
 
-# Cristofor Labs
 
-label pistachio_lab:
-    scene bg lab with fade
-    cristofor "What time do you want to present the labs?"
-    menu:
-        "8:00":
-            jump wrong_choice
-        "14:00":
-            jump wrong_choice
-        "18:00":
-            jump wrong_choice
-        "21:00":
-            jump correct_choice
-    return
-
-label wrong_choice:
-    "Wrong answer."
-    jump pistachio_lab
-    return
-
-label correct_choice:
-    "You stand in a queue of students with laptops. Outside, it's night, the stars and moon shine."
-    return
 
 label usmf:
     show bostan with fade:
@@ -442,33 +436,17 @@ label war:
     elena "You are dead"
     return
 
-# label final_choice:
-#     scene bg calendar with fade
-#     "It's December, the end of the semester."
-#     menu:
-#         "Stay home":
-#             jump stay_home
-#         "Meet the Big Boss":
-#             jump big_boss
-#     return
+# Meetings with our heroes Bozadji, Maxim, Islam
 
-# label stay_home:
-#     scene bg prayer with fade
-#     "You pray to Bostan to cancel the quiz."
-#     "Suddenly, in Discord, Catan announces:"
-#     c "GUYS, WE HAVE A QUIZ TODAY."
-#     "You rush to university."
-#     jump big_boss
-#     return
+# Mathematical test with gaussian distribution
 
-# label big_boss:
-#     scene bg aula with fade
-#     "You are in Amdaris, the final quiz begins."
-#     "Absurd questions appear."
-#     "A Gaussian distribution diagram appears, showing you are in the golden middle."
-#     "Congratulations! You completed the first semester, but there are 7 more to go."
-#     return
+# Lecture with Furdui
 
+# Presentation Fistic lab works
+
+# Maybe FInal quizz with bostan
+
+# How main character will participate in the investigation
 
 # label test:
 #     scene bg room
