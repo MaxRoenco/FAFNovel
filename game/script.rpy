@@ -21,6 +21,8 @@ default player = "Player"
 
 default karma = 100
 
+default quiz_score = 0
+
 default bozadjiRelation = 0
 default ilicoRelation = 0
 default maximRelation = 0
@@ -45,8 +47,11 @@ image bbg:
     xysize(1920,1080)
 
 label start:
-    # jump schoolStory
-    jump retrospectiveIlico
+    $ renpy.music.set_volume(0.1, channel="music")
+    $ renpy.music.set_volume(0.1, channel="sound")
+    play music "01 - It's the Sims.mp3" loop
+    jump schoolStory
+    # jump furduiLaboratory
     return
 
 label schoolStory:
@@ -82,8 +87,10 @@ label schoolStory:
 
 label utm:
     scene aula3 with fade
+    stop music
     show bostan:
         zoom 0.9
+        # scary lauighing
     bostan "Hello! Welcome to FAF. Bla bla bla... a very cool but cruel place."
     bostan "You should know that only 60%% of students survive here, so I will give you one last chance to change your mind."
 
@@ -105,6 +112,7 @@ label give_up:
     return
 
 label pc_class:
+    # heels
     gogoi "You have a lecture with Mujik—oh, I mean Kulev—so don't be late and be obedient."
     elena "You enter the classroom, but all the chairs are occupied except for one next to a dark-skinned guy of Jordanian appearance."
     menu: 
@@ -120,6 +128,7 @@ label pc_class:
 # islam meeting
 
 label islamMeeting:
+    # something on arabic music
     islam "Salam, Marhaba Islam. Ke fac?"
     menu:
         "Hi, I don't speak Arabic. Do you understand English?":
@@ -159,6 +168,7 @@ label leave_pc:
 # bozadji meeting
 
 label bozadjiMeeting:
+    # monkey money music
     player "Hello, I saw you at the previous lecture."
     bozadji "Hello, yeah, I was there."
     player "Why aren't you at the PC lecture?"
@@ -173,6 +183,7 @@ label bozadjiMeeting:
     jump next_class
 
 label next_class:
+    # heels
     gogoi "Today, after dinner, you have one more lecture with me in room 113, so don't be late."
     elena "You are walking down the corridor, and you see a curly blond guy sitting near room 113 with a very sad expression."
     menu:
@@ -184,6 +195,7 @@ label next_class:
             jump gogoiLecture
 
 label ilicoMeeting:
+    # sad music
     player "Hi, why are you so upset?"
     ilico "I am very nervous about the upcoming exams... I can't find peace."
     player "Bro, it's only the first day of classes. We won't have an exam anytime soon."
@@ -204,6 +216,7 @@ label ilicoMeeting:
 # Gogoi's class
 
 label gogoiLecture:
+    # heels
     scene bg classroom with fade
     gogoi "Hello, everyone. Today, we will analyze ourselves and reflect a bit."
     gogoi "I wrote down some activities on the table. Please choose one."
@@ -221,6 +234,7 @@ label gogoiLecture:
     jump finishedFirstDay
 
 label finishedFirstDay:
+    # relax music
     elena "The last lecture of the day has ended, and everyone is heading home to relax."
     elena "Suddenly, you remember that you live in a dorm with a huge number of cockroaches."
     elena "You don’t even know who your roommate is."
@@ -241,8 +255,10 @@ label finishedFirstDay:
 
     elena "You were very tired from today's events."
     elena "You put your head on the pillow and instantly fell asleep."
+    jump secondDay
 
 label maximStory:
+    # sad music
     maxim "When I was a child, I had a best friend. We would constantly play, watch movies, and imagine that we would be rich and successful in the future."
     maxim "We even created a plan on how to achieve this success, but one day he told me that he was leaving with his family for another country."
     maxim "I lost my only friend, and it affected me deeply."
@@ -262,6 +278,7 @@ label maximStory:
     # here
 
 label secondDay:
+    # funny music
     # dorm
     elena "You wake up and see how sweetly your neighbor sleeps, hugging his pillow like it's the last kebab in Chisinau."
     menu:
@@ -283,6 +300,7 @@ label secondDay:
 
 
 label ilicoMeeting2:
+    # shizofrenia music
     # corridor
     elena "You go down the corridor and you see again this weird curly blond person around 113 cabinet."
     elena "But this time he is not upset, he has mad face expression."
@@ -313,7 +331,7 @@ label ilicoMeeting2:
 label cristoforLecture:
     scene bg classroom with fade
     show elena happy with fade
-
+# heels
     gogoi "Good morning, Fafers!"
     gogoi "guess what? Cristofor will grade you based on your lab presentations for the second midterm!"
     gogoi "Good luck!"
@@ -345,8 +363,8 @@ label cristoforLecture:
     elena "Cristofor is late again. Typical."
 
     # Scene 3: The Late Bozadji
-    scene bg corridor with bozadji
-    show bozadji neutral with fade
+    # scene bg corridor with bozadji
+    # show bozadji neutral with fade
 
     elena "Suddenly, the door open and walks Artiom Bozadji, late as always."
   
@@ -357,7 +375,7 @@ label cristoforLecture:
     player "Totally agree with you"
 
     # Scene 4: The Mirage of Cristofor
-    scene bg hallway with fade
+    # scene bg hallway with fade
     show elena shocked
 
     elena "Just as you’re about to give up hope, you see a silhouette at the end of the corridor. Is it... Cristofor? Could it be?"
@@ -370,14 +388,14 @@ label cristoforLecture:
     player "kms"
 
     # Scene 5: Bozadji’s Disappearance
-    scene bg hallway with fade
+    # scene bg hallway with fade
     show elena annoyed
 
     elena "You turn to Bozadji to share your disappointment, but... he’s gone... Vanished..."
     elena "Bozadji dissapeared..."
 
     # Scene 6: The Discord Bomb
-    scene bg classroom with fade
+    # scene bg classroom with fade
     show elena shocked
 
     elena "Just as you’re about to give up and kys, your phone buzzes. It’s a notification from Discord. Cristofor has finally spoken."
@@ -396,7 +414,7 @@ label cristoforLecture:
     player "What the fistic?#$!?! With this timing, we’ll never be ready for the midterms!"
 
     # Scene 7: The Ilico Meltdown
-    scene bg classroom with fade
+    # scene bg classroom with fade
     show ilico stressed with fade
 
     elena "you hear a familiar voice"
@@ -412,7 +430,7 @@ label cristoforLecture:
     player "I have no words..."
 
     # Scene 9: The Final 
-    scene bg classroom with fade
+    # scene bg classroom with fade
     show elena smile
 
     elena "As the clock strikes 21:00, Cristofor finally arrives"
@@ -445,7 +463,7 @@ label cristoforLecture:
     cristofor "You got a huge marks lately"
     cristofor "Mr. Pumpkin asked me to do Gaussean Distribution"
     cristofor "Reverse Gaussean Distribution..."
-    cristofor "80% fail..."
+    cristofor "80%% fail..."
 
     cristofor "The universe works in mysterious ways! Next group!"
 
@@ -464,6 +482,7 @@ label cristoforLecture:
 
 # Scene Label
 label furduiLaboratory:
+    play music "creepy-halloween-bell-trap-melody-247720.mp3" loop fadein 0.5
     # Set the scene
     scene bg classroom  # Ensure you have a classroom background
     elena "Today you have lecture with Furdui, be prepared to his question.."
@@ -905,11 +924,6 @@ label war:
     elena "You are dead"
     return
 
-# Mathematical test with gaussian distribution
-
-# Lecture with Furdui
-
-# Maybe FInal quizz with bostan
 
 # label test:
 #     scene bg room
