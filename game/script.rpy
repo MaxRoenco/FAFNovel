@@ -111,7 +111,7 @@ label pc_class:
     return
 
 label islamMeeting:
-    islam "Salam, Marhaba Islam. Ke fac?"
+    islam "Salam, Marhaba. Ke fac?"
     menu:
         "Hi, I don't speak Arabic. Do you understand English?":
             $ islamRelation -= 10
@@ -318,37 +318,60 @@ label usmf:
         yalign 0.2
     bostan "Are you kidding me???????"
     bostan "Fine, it's your life, and only you decide who will manipulate you—me or this Medical University."
-
+    hide bostan
     show elena:
         zoom 0.7
         yalign 0.05
     elena "Don't pay attention to him. Bostan just doesn't like students from USMF or ASEM."
-    show bostan with fade:
+    hide elena
+    show bostan:
         zoom 0.6
         yalign 0.2
     bostan "Did you just say ASEM??? Those idiots will regret ever being born..."
+    hide bostan
     show elena sad:
         zoom 0.7
         yalign 0.05
     elena "Calm down, dear. You have a weak heart; you shouldn't get nervous."
-    show bostan with fade:
+    hide elena sad
+    show bostan:
         zoom 0.6
         yalign 0.2
     bostan "Fine, I'll go relax for a bit."
-    show elena sad:
+    hide bostan
+    show elena with fade:
         zoom 0.7
         yalign 0.05
     elena "Let's continue. Unfortunately, you were accepted into Medical University."
     player "Why 'unfortunately'???"
+    show elena smug:
+        zoom 0.7
+        yalign 0.05
     elena "You'll understand soon. HE-HE-HE-HE."
-    
+    show elena laugh:
+        zoom 0.7
+        yalign 0.05
     elena "You attend your first lecture, where you meet a lot of cool friends and a very pleasant professor."
+    show elena laugh:
+        zoom 0.7
+        yalign 0.05
     elena "You actively participate in class, so the professor asks you to stay after the lecture."
+    show elena smile:
+        zoom 0.7
+        yalign 0.05
     elena "Everyone leaves the auditorium, and only you and the professor remain."
+    show elena:
+        zoom 0.7
+        yalign 0.05
     elena "Awkward silence... He gets closer and closer."  
-
+    show elena shocked:
+        zoom 0.7
+        yalign 0.05
     elena "It turns out that the professor is obsessed with overloading students with medical research!"
     elena "You try to leave, but he hands you a 500-page book and says you have to memorize it by tomorrow."
+    show elena sad:
+        zoom 0.7
+        yalign 0.05
     elena "No escape. No mercy. Only endless anatomy textbooks."
     elena "Congratulations, you are now trapped in the world of sleepless nights and coffee addiction!"
 
