@@ -46,9 +46,10 @@ image bbg:
     xysize(1920,1080)
 
 label start:
-    $ renpy.music.set_volume(0.1, channel="music")
+    $ renpy.music.set_volume(0.05, channel="music")
     $ renpy.music.set_volume(0.1, channel="sound")
-    play music "01 - It's the Sims.mp3" loop
+    play music "funnyMusic2.mp3" loop fadein 0.5
+
     jump schoolStory
     # jump furduiLaboratory
     return
@@ -86,23 +87,27 @@ label schoolStory:
 
 label utm:
     scene aula3 with fade
-    stop music
     show bostan:
         zoom 0.9
         # scary lauighing
+    play sound "thunder.wav" fadein 0.5
+    play music "troll.wav"  fadein 0.5
     bostan "Hello! Welcome to FAF. Bla bla bla... a very cool but cruel place."
     bostan "You should know that only 60%% of students survive here, so I will give you one last chance to change your mind."
-
+    play music "creepyMusic.mp3" loop fadein 0.5
     menu:
         "Give up":
             jump give_up
         "Become part of the FAF community":
+            play sound "thunder.wav" fadein 0.5
+            play music "troll.wav"  fadein 0.5
             bostan "Congratulations!!! Today marks the beginning of the worst days of your life."
             bostan "Good luck surviving in FAF! UA-HA-HA-HA-HA"
             jump pc_class
     return
 
 label give_up:
+    play music "creepyMusic.mp3" loop fadein 0.5
     scene dark with fade
     show bostan with fade:
         zoom 0.6
@@ -181,6 +186,7 @@ label islamMeeting:
 
 label leave_pc:
     elena "You are walking down the street when you see someone who was also at the initiation for FAFT students."
+    play music "creepyMusic.mp3" loop fadein 0.5
     menu:
         "Approach him":
             $ bozadjiRelation += 10
@@ -193,6 +199,7 @@ label leave_pc:
 
 label bozadjiMeeting:
     # monkey money music
+    play music "monkeyBusines.wav" loop fadein 0.5
     player "Hello, I saw you at the previous lecture."
     bozadji "Hello, yeah, I was there."
     player "Why aren't you at the PC lecture?"
@@ -213,6 +220,7 @@ label next_class:
     show gogoi smug
     gogoi "Don't be late!!"
     elena "You are walking down the corridor, and you see a curly blond guy sitting near room 113 with a very sad expression."
+    play music "sadMusic.mp3" loop fadein 0.5
     menu:
         "Ask why he is so sad":
             $ ilicoRelation += 10
@@ -245,9 +253,12 @@ label ilicoMeeting:
 label gogoiLecture:
     # heels
     scene bg classroom with fade
+    play music "funnyMusic2.mp3" loop fadein 0.5
+    play sound "heels.wav" fadein 0.5
     gogoi "Hello, everyone. Today, we will analyze ourselves and reflect a bit."
     gogoi "I wrote down some activities on the table. Please choose one."
     gogoi "So, let's do an activity!"
+    play sound "geese.mp3" fadein 0.5
     menu:
         "Johari Window":
             gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
@@ -261,10 +272,12 @@ label gogoiLecture:
     jump finishedFirstDay
 
 label finishedFirstDay:
+    play music "sadMusic.mp3" loop fadein 0.5
     # relax music
     elena "The last lecture of the day has ended, and everyone is heading home to relax."
     elena "Suddenly, you remember that you live in a dorm with a huge number of cockroaches."
     elena "You don’t even know who your roommate is."
+    play sound "cristofor.mp3" fadein 0.5
     # islam change meeting with Maxim
     elena "You see a blond, athletic guy with entering the room."
     maxim "What's up? Is this room 318?"
@@ -286,6 +299,7 @@ label finishedFirstDay:
 
 label maximStory:
     # sad music
+    play music "creepyMusic.mp3" loop fadein 0.5
     maxim "When I was a child, I had a best friend. We would constantly play, watch movies, and imagine that we would be rich and successful in the future."
     maxim "We even created a plan on how to achieve this success, but one day he told me that he was leaving with his family for another country."
     maxim "I lost my only friend, and it affected me deeply."
@@ -307,6 +321,7 @@ label maximStory:
 label secondDay:
     # funny music
     # dorm
+    play music "funnyMusic1.mp3" loop fadein 0.5
     elena "You wake up and see how sweetly your neighbor sleeps, hugging his pillow like it's the last kebab in Chisinau."
     menu:
         "Wake up the neighbor and go to University":
@@ -331,6 +346,7 @@ label ilicoMeeting2:
     # corridor
     elena "You go down the corridor and you see again this weird curly blond person around 113 cabinet."
     elena "But this time he is not upset, he has mad face expression."
+    play music "creepyMusic.mp3" loop fadein 0.5
     menu:
         "Go to him and ask about his mood":
             $ ilicoRelation += 10
@@ -358,7 +374,9 @@ label ilicoMeeting2:
 label cristoforLecture:
     scene bg classroom with fade
     show elena happy with fade
-# heels
+    # heels
+    play music "funnyMusic2.mp3" loop fadein 0.5
+    play sound "heels.wav" fadein 0.5
     gogoi "Good morning, Fafers!"
     gogoi "guess what? Cristofor will grade you based on your lab presentations for the second midterm!"
     gogoi "Good luck!"
@@ -379,9 +397,9 @@ label cristoforLecture:
     show islam sleepy
 
     player "Hey, Islam! How are you? Do you know where Cristofor is?"
-
+    
     islam "بدلاً من أن أسرق بنكاً، قمت بعمله المعملي!!! وأين هو؟؟"
-   
+    play sound "islam.wav" fadein 0.5
     player "I didn’t sleep last night, but Islam..."
     player "I’m not sure if he slept this entire semester..."
     player "I wont disturb him... He is hallucinating and thinking he is in Jordania?"
@@ -398,14 +416,15 @@ label cristoforLecture:
     player "Hi! Are you prepared to present your labs? And do you know where Cristofor is?"
 
     bozadji "Privet! Wait, what? He’s not here? Ugh, he’s wasting my time. I could be making money right now instead of waiting"
-
+    play music "monkeyBusines.wav" loop fadein 0.5
     player "Totally agree with you"
 
     # Scene 4: The Mirage of Cristofor
     # scene bg hallway with fade
     show elena shocked
-
+    
     elena "Just as you’re about to give up hope, you see a silhouette at the end of the corridor. Is it... Cristofor? Could it be?"
+    play music "cristofor.mp3" loop fadein 0.5
     elena "Your heart skips a beat and you squint your sleep deprived eyes to get a better look."
 
     player "Wait... is that him? Or is it just a mirage? Am I hallucinating from lack of sleep?"
@@ -419,6 +438,7 @@ label cristoforLecture:
     show elena annoyed
 
     elena "You turn to Bozadji to share your disappointment, but... he’s gone... Vanished..."
+    play sound "creepyMusic.mp3" fadein 0.5
     elena "Bozadji dissapeared..."
 
     # Scene 6: The Discord Bomb
@@ -437,7 +457,7 @@ label cristoforLecture:
     player "Wait, what? 15:00 or 17:30? That’s not a choice that’s a trap!"
 
     elena "But before you can react, the Discord bot auto-selects 21:00 for you. Congratulations! You’re now presenting your labs at 9 PM."
-
+    play music "cristofor.mp3" loop fadein 0.5
     player "What the fistic?#$!?! With this timing, we’ll never be ready for the midterms!"
 
     # Scene 7: The Ilico Meltdown
@@ -447,7 +467,7 @@ label cristoforLecture:
     elena "you hear a familiar voice"
   
     elena "It’s Artemie!!! You are heading to him to complain about laboratories!"
-
+    play music "creepyMusic.mp3" fadein 0.5
     ilico "NOOOOOOOOOOOOOOO!"
     ilico " What if the market crashes before I present my labs?!"
 
@@ -461,11 +481,12 @@ label cristoforLecture:
     show elena smile
 
     elena "As the clock strikes 21:00, Cristofor finally arrives"
+    play sound "cristofor.mp3" fadein 0.5
     cristofor "Alright, let’s check these labs! All 15 groups at once!"
 
     show cristofor neutral with fade
     cristofor "I’ll ask each of you a question. If you answer correctly, you pass. If not... well, let’s just say the universe is cruel."
-
+    play music "creepyMusic.mp3" loop fadein 0.5
     # The Probability Theory Question
     cristofor "First question: Which probability theory concept is the most important for understanding randomness?"
     cristofor "Choose wisely. Your grade depends on it."
@@ -496,7 +517,7 @@ label cristoforLecture:
 
     elena "You finally finish presenting your labs at 23:00. Your brain feels like..."
     elena "Sorry, Your brain feels nothing"
-
+    play music "sadMusic.mp3" loop fadein 0.5
     player "I just spent hours presenting labs to a man who grades us with a slot machine. What am I even doing with my life?"
     player "If this is how it’s going to be, I’m never going to make money. I need to start doing something."
     player "Artemie is talking a lot about market and the big player is bank"
@@ -509,11 +530,12 @@ label cristoforLecture:
 
 # Scene Label
 label furduiLaboratory:
-    play music "creepy-halloween-bell-trap-melody-247720.mp3" loop fadein 0.5
     # Set the scene
     scene bg classroom  # Ensure you have a classroom background
     elena "Today you have lecture with Furdui, be prepared to his question.."
     # Initial interaction
+    play sound "thunder.wav" fadein 0.5
+    play music "troll.wav" fadein 0.5
     player "Good morning, Professor Furdui. I'm here to present my merge sort laboratory work."
 
     furdui "Ah, Elena. Another student hoping to pass with minimal effort, I see."
@@ -525,7 +547,7 @@ label furduiLaboratory:
     player "I know I'm a bit late, but I promise my work meets the requirements."
 
     furdui "Late submissions are the first sign of academic negligence. But go on, convince me."
-
+    play music "creepyMusic.mp3" loop fadein 0.5
     menu:
         "Apologize sincerely":
             player "I sincerely apologize for the delay. I understand the importance of deadlines."
@@ -628,11 +650,15 @@ label furduiLaboratory:
 
 # Cristofor class
 
-label cristoforLecture2:  
+label cristoforLecture2:
+    play music "sadMusic.mp3" loop fadein 0.5
+    play sound "heels.wav" fadein 0.5
     elena "Today, you have another one lecture with Cristofor."  
     # 113 cabinet maybe, or think of something else  
-    elena "You enter the classroom and see a very elegant person in a suit with long black hair."  
+    elena "You enter the classroom and see a very elegant person in a suit with long black hair."
+    play sound "cristofor.mp3" fadein 0.5
     elena "Unexpectedly, Elena Gogoi enters with a frightened expression on her face."  
+    play music "creepyMusic.mp3" loop fadein 0.5
     gogoi "There is news that one of the students from FAF took part in a bank robbery. The police are trying to find him, but all attempts have failed. He is very skilled at stealth."  
     gogoi "Today's lectures are canceled, so everyone is free. However, tomorrow all classes will take place as scheduled, so don't be late."  
     elena "You look around the room after hearing this news and notice some strange reactions."  
@@ -645,6 +671,7 @@ label cristoforLecture2:
 
 label thirdDay:  
     # Dormitory  
+    play music "sadMusic.mp3" loop fadein 0.5
     maxim "Good morning, my friend."  
     player "How did you get here?"  
     maxim "I was a bit busy yesterday because I was working on another project."  
@@ -652,6 +679,7 @@ label thirdDay:
     maxim "Oh no, what are you talking about?"  
     player "Yesterday, one of the students from our group took part in a bank robbery."  
     maxim "Oh, really?? I always knew that Arabic guy looked like a robber."  
+    play music "creepyMusic.mp3" loop fadein 0.5
     menu:  
         "Yeah, he is very weird.":  
             $ islamRelation -= 10  
@@ -660,6 +688,7 @@ label thirdDay:
             $ islamRelation += 10  
             $ maximRelation -= 10  
     elena "Suddenly, you notice a Rolex watch on Maxim’s wrist. Hmm… very suspicious."  
+    play sound "thunder.wav" fadein 0.5
     menu:  
         "Ask him about it?":  
             $ maximRelation -= 10  
@@ -691,16 +720,18 @@ label thirdDay:
 
 label universityFourthDay:
     # scene university with policemen
+    play sound "policy.wav" fadein 0.5
     elena "The next day, the police arrive at the university, questioning students."
     kulev "Attention, everyone! The police are investigating last night's bank robbery. If you have any information, please cooperate."
     player "This is getting serious..."
     # Islam A
+    play sound "islam.wav" fadein 0.5
     kulev "Islam, where were you at the time of the robbery?"
     islam "I was praying at home and then making labs for university."
     kulev "Can someone confirm this?"
     islam "Unfortunately, only Allah"
     islam "Oh, and the teacher who has access to ELSE and can see my lab submission at that time interval."
-    
+    play music "creepyMusic.mp3" loop fadein 0.5
     menu:
         elena "How do you think, is it true or is he a good liar?"
         "I BELIEVE HIM":
@@ -710,6 +741,7 @@ label universityFourthDay:
                 kulev "Yes, there really was a submission at that time."
             else:
                 kulev "No, there are no submissions. You are a liar."
+                play sound "thunder.wav" fadein 0.5
         "HE IS A LIAR":
             $ islamRelation -= 25
             kulev "We will verify this information."
@@ -721,7 +753,6 @@ label universityFourthDay:
     elena "policeman2 returns"
     policeman2 "Chief, all recordings from the cameras are deleted."
     bozadji "It can't be real, it's not my fault! Check my computer logs. My laptop is in my car, I'll go get it."
-    
     menu:
         elena "How do you think, is it true or is he lying?"
         "I BELIEVE HIM":
@@ -732,6 +763,7 @@ label universityFourthDay:
             else:
                 scene empty_parking_lot
                 elena "Artemie B never returns... He was the thief!"
+                play sound "thunder.wav" fadein 0.5
                 jump retrospectiveBozadji
         "HE IS A LIAR":
             $ bozadjiRelation -= 25
@@ -751,6 +783,7 @@ label universityFourthDay:
             else:
                 kulev "Ms. Valentina denies even being at the university that night."
                 elena "Artemie I is the thief!"
+                play sound "thunder.wav" fadein 0.5
                 jump retrospectiveIlico
         "HE IS A LIAR":
             $ ilicoRelation -= 25
@@ -771,11 +804,13 @@ label universityFourthDay:
             else:
                 policeman2 "You dont even work at glovo, no-one knows you there"
                 elena "Maxim R is the thief!"
+                play sound "thunder.wav" fadein 0.5
         "HE IS A LIAR":
             $ maximRelation -= 25
             kulev "We will investigate further."
 
 label retrospectiveIlico:
+    play music "sadMusic.mp3" loop fadein 0.5
     scene black with fade
     show text "Retrospective: The Curious Case of Artemie I and the Market Maker’s Revenge" with fade
     
@@ -819,6 +854,7 @@ label retrospectiveIlico:
 
 label retrospectiveBozadji:
     scene bg dark with fade
+    play music "sadMusic.mp3" loop fadein 0.5
 
     elena "Now that you think about it, something doesn’t add up..."
 
@@ -877,8 +913,11 @@ label usmf:
     show bostan with fade:
         zoom 0.6
         yalign 0.2
+    play music "sadMusic.mp3" loop fadein 0.5
+    play sound "thunder.wav" fadein 0.5
     bostan "Are you kidding me???????"
     bostan "Fine, it's your life, and only you decide who will manipulate you—me or this Medical University."
+    play sound "troll.wav" fadein 0.5
     hide bostan
     show elena:
         zoom 0.7
@@ -909,6 +948,7 @@ label usmf:
         zoom 0.7
         yalign 0.05
     elena "You'll understand soon. HE-HE-HE-HE."
+    play music "creepyMusic.mp3" loop fadein 0.5
     show elena laugh:
         zoom 0.7
         yalign 0.05
@@ -984,6 +1024,7 @@ label war:
     elena "Good choice, your father would be happy!"
     show elena sleepy
     elena "If not for what will happen next..."
+    play music "creepyMusic.mp3" loop fadein 0.5
     show elena smile
     elena "You are strong attractive, muscular guy, and because of that everyone wants to talk to you and be your friend."
     show elena
