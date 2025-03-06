@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 74: end of line expected.
-    show bostan with fade at halfsize, right
-                          ^
+File "game/script.rpy", line 171: show statement expects a non-empty block.
+    show elena smile:
+                     ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Mon Mar  3 12:28:43 2025
+Thu Mar  6 04:22:17 2025

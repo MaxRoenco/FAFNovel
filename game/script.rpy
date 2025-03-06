@@ -1,5 +1,4 @@
-﻿
-# Ведущий
+﻿# Ведущий
 define elena = Character("Elena R")
 
 # Suspectors
@@ -112,9 +111,18 @@ label give_up:
     return
 
 label pc_class:
+    hide bostan
     # heels
-    gogoi "You have a lecture with Mujik—oh, I mean Kulev—so don't be late and be obedient."
+    show gogoi happy 2
+    gogoi "You have a lecture with Mujik"
+    show gogoi shocked
+    gogoi "—oh, I mean Kulev"
+    show gogoi smile 2
+    gogoi "so don't be late and be obedient."
+    hide gogoi
+    show elena smile
     elena "You enter the classroom, but all the chairs are occupied except for one next to a dark-skinned guy of Jordanian appearance."
+    hide elena
     menu: 
         "Leave the lecture because this dark-skinned guy looks creepy.":
             $ islamRelation -= 10
@@ -128,29 +136,46 @@ label pc_class:
 # islam meeting
 
 label islamMeeting:
+    show islam smile
     islam "Salam, Marhaba. Ke fac?"
     menu:
         "Hi, I don't speak Arabic. Do you understand English?":
             $ islamRelation -= 10
+            show islam smile 2
             islam "Yeah, I speak English."
         "Hamdulillah, ce fac?":
             $ islamRelation += 10
+            show islam shocked
             islam "Ooh, do you speak Arabic?"
             player "Yeah, of course!"
+    show islam laugh
     islam "Nice to meet you. My name is Islam, and I am from Jordan."
     player "How did you end up in Moldova?"
+    show islam smile
     islam "I'm here for education. Moldova has a very high level of programming education... (not really)."
     player "Yeah, I agree. Moldova is famous for its smart students. Tell me something about yourself."
+    show islam smile 2
     islam "Alright. My family is not very rich, so I want to make money as soon as possible. I have some ideas about it."
     player "Do you know how to find a good job?"
+    show islam
     islam "Mmm... not really. If my main plan fails, I'll look for a job."
     player "Can you tell me abo—"
+    hide islam
+    show kulev smile:
+        yalign 0.5
     kulev "Hello, everyone. Today we will learn the C language."
+    show kulev smile 2:
+        yalign 0.5
     kulev "Let's start with a very simple task. Open your laptops and get started."
+    hide kulev
+    show elena smile
     elena "You open the task and see this..."
+    hide elena
     # Here should be a photo of a difficult C programming task
+    show islam laugh
     islam "Oh, this is very easy. Wait a bit; I'm almost finished."
     player "Bro, be my friend."
+    hide islam
     jump next_class
     return
 
@@ -183,7 +208,10 @@ label bozadjiMeeting:
 
 label next_class:
     # heels
-    gogoi "Today, after dinner, you have one more lecture with me in room 113, so don't be late."
+    show gogoi smile with fade
+    gogoi "Today, after dinner, you have one more lecture with me in room 113"
+    show gogoi smug
+    gogoi "Don't be late!!"
     elena "You are walking down the corridor, and you see a curly blond guy sitting near room 113 with a very sad expression."
     menu:
         "Ask why he is so sad":
@@ -907,25 +935,48 @@ label usmf:
         yalign 0.05
     elena "No escape. No mercy. Only endless anatomy textbooks."
     elena "Congratulations, you are now trapped in the world of sleepless nights and coffee addiction!"
-
-    # elena "It turns out that the teacher was a pedophile maniac"
-    # elena "You try to run away but with him was very big knife. You don't have any chances..."
-    # elena "You left only give up"
-    # elena "You were raped and killed"
+    scene dark with fade
+    show elena sad:
+        zoom 0.7
+        yalign 0.05
+    elena "You are dead"
     return
 
 label ptu:
+    show elena smug
     elena "Good choice, but not the best one. HE-HE-HE-HE-HE."
+    
+    show elena smile
     elena "At first, everything goes smoothly, but one day, you go on a picnic with friends."
+    
+    show elena smile 2
     elena "The location for the party is near a lake."
+    
+    show elena smile
     elena "You see the dirty water and try to touch it..."
+    
     scene bbg with fade
+    
+    show elena shocked
     elena "But someone pushes you from behind, and you fall into the water. Unexpectedly, this isn't a lake—it's a marsh!"
+    
+    show elena sad
     elena "You try to escape from the swamp, but all your movements only make things worse."
+    
+    show elena shocked
     elena "Everyone panics and tries to help you, but your head is almost underwater."
+    
+    show elena sad
     elena "Three more seconds, and you can't breathe because your entire body is no longer under your control..."
+    
+    show elena sleepy
     elena "All you can do is give up..."
-    elena "You are dead."
+    
+    scene dark with fade
+    show elena sad:
+        zoom 0.7
+        yalign 0.05
+    elena "You are dead"
     return
 
 label war:
