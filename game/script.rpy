@@ -46,8 +46,8 @@ image bbg:
     xysize(1920,1080)
 
 label start:
-    $ renpy.music.set_volume(0.05, channel="music")
-    $ renpy.music.set_volume(0.1, channel="sound")
+    $ renpy.music.set_volume(0.15, channel="music")
+    $ renpy.music.set_volume(0.15, channel="sound")
     play music "funnyMusic2.mp3" loop fadein 0.5
 
     jump schoolStory
@@ -651,12 +651,10 @@ label furduiLaboratory:
 # Cristofor class
 
 label cristoforLecture2:
-    play music "sadMusic.mp3" loop fadein 0.5
-    play sound "heels.wav" fadein 0.5
+    play music "cristofor.mp3" fadein 0.5
     elena "Today, you have another one lecture with Cristofor."  
     # 113 cabinet maybe, or think of something else  
     elena "You enter the classroom and see a very elegant person in a suit with long black hair."
-    play sound "cristofor.mp3" fadein 0.5
     elena "Unexpectedly, Elena Gogoi enters with a frightened expression on her face."  
     play music "creepyMusic.mp3" loop fadein 0.5
     gogoi "There is news that one of the students from FAF took part in a bank robbery. The police are trying to find him, but all attempts have failed. He is very skilled at stealth."  
@@ -704,19 +702,8 @@ label thirdDay:
     jump universityFourthDay  
 
 
-# label universityThirdDay:
-#     scene university with fade
-#     elena "Everyone is discussing yesterday's news."
-#     elena "You decide to ask Artiom B for his opinion regarding the news, but you can't see him anywhere."
-#     menu: 
-#         "Write him a message on Telegram":
-#             $ bozadjiRelation -= 10
-#             elena "Hello, Artiom B, did you hear about the latest news?"
-#             elena "I wanted to ask you how this could be possible from a security perspective."
-#             elena "An hour has passed since you wrote the message, and Artiom B still hasn't responded."
-#         "Don't ask him":
-#             elena "Maybe it's better not to bother him right now."
-    
+if karma <= 0:
+        jump expelledUniversityStory
 
 label universityFourthDay:
     # scene university with policemen
@@ -849,8 +836,7 @@ label retrospectiveIlico:
     "And maybe, just maybe, the only thing he was hedging... was his getaway."
     
     "Either way, one thing is certain: next time someone starts frantically sketching stock patterns in the air, you might want to check if a bank heist just went down."
-    
-    return
+    jump lifeAfterThief
 
 label retrospectiveBozadji:
     scene bg dark with fade
@@ -906,7 +892,7 @@ label retrospectiveBozadji:
     elena "Bozadji didn’t just *get* a job at the bank. He was planning something all along."
     elena "Maybe university *was* just for fun. But hacking into a bank? That was the *real* assignment."
     
-    return
+    jump lifeAfterThief
 
 
 label usmf:
@@ -983,6 +969,8 @@ label usmf:
     return
 
 label ptu:
+    play music "sadMusic.mp3" loop fadein 0.5
+    play sound "thunder.wav" fadein 0.5
     show elena smug
     elena "Good choice, but not the best one. HE-HE-HE-HE-HE."
     
@@ -996,7 +984,7 @@ label ptu:
     elena "You see the dirty water and try to touch it..."
     
     scene bbg with fade
-    
+    play music "creepyMusic.mp3" loop fadein 0.5
     show elena shocked
     elena "But someone pushes you from behind, and you fall into the water. Unexpectedly, this isn't a lake—it's a marsh!"
     
@@ -1038,16 +1026,293 @@ label war:
     elena "You are dead"
     return
 
+label expelledUniversityStory:
+    scene bg classroom with fade
+    play music "sadMusic.mp3" loop fadein 0.5
+    
+    show elena annoyed with dissolve
+    elena "Well, it was only a matter of time before this happened..."
+    
+    show elena sad
+    elena "After consistently making poor choices, irritating your professors, and alienating your classmates, you've been summoned to the Dean's office."
+    
+    scene bg deans_office with fade
+    show cristofor neutral with dissolve
+    
+    cristofor "I've reviewed your academic record and behavior reports. The university has standards that must be maintained."
+    
+    cristofor "Your performance has been... disappointing, to put it mildly."
+    
+    show cristofor serious
+    cristofor "Therefore, effective immediately, you are expelled from the Faculty of Computers, Informatics and Microelectronics."
+    
+    player "But... but... I can improve! Give me another chance!"
+    
+    cristofor "The universe works in mysterious ways! But in your case, quite predictably. Goodbye."
+    
+    scene bg outside_university with fade
+    play sound "thunder.wav" fadein 0.5
+    
+    show elena shocked
+    elena "And just like that, your university career is over. You stand outside the gates, your belongings in a small box."
+    
+    show elena smug
+    elena "What will you do now? Your options are limited..."
+    
+    menu:
+        "Try to get into another university":
+            jump another_university
+        "Look for a job":
+            jump find_job
+        "Return home in shame":
+            jump return_home
 
-# label test:
-#     scene bg room
-#     image SilverSexyWoman = "SilverSexyWoman.png"
-#     image SilverSexyWoman2 = "SilverSexyWoman2.png"
-#     show SilverSexyWoman 
-#     e "Hello very gorgeous guuyy."
-#     e "How are ?? UwU"
-#     $ player = renpy.input("What is your name beautiful guy: ")
-#     define p = Character("[player]")
-#     show SilverSexyWoman2
-#     e "I am horny of you [player]"
-#     return
+label another_university:
+    scene bg other_university with fade
+    play music "creepyMusic.mp3" loop fadein 0.5
+    
+    show elena smile
+    elena "You apply to several other universities, hoping for a fresh start."
+    
+    show elena shocked
+    elena "But it seems your reputation precedes you! The academic community is smaller than you thought."
+    
+    show bostan:
+        zoom 0.6
+        yalign 0.2
+    bostan "YOU? Again? UA-HA-HA-HA-HA! I've already sent emails to ALL universities in Moldova about you."
+    
+    show elena sad
+    elena "No university in Moldova will accept you now. Your academic future here is finished."
+    
+    jump life_after_expulsion
+
+label find_job:
+    scene bg office with fade
+    play music "funnyMusic1.mp3" loop fadein 0.5
+    
+    show elena smile
+    elena "With no degree and limited skills, your job options are... restricted."
+    
+    show elena smug
+    elena "After seventeen rejections, you finally land an interview."
+    
+    show bozadji neutral
+    bozadji "Wait, don't I know you from somewhere? Weren't you that student who got expelled from FAF?"
+    
+    player "Uh... no?"
+    
+    bozadji "I'm certain it was you. I respect your attempt to lie though – shows initiative. Unfortunately, we require honest employees."
+    
+    hide bozadji
+    show elena sad
+    elena "Back to the job hunt..."
+    
+    jump life_after_expulsion
+
+label return_home:
+    scene bg family_home with fade
+    play music "sadMusic.mp3" loop fadein 0.5
+    
+    show elena sad
+    elena "You return to your family home, where your mother greets you with tears."
+    
+    elena "Your father doesn't speak to you for three weeks."
+    
+    elena "Your grandparents keep saying 'we told you so' regarding their farmer suggestion."
+    
+    show elena smile
+    elena "Eventually, they forgive you, but the disappointment lingers in their eyes."
+    
+    jump life_after_expulsion
+
+label life_after_expulsion:
+    scene bg small_apartment with fade
+    play music "creepyMusic.mp3" loop fadein 0.5
+    
+    show elena neutral
+    elena "Five years later..."
+    
+    show elena smile
+    elena "Life has settled into a routine. You work at a small convenience store, making just enough to pay rent."
+    
+    show elena smug
+    elena "One day, while scrolling through social media, you see updates from your former classmates."
+    
+    show islam smile at left
+    elena "Islam has started a successful tech company in Jordan."
+    
+    show maxim at right
+    elena "Maxim is now a crypto millionaire."
+    
+    show ilico at left
+    elena "Artemie I has become a renowned financial analyst."
+    
+    show bozadji at right
+    elena "And Bozadji? Well, he works for a major cybersecurity firm... or maybe he's still robbing banks. It's unclear."
+    
+    hide islam
+    hide maxim
+    hide ilico
+    hide bozadji
+    
+    show elena sad
+    elena "As you close your laptop, you wonder what might have been if you had made different choices..."
+    
+    show elena smile
+    elena "But hey, at least you're not in a swamp or shot dead in the army, right?"
+    
+    scene dark with fade
+    show text "THE END - EXPELLED ENDING" with dissolve
+    pause 3.0
+    
+    return
+
+label lifeAfterThief:
+    scene bg classroom with fade
+    play music "funnyMusic1.mp3" loop fadein 0.5
+    
+    show elena smile
+    elena "Several weeks have passed since the bank robbery case was resolved."
+    elena "Life at FAF has returned to its usual chaotic rhythm - endless labs, complex assignments, and slightly unsettling professors."
+    
+    show cristofor neutral
+    cristofor "The universe has a strange way of balancing itself. One student commits a crime, another helps solve it."
+    cristofor "Perhaps you're more suited for detective work than computer science?"
+    
+    player "I just tried to be observant..."
+    
+    cristofor "Observant enough to earn yourself a few bonus points on your next exam. The universe rewards those who maintain order."
+    
+    hide cristofor
+    show gogoi happy
+    
+    gogoi "After the excitement of the robbery investigation, today we're going to do something REALLY fun!"
+    gogoi "Let's analyze how the recent events affected our group dynamics through a series of team-building exercises!"
+    
+    play sound "geese.mp3" fadein 0.5
+    player "Of course. Because what's more fun than processing trauma through team-building?"
+    
+    # Scene: Check on remaining classmates
+    scene bg hallway with fade
+    
+    # If Islam wasn't the thief
+    if islamRelation > min(bozadjiRelation, ilicoRelation, maximRelation):
+        show islam smile
+        islam "You know, after everything that happened, I've decided to focus entirely on my studies."
+        islam "My family sent me here for education, not drama. I plan to honor that."
+        
+        player "What about making money quickly? You mentioned having ideas..."
+        
+        show islam laugh
+        islam "Ah, that. I'm starting a halal kebab delivery service targeting students. First month's business is already booming!"
+        
+        player "That's... surprisingly wholesome."
+        
+        islam "What did you think I meant? Bank robbery? استغفر الله!"
+        hide islam
+
+    # If Ilico wasn't the thief
+    if ilicoRelation > min(islamRelation, bozadjiRelation, maximRelation):
+        show ilico smile
+        ilico "The market has been incredibly volatile lately. Perfect conditions for my new trading strategy!"
+        
+        player "Still chasing that perfect formula?"
+        
+        ilico "I've refined it! Now I'm only having panic attacks once per week instead of daily."
+        
+        player "Progress!"
+        
+        ilico "By the way, want to invest in my new cryptocurrency? It's called AnxietyCoin. When I'm stressed, the value goes up."
+        
+        player "I'll... think about it."
+        hide ilico
+
+    # If Maxim wasn't the thief
+    if maximRelation > min(islamRelation, bozadjiRelation, ilicoRelation):
+        show maxim
+        maxim "I've been thinking a lot about what happened. Money isn't everything, you know?"
+        
+        player "That's quite philosophical coming from you."
+        
+        maxim "True friendship is what matters. By the way, do you want to invest in my new friendship bracelet business? Only 50 euros per bracelet."
+        
+        player "I thought money wasn't everything?"
+        
+        maxim "It isn't. But my Rolex collection won't expand itself."
+        hide maxim
+
+    # If Bozadji wasn't the thief
+    if bozadjiRelation > min(islamRelation, ilicoRelation, maximRelation):
+        show bozadji neutral
+        bozadji "After the whole bank incident, they promoted me at the cybersecurity department. Ironic, right?"
+        
+        player "They promoted you for failing to prevent a robbery?"
+        
+        bozadji "No, for designing a new security system that would have prevented it. I'm implementing it next month."
+        
+        player "That's... convenient."
+        
+        bozadji "ChatGPT is a miracle worker. Don't tell my boss."
+        hide bozadji
+
+    # Final scene with Furdui
+    scene bg classroom with fade
+    show furdui
+    
+    furdui "I hear you've been quite the detective. Impressive for someone who struggles with basic sorting algorithms."
+    
+    player "Thank you... I think?"
+    
+    furdui "Don't let it distract you from your studies. Being able to solve crimes won't help you pass my exams."
+    
+    player "Of course, professor."
+    
+    furdui "Now, since you've helped resolve this situation, I'll give you an opportunity. A simple extra credit assignment."
+    
+    player "What is it?"
+    
+    furdui "Implement a search algorithm that could have found our thief more efficiently. You have until tomorrow."
+    
+    player "But... that's impossible!"
+    
+    furdui "Life is impossible. Programming is merely implausible. Get to work."
+    
+    show elena laughing behind furdui
+    elena "And just like that, life at FAF returns to normal - impossible deadlines, eccentric professors, and the constant feeling that you're one assignment away from a complete breakdown."
+    
+    elena "But hey, at least you solved a bank robbery. That should look great on your CV... right next to 'survived FAF first semester'."
+    
+    # Graduation scene - flash forward
+    scene bg graduation with fade
+    play music "funnyMusic2.mp3" loop fadein 0.5
+    
+    show elena happy
+    elena "Four years later..."
+    
+    elena "Against all odds, you've survived FAF. The bank robbery investigation is now just another colorful story from your university days."
+    
+    show bostan:
+        zoom 0.6
+        yalign 0.2
+    
+    bostan "Congratulations. I genuinely didn't expect you to make it. But here you are, proving that even the most hopeless cases can graduate sometimes."
+    
+    player "Thank you, professor. That means a lot coming from you."
+    
+    bostan "Don't get emotional. 40% of your graduating class is still missing. Probably still working on my assignments from second year."
+    
+    hide bostan
+    show cristofor neutral
+    
+    cristofor "As you embark on your journey into the real world, remember: debugging your life is just like debugging code. The errors are usually between the keyboard and the chair."
+    
+    player "I'll remember that, professor."
+    
+    cristofor "And if you ever decide to rob a bank, at least use a better algorithm than your classmate did. Efficiency matters, even in crime."
+    
+    scene black with fade
+    show text "THE END - DETECTIVE ENDING" with dissolve
+    pause 3.0
+    
+    return
