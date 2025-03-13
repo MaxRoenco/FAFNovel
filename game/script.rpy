@@ -50,8 +50,8 @@ label start:
     $ renpy.music.set_volume(0.1, channel="sound")
     play music "funnyMusic2.mp3" loop fadein 0.5
 
-    # jump schoolStory
-    jump finishedFirstDay
+    jump schoolStory
+    # jump finishedFirstDay
     return
 
 label schoolStory:
@@ -119,6 +119,7 @@ label pc_class:
     hide bostan
     # heels
     show gogoi happy 2
+    play sound "heels.wav" fadein 0.5
     gogoi "You have a lecture with Mujik"
     show gogoi shocked
     gogoi "—oh, I mean Kulev"
@@ -142,6 +143,7 @@ label pc_class:
 
 label islamMeeting:
     show islam smile
+    play sound "islam.wav" fadein 0.5
     islam "Salam, Marhaba. Ke fac?"
     menu:
         "Hi, I don't speak Arabic. Do you understand English?":
@@ -168,6 +170,7 @@ label islamMeeting:
     hide islam
     show kulev smile:
         yalign 0.5
+    play music "cristofor.mp3" loop fadein 0.5
     kulev "Hello, everyone. Today we will learn the C language."
     show kulev smile 2:
         yalign 0.5
@@ -198,7 +201,6 @@ label leave_pc:
 # bozadji meeting
 
 label bozadjiMeeting:
-    # monkey money music
     play music "monkeyBusines.wav" loop fadein 0.5
     
     scene university_hallway with fade
@@ -240,8 +242,8 @@ label bozadjiMeeting:
     jump next_class
 
 label next_class:
-    # heels
     show gogoi smile with fade
+    play sound "heels.wav" fadein 0.5
     gogoi "Today, after dinner, you have one more lecture with me in room 113"
     show gogoi smug
     gogoi "Don't be late!!"
@@ -254,7 +256,7 @@ label next_class:
         "Move on":
             $ ilicoRelation -= 10
             jump gogoiLecture
-
+            # //
 label ilicoMeeting:
     # sad music
     play music "sad_theme.wav" loop fadein 0.5
@@ -297,7 +299,6 @@ label ilicoMeeting:
 # Gogoi's class
 
 label gogoiLecture:
-    # heels
     scene bg classroom with fade
     play music "funnyMusic2.mp3" loop fadein 0.5
     play sound "heels.wav" fadein 0.5
@@ -580,7 +581,6 @@ label ilicoMeeting2:
             show ilico smug
             ilico "MMMmMMmMMmMm"
     jump cristoforLecture
-
 label cristoforLecture:
     scene bg classroom with fade
     show elena happy with fade
@@ -1062,6 +1062,7 @@ label universityFourthDay:
             if islamRelation > min(bozadjiRelation, ilicoRelation, maximRelation):
                 show kulev smug
                 kulev "Yes, there really was a submission at that time."
+                play music "funnyMusic2.mp3" loop fadein 0.5
             else:
                 show kulev angry
                 kulev "No, there are no submissions. You are lying."
@@ -1135,6 +1136,7 @@ label universityFourthDay:
             if ilicoRelation > min(islamRelation, bozadjiRelation, maximRelation):
                 show kulev smug
                 kulev "Ms. Valentina confirmed that she saw you reading in the library."
+                play music "funnyMusic2.mp3" loop fadein 0.5
             else:
                 show kulev angry
                 kulev "Ms. Valentina denies even being at the university that night."
@@ -1460,6 +1462,7 @@ label ptu:
 
 label war:
     show elena happy with fade
+    play music "funnyMusic2.mp3" loop fadein 0.5
     elena "Good choice, your father would be happy!"
     show elena sleepy
     elena "If not for what will happen next..."
