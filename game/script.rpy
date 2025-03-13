@@ -322,25 +322,82 @@ label maximStory:
     # here
 
 label secondDay:
-    # funny music
-    # dorm
-    play music "funnyMusic1.mp3" loop fadein 0.5
-    elena "You wake up and see how sweetly your neighbor sleeps, hugging his pillow like it's the last kebab in Chisinau."
+    play music "noir_detective.mp3" loop fadein 0.5
+    scene dorm_morning with fade
+    elena "You wake up to the sunlight filtering through the dusty dorm blinds like a scene from a low-budget detective movie."
+    elena "Your roommate Maxim is still asleep, hugging his protein shaker like it contains the secrets of the universe."    
+    # First clue about the robbery
+    elena "Your phone buzzes with a UTM news alert: 'Local Bank Robbed - Authorities Suspect Student Involvement'"
+    # Player notices something
+    player "(That's strange... didn't Islam mention something about 'making money quickly' yesterday?)"
+    show maxim sleeping at center:
+        zoom 0.9
+    
     menu:
-        "Wake up the neighbor and go to University":
-            player "Hey, Maxim, wake up! We need to go to university, we have Cristofor's lecture."
-            maxim "Omg, I don't even know who that is... fuck off."
-            elena "You decide to apply the legendary *morning slap* technique to wake him up."
-            elena "However, your neighbor turns out to be built like a bear and nearly performs a *UFC takedown* on you."
-            elena "Just kidding... somehow you're still alive, and both of you head to university, slightly traumatized."
-        "Go to University without your friend":
-            elena "You quietly leave like a ninja, abandoning your comrade to his sweet dreams."
-            $ maximRelation -= 10
-            elena "But deep down, you feel the heavy burden of betrayal... or maybe that's just the kebab from last night."
-        "Continue sleeping":
+        "Wake up Maxim and show him the news":
+            player "Hey, Muscle Mountain, wake up! Check out this crazy news!"
+            
+            show maxim yawn at center
+            
+            maxim "Ughhh... what time is it? This better be important or I'll bench press you."
+            
+            player "Someone robbed Moldova National Bank yesterday. Police think it was a student."
+            
+            maxim "Seriously? That's wild. Probably some desperate guy who couldn't afford the cafeteria prices."
+            
+            maxim "Though I did see Bozadji counting a lot of cash yesterday after class..."
+            
+            # New clue
+            $ clue_bozadji_cash = True
+            
+            elena "You make a mental note about Bozadji having suspicious amounts of cash."
+            
+            maxim "Anyway, we should get going. Cristofor's lecture starts in 30 minutes, and rumor has it he knows something about the robbery."
+            
+        "Let Maxim sleep and investigate alone":
+            $ maximRelation -= 5
+            
+            elena "You decide to let your muscle-bound roommate continue his beauty sleep. After all, crime waits for no one!"
+            
+            elena "As you get dressed, you notice a small mud stain on your roommate's shoes that wasn't there yesterday."
+            
+            # New clue
+            $ clue_maxim_shoes = True
+            
+            player "(Hmm, that's odd. Wasn't the news report saying the robbers escaped through the muddy construction site?)"
+            
+            elena "You quietly leave the room, your mind racing with possibilities and accusations that would make Sherlock Holmes proud... or concerned for your mental health."
+        
+        "Continue sleeping, crime can wait":
             $ karma -= 10
-            elena "You embrace the warmth of your blanket, choosing to sleep through your responsibilities like a true IT student."
-            elena "The universe doesn't forgive laziness... but at least your dreams are full of unlimited Wi-Fi and bug-free code."
+            
+            elena "You decide that becoming an amateur detective can definitely wait until after you've had your full eight hours. After all, Batman doesn't have to deal with morning classes."
+            
+            elena "Unfortunately, your dreams of peaceful slumber are interrupted by something even more terrifying than crime - your roommate's morning workout routine."
+            
+            show maxim exercise at center:
+                zoom 0.9
+            
+            maxim "RISE AND GRIND, ROOMIE! IT'S CHEST DAY! ONE! TWO! THREE!"
+            
+            elena "The entire room shakes with each push-up as Maxim counts loudly enough to wake the dead - or worse, hungover students."
+            
+            player "What time is it? And why does it feel like I'm in an earthquake simulator?"
+            
+            maxim "It's GAINS o'clock! I've already done 100 push-ups, 100 sit-ups, and I'm about to head out for a 10km run!"
+            
+            player "Are you training to be a hero for fun or something?"
+            
+            maxim "No time for jokes! There's an emergency assembly at school. Something about a crime and a special announcement."
+            
+            player "Ugh, fine. But this better be worth missing breakfast for."
+            
+            maxim "Don't worry, I made you a protein shake! It's only slightly chunky."
+            
+            elena "You eye the mysterious brown liquid with the same suspicion normally reserved for UTM cafeteria food."
+            
+            player "I think I'd rather face the criminal."
+    
     jump ilicoMeeting2
 
 
@@ -808,6 +865,7 @@ label universityFourthDay:
                 policeman2 "You dont even work at glovo, no-one knows you there"
                 elena "Maxim R is the thief!"
                 play sound "thunder.wav" fadein 0.5
+                jump retrospectiveMaxim
         "HE IS A LIAR":
             $ maximRelation -= 25
             kulev "We will investigate further."
@@ -910,6 +968,71 @@ label retrospectiveBozadji:
     elena "Maybe university *was* just for fun. But hacking into a bank? That was the *real* assignment."
     
     return
+
+label retrospectiveMaxim:
+    play music "sadMusic.mp3" loop fadein 0.5
+    scene black with fade
+    show text "Retrospective: The Buff Bandit - How Maxim Lifted More Than Just Weights" with fade
+    
+    "Looking back, it all makes perfect sense. The signs were as obvious as the vein popping out of Maxim's forehead during his 'just one more rep' moments."
+    
+    "From the day you met him, something about Maxim was... off. Not in the usual 'gym bro' way - though there was plenty of that too. It was something else."
+    
+    scene dorm_flashback with fade
+    
+    "Remember when you first met? 'I need to be close to the gym,' he said. What gym is conveniently located near Moldova National Bank? That's right - FitLife Center, the 24-hour establishment that would make the perfect alibi."
+    
+    show maxim flex with fade
+    maxim "ITS NEVER ENOUGH! I NEED TO BECOME EVEN STRONGER!"
+    
+    "Stronger for what, Maxim? For carrying bags of cash? For breaking into bank vaults? For fighting off security guards?"
+    
+    "Then there was his mysterious 'project' - the one he was always 'working on.' Strange how this project never had a name, a deadline, or any tangible results beyond a sudden influx of cash."
+    
+    scene dorm_morning with fade
+    
+    "The morning after the robbery, you found mud on his shoes. The escape route through the construction site behind the bank would have been muddy after the previous night's rain."
+    
+    "And then, the most damning evidence of all..."
+    
+    scene dorm_night with fade
+    show maxim sleep_talking with dissolve
+    
+    "Remember that night you heard him sleep-talking? You thought it was just another dream about protein powder and bench press PRs."
+    
+    maxim "Ungh... need to lift... the vault... door... heavier than... expected..."
+    
+    "At the time, you dismissed it as typical gym-rat sleep babble. Who hasn't dreamt of lifting improbably heavy objects?"
+    
+    "But now it all connects. The sudden appearance of a Rolex watch. The mysterious late-night 'workouts' that left him exhausted but with no visible pump. The way he always seemed to have cash despite claiming to be a broke student."
+    
+    scene university_corridor with fade
+    
+    "And let's not forget his reaction when you told him about the robbery:"
+    
+    show maxim nervous with dissolve
+    maxim "Oh, really?? I always knew that Arabic guy looked like a robber."
+    
+    "Classic misdirection. Point the finger at someone else - preferably someone who already faces unfair stereotypes. The oldest trick in the criminal playbook."
+    
+    scene gym with fade
+    
+    "All those hours 'training' - was he actually casing the joint? Was each rep a rehearsal for the big heist? Was his protein shake bottle actually filled with lock-picking tools?"
+    
+    "They say the perfect criminal is the one you'd never suspect. And who would suspect the guy whose personality was 90% gym references and 10% protein calculations?"
+    
+    "The police were looking for a mastermind hacker or a desperate student. They weren't looking for someone whose biceps were bigger than their student debt."
+    
+    scene police_lineup with fade
+    
+    "In the end, it wasn't his training regimen that failed him - it was his cover story. No Glovo manager remembered him because Maxim had never delivered anything except, apparently, a perfect bank heist."
+    
+    "So next time you meet someone whose life revolves suspiciously around 'getting those gains,' maybe ask yourself: what kind of gains are they really after?"
+    
+    "After all, in Maxim's case, his biggest lift wasn't at the gym - it was at Moldova National Bank."
+    
+    return
+
 
 
 label usmf:
