@@ -336,68 +336,39 @@ label secondDay:
     menu:
         "Wake up Maxim and show him the news":
             player "Hey, Muscle Mountain, wake up! Check out this crazy news!"
-            
             show maxim yawn at center
-            
             maxim "Ughhh... what time is it? This better be important or I'll bench press you."
-            
             player "Someone robbed Moldova National Bank yesterday. Police think it was a student."
-            
             maxim "Seriously? That's wild. Probably some desperate guy who couldn't afford the cafeteria prices."
-            
             maxim "Though I did see Bozadji counting a lot of cash yesterday after class..."
-            
             # New clue
             $ clue_bozadji_cash = True
-            
             elena "You make a mental note about Bozadji having suspicious amounts of cash."
-            
             maxim "Anyway, we should get going. Cristofor's lecture starts in 30 minutes, and rumor has it he knows something about the robbery."
-            
         "Let Maxim sleep and investigate alone":
             $ maximRelation -= 5
-            
             elena "You decide to let your muscle-bound roommate continue his beauty sleep. After all, crime waits for no one!"
-            
             elena "As you get dressed, you notice a small mud stain on your roommate's shoes that wasn't there yesterday."
-            
             # New clue
             $ clue_maxim_shoes = True
-            
             player "(Hmm, that's odd. Wasn't the news report saying the robbers escaped through the muddy construction site?)"
-            
             elena "You quietly leave the room, your mind racing with possibilities and accusations that would make Sherlock Holmes proud... or concerned for your mental health."
-        
         "Continue sleeping, crime can wait":
             $ karma -= 10
-            
             elena "You decide that becoming an amateur detective can definitely wait until after you've had your full eight hours. After all, Batman doesn't have to deal with morning classes."
-            
             elena "Unfortunately, your dreams of peaceful slumber are interrupted by something even more terrifying than crime - your roommate's morning workout routine."
-            
             show maxim exercise at center:
                 zoom 0.9
-            
             maxim "RISE AND GRIND, ROOMIE! IT'S CHEST DAY! ONE! TWO! THREE!"
-            
             elena "The entire room shakes with each push-up as Maxim counts loudly enough to wake the dead - or worse, hungover students."
-            
             player "What time is it? And why does it feel like I'm in an earthquake simulator?"
-            
             maxim "It's GAINS o'clock! I've already done 100 push-ups, 100 sit-ups, and I'm about to head out for a 10km run!"
-            
             player "Are you training to be a hero for fun or something?"
-            
             maxim "No time for jokes! There's an emergency assembly at school. Something about a crime and a special announcement."
-            
             player "Ugh, fine. But this better be worth missing breakfast for."
-            
             maxim "Don't worry, I made you a protein shake! It's only slightly chunky."
-            
             elena "You eye the mysterious brown liquid with the same suspicion normally reserved for UTM cafeteria food."
-            
             player "I think I'd rather face the criminal."
-    
     jump ilicoMeeting2
 
 
@@ -585,9 +556,6 @@ label cristoforLecture:
     player "Optimize database, Legacy system, slow transactions?"
     jump furduiLaboratory
 
-
-# Merge Sort Lab Presentation Dialogue
-
 # Scene Label
 label furduiLaboratory:
     # Set the scene
@@ -762,21 +730,6 @@ label thirdDay:
     maxim "Yeah, let's go."  
     # University  
     jump universityFourthDay  
-
-
-# label universityThirdDay:
-#     scene university with fade
-#     elena "Everyone is discussing yesterday's news."
-#     elena "You decide to ask Artiom B for his opinion regarding the news, but you can't see him anywhere."
-#     menu: 
-#         "Write him a message on Telegram":
-#             $ bozadjiRelation -= 10
-#             elena "Hello, Artiom B, did you hear about the latest news?"
-#             elena "I wanted to ask you how this could be possible from a security perspective."
-#             elena "An hour has passed since you wrote the message, and Artiom B still hasn't responded."
-#         "Don't ask him":
-#             elena "Maybe it's better not to bother him right now."
-    
 
 label universityFourthDay:
     # scene university with policemen
@@ -1033,8 +986,6 @@ label retrospectiveMaxim:
     
     return
 
-
-
 label usmf:
     show bostan with fade:
         zoom 0.6
@@ -1163,17 +1114,3 @@ label war:
         yalign 0.05
     elena "You are dead"
     return
-
-
-# label test:
-#     scene bg room
-#     image SilverSexyWoman = "SilverSexyWoman.png"
-#     image SilverSexyWoman2 = "SilverSexyWoman2.png"
-#     show SilverSexyWoman 
-#     e "Hello very gorgeous guuyy."
-#     e "How are ?? UwU"
-#     $ player = renpy.input("What is your name beautiful guy: ")
-#     define p = Character("[player]")
-#     show SilverSexyWoman2
-#     e "I am horny of you [player]"
-#     return
