@@ -50,8 +50,8 @@ label start:
     $ renpy.music.set_volume(0.1, channel="sound")
     play music "funnyMusic2.mp3" loop fadein 0.5
 
-    # jump schoolStory
-    jump finishedFirstDay
+    jump schoolStory
+    # jump finishedFirstDay
     return
 
 label schoolStory:
@@ -119,6 +119,7 @@ label pc_class:
     hide bostan
     # heels
     show gogoi happy 2
+    play sound "heels.wav" fadein 0.5
     gogoi "You have a lecture with Mujik"
     show gogoi shocked
     gogoi "—oh, I mean Kulev"
@@ -142,6 +143,7 @@ label pc_class:
 
 label islamMeeting:
     show islam smile
+    play sound "islam.wav" fadein 0.5
     islam "Salam, Marhaba. Ke fac?"
     menu:
         "Hi, I don't speak Arabic. Do you understand English?":
@@ -168,6 +170,7 @@ label islamMeeting:
     hide islam
     show kulev smile:
         yalign 0.5
+    play music "cristofor.mp3" loop fadein 0.5
     kulev "Hello, everyone. Today we will learn the C language."
     show kulev smile 2:
         yalign 0.5
@@ -198,7 +201,6 @@ label leave_pc:
 # bozadji meeting
 
 label bozadjiMeeting:
-    # monkey money music
     play music "monkeyBusines.wav" loop fadein 0.5
     player "Hello, I saw you at the previous lecture."
     bozadji "Hello, yeah, I was there."
@@ -214,8 +216,8 @@ label bozadjiMeeting:
     jump next_class
 
 label next_class:
-    # heels
     show gogoi smile with fade
+    play sound "heels.wav" fadein 0.5
     gogoi "Today, after dinner, you have one more lecture with me in room 113"
     show gogoi smug
     gogoi "Don't be late!!"
@@ -228,9 +230,10 @@ label next_class:
         "Move on":
             $ ilicoRelation -= 10
             jump gogoiLecture
-
+            # //
 label ilicoMeeting:
     # sad music
+    play music "sadMusic.mp3" loop fadein 0.5
     player "Hi, why are you so upset?"
     ilico "I am very nervous about the upcoming exams... I can't find peace."
     player "Bro, it's only the first day of classes. We won't have an exam anytime soon."
@@ -251,7 +254,6 @@ label ilicoMeeting:
 # Gogoi's class
 
 label gogoiLecture:
-    # heels
     scene bg classroom with fade
     play music "funnyMusic2.mp3" loop fadein 0.5
     play sound "heels.wav" fadein 0.5
@@ -309,7 +311,7 @@ label finishedFirstDay:
 
 label maximStory:
     # sad music
-    # play music "creepyMusic.mp3" loop fadein 0.5
+    play music "creepyMusic.mp3" loop fadein 0.5
     menu:
         "Sure!":
             $ maximRelation += 10
@@ -391,8 +393,6 @@ label ilicoMeeting2:
             ilico "MM... Arbitrage... Slippage... Pump and dump... Dark pools... OH! Maybe it's the liquidity trap?! No... NO! The flash crash paradox?!"
             elena "His eyes shine as he keeps muttering."
             ilico "AHH! It's the MARKET MAKER'S REVENGE! OR... OR... THE DEAD CAT BOUNCE?!"
-            player "I have no idea what you're saying."
-            ilico "HEDGE! HEDGE EVERYTHING! THE TREND IS YOUR FRIEND UNTIL IT'S NOT!"
             elena "He starts aggressively drawing candlestick patterns in the air."
             player "Are you okay?"
             ilico "OF COURSE NOT! I'M IN A BEAR MARKET OF EMOTIONS!"
@@ -401,7 +401,6 @@ label ilicoMeeting2:
             $ ilicoRelation -= 10
             ilico "MMMmMMmMMmMm"
     jump cristoforLecture
-
 label cristoforLecture:
     scene bg classroom with fade
     show elena happy with fade
@@ -409,7 +408,7 @@ label cristoforLecture:
     play music "funnyMusic2.mp3" loop fadein 0.5
     play sound "heels.wav" fadein 0.5
     gogoi "Good morning, Fafers!"
-    gogoi "guess what? Cristofor will grade you based on your lab presentations for the second midterm!"
+    gogoi "Guess what? Cristofor will grade you based on your lab presentations for the second midterm!"
     gogoi "Good luck!"
 
     show elena smile
@@ -433,7 +432,7 @@ label cristoforLecture:
     play sound "islam.wav" fadein 0.5
     player "I didn’t sleep last night, but Islam..."
     player "I’m not sure if he slept this entire semester..."
-    player "I wont disturb him... He is hallucinating and thinking he is in Jordania?"
+    player "I won't disturb him... He is hallucinating and thinking he is in Jordania?"
 
 
     elena "Cristofor is late again. Typical."
@@ -470,7 +469,7 @@ label cristoforLecture:
 
     elena "You turn to Bozadji to share your disappointment, but... he’s gone... Vanished..."
     play sound "creepyMusic.mp3" fadein 0.5
-    elena "Bozadji dissapeared..."
+    elena "Bozadji disappeared..."
 
     # Scene 6: The Discord Bomb
     # scene bg classroom with fade
@@ -479,7 +478,7 @@ label cristoforLecture:
     elena "Just as you’re about to give up and kys, your phone buzzes. It’s a notification from Discord. Cristofor has finally spoken."
 
     show cristofor discord
-    cristofor "Good morning, everyone! Sorry for the delay. There was ahorrible traffic jam."
+    cristofor "Good morning, everyone! Sorry for the delay. There was a horrible traffic jam."
     cristofor "Anyway, here’s your choice for presenting the labs:"
     cristofor "- Next lesson at 15:00"
     cristofor "- Or at 17:30"
@@ -494,11 +493,10 @@ label cristoforLecture:
     # Scene 7: The Ilico Meltdown
     # scene bg classroom with fade
     show ilico stressed with fade
-
-    elena "you hear a familiar voice"
+    play music "creepyMusic.mp3" fadein 0.5
+    elena "You hear a familiar voice"
   
     elena "It’s Artemie!!! You are heading to him to complain about laboratories!"
-    play music "creepyMusic.mp3" fadein 0.5
     ilico "NOOOOOOOOOOOOOOO!"
     ilico " What if the market crashes before I present my labs?!"
 
@@ -510,7 +508,6 @@ label cristoforLecture:
     # Scene 9: The Final 
     # scene bg classroom with fade
     show elena smile
-
     elena "As the clock strikes 21:00, Cristofor finally arrives"
     play sound "cristofor.mp3" fadein 0.5
     cristofor "Alright, let’s check these labs! All 15 groups at once!"
@@ -675,7 +672,6 @@ label furduiLaboratory:
     else:
         furdui "Unsatisfactory. 3 out of 10. You need serious remedial work."
     jump cristoforLecture2
-
 # Cristofor class
 
 label cristoforLecture2:
@@ -752,6 +748,7 @@ label universityFourthDay:
             elena "policeman2 goes to the Decanat to verify Islams submission."
             if islamRelation > min(bozadjiRelation, ilicoRelation, maximRelation):
                 kulev "Yes, there really was a submission at that time."
+                play music "funnyMusic2.mp3" loop fadein 0.5
             else:
                 kulev "No, there are no submissions. You are a liar."
                 play sound "thunder.wav" fadein 0.5
@@ -773,6 +770,7 @@ label universityFourthDay:
             if bozadjiRelation > min(islamRelation, ilicoRelation, maximRelation):
                 scene parking_lot
                 elena "Artemie B returns with the laptop, proving his innocence."
+                play music "funnyMusic2.mp3" loop fadein 0.5
             else:
                 scene empty_parking_lot
                 elena "Artemie B never returns... He was the thief!"
@@ -793,6 +791,7 @@ label universityFourthDay:
             $ ilicoRelation += 25
             if ilicoRelation > min(islamRelation, bozadjiRelation, maximRelation):
                 kulev "Ms. Valentina confirmed that she saw you reading in the library."
+                play music "funnyMusic2.mp3" loop fadein 0.5
             else:
                 kulev "Ms. Valentina denies even being at the university that night."
                 elena "Artemie I is the thief!"
@@ -814,6 +813,7 @@ label universityFourthDay:
             $ maximRelation += 25
             if maximRelation > min(islamRelation, bozadjiRelation, maximRelation):
                 policeman2 "Administrator confirmed that you where picking up orders in that time-frimes"
+                play music "funnyMusic2.mp3" loop fadein 0.5
             else:
                 policeman2 "You dont even work at glovo, no-one knows you there"
                 elena "Maxim R is the thief!"
@@ -1098,6 +1098,7 @@ label ptu:
 
 label war:
     show elena happy with fade
+    play music "funnyMusic2.mp3" loop fadein 0.5
     elena "Good choice, your father would be happy!"
     show elena sleepy
     elena "If not for what will happen next..."
