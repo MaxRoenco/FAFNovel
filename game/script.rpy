@@ -93,7 +93,7 @@ label utm:
     play sound "thunder.wav" fadein 0.5
     play music "troll.wav"  fadein 0.5
     bostan "Hello! Welcome to FAF. Bla bla bla... a very cool but cruel place."
-    bostan "You should know that only 60%% of students survive here, so I will give you one last chance to change your mind."
+    bostan "You should know that only 60% of students survive here, so I will give you one last chance to change your mind."
     play music "creepyMusic.mp3" loop fadein 0.5
     menu:
         "Give up":
@@ -200,17 +200,43 @@ label leave_pc:
 label bozadjiMeeting:
     # monkey money music
     play music "monkeyBusines.wav" loop fadein 0.5
+    
+    scene university_hallway with fade
+    show bozadji smile at center with dissolve
+    
     player "Hello, I saw you at the previous lecture."
+    
+    show bozadji smile 2
     bozadji "Hello, yeah, I was there."
+    
     player "Why aren't you at the PC lecture?"
+    
+    show bozadji
     bozadji "Because I'm busy right now. I'm heading to work."
+    
     player "How did you get a job if you're only a first-year student? Also, why did you enroll in university if you already have a job?"
+    
+    show bozadji smug
     bozadji "I just used ChatGPT in interviews, that's all. As for university, I'm not really sure why I'm here—just for fun."
+    
     player "Bro, you're a very weird person, but I respect strong-willed people."
+    
+    show bozadji smile 3
     bozadji "Thx, sorry, but I need to go. Goodbye."
+    
     player "Goodbye."
+    
+    hide bozadji with dissolve
+    
     $ bozadjiRelation += 10
+    
+    scene university_corridor with fade
+    show elena smile at center with dissolve
+    
     elena "You decide to return to the university and wait for the next lecture."
+    
+    hide elena with dissolve
+    
     jump next_class
 
 label next_class:
@@ -231,22 +257,42 @@ label next_class:
 
 label ilicoMeeting:
     # sad music
+    play music "sad_theme.wav" loop fadein 0.5
+    
+    scene university_hallway with fade
+    show ilico sad at center with dissolve
+    
     player "Hi, why are you so upset?"
+    
     ilico "I am very nervous about the upcoming exams... I can't find peace."
+    
     player "Bro, it's only the first day of classes. We won't have an exam anytime soon."
+    
+    show ilico shocked
     ilico "Even after hearing that, I still have a bad feeling about this university."
+    
     menu:
         "Let's go to Das Kebab. Maybe some kebab will improve your mood.":
             $ ilicoRelation += 10
+            
+            show ilico smile
             ilico "Alright, let's go and eat some delicious kebabs."
+            
             player "Alright!"
+            
+            hide ilico with dissolve
             jump gogoiLecture
+            
         "I'm going to develop schizophrenia soon because of people like this.":
             $ ilicoRelation -= 10
-            ilico "Starts crying because of his worthless fate."
+            
+            show ilico sad
+            "Ilico starts crying because of his worthless fate."
+            
             player "OMG, I should have gone to medical school instead."
+            
+            hide ilico with dissolve
             jump gogoiLecture
-    return
 
 # Gogoi's class
 
@@ -274,131 +320,264 @@ label gogoiLecture:
 label finishedFirstDay:
     play music "sadMusic.mp3" loop fadein 0.5
     # relax music
+    
+    scene dormitory_room with fade
+    show elena smile at center with dissolve
+    
     elena "The last lecture of the day has ended, and everyone is heading home to relax."
+    
+    show elena smile 2
     elena "Suddenly, you remember that you live in a dorm with a huge number of cockroaches."
-    elena "You don’t even know who your roommate is."
+    
+    show elena smug
+    elena "You don't even know who your roommate is."
+    
     play sound "cristofor.mp3" fadein 0.5
-    # islam change meeting with Maxim
-    elena "You see a blond, athletic guy with entering the room."
-    maxim "Hey there"
-    maxim "Is this room 318?"
+    hide elena with dissolve
+    
+    # Note: The comment about islam was changed to match the actual scene with Maxim
+    
+    show elena shocked at left with dissolve
+    elena "You see a blond, athletic guy entering the room."
+    
+    show max smile at right with dissolve
+    max "Hey there."
+    
+    show max smile 2
+    max "Is this room 318?"
+    
     player "Umm... Yes. Who are you?"
-    maxim "My name is Maxim, I will be living in this room."
-    player "Oh me too"
+    
+    show max smile
+    max "My name is Maxim, I will be living in this room."
+    
+    player "Oh me too."
+    
     player "Why did you decide to live in a dormitory?"
-    maxim "Because there is a gym nearby, I need to live as close to it as possible."
+    
+    show max smug
+    max "Because there is a gym nearby, I need to live as close to it as possible."
+    
     player "You look buff already, why do you need to train more?"
-    maxim "ITS NEVER ENOUGH! I NEED TO BECOME EVEN STRONGER"
-    player "Uhhh.. alright, please don't kill me"
-    maxim "Don't worry, I don't bully weak chushpan kids."
-    maxim "Anyways wanna go to the gym with me sometime? You look like a fricking tryapka"
+    
+    show max angry
+    max "ITS NEVER ENOUGH! I NEED TO BECOME EVEN STRONGER!"
+    
+    player "Uhhh.. alright, please don't kill me."
+    
+    show max smile 3
+    max "Don't worry, I don't bully weak chushpan kids."
+    
+    show max smug
+    max "Anyways, wanna go to the gym with me sometime? You look like a fricking tryapka."
+    
     menu:
         "Nah, I don't want to become a gym rat.":
             $ maximRelation -= 10
-            maxim "Pfft, well don't blame me when you get bullied."
+            
+            show max angry 2
+            max "Pfft, well don't blame me when you get bullied."
+            
         "Yes! I wanna be muscular like you.":
             $ maximRelation += 10
-            maxim "I like your enthusiasm, maybe you are not as weak as I thought."
-            maxim "Maybe we can be friends?"
-
+            
+            show max laugh
+            max "I like your enthusiasm, maybe you are not as weak as I thought."
+            
+            show max smile
+            max "Maybe we can be friends?"
+            
+            hide max with dissolve
+            hide elena with dissolve
             jump maximStory
-
+    
+    hide max with dissolve
+    
+    show elena smile at center with dissolve
     elena "You were very tired from today's events."
+    
+    show elena sleepy
     elena "You put your head on the pillow and instantly fell asleep."
+    
+    hide elena with dissolve
     jump secondDay
 
 label maximStory:
     # sad music
-    # play music "creepyMusic.mp3" loop fadein 0.5
+    play music "relaxing_tune.mp3" loop fadein 0.5
+    
+    scene dormitory_room with fade
+    show max smile at center with dissolve
+    
     menu:
         "Sure!":
             $ maximRelation += 10
+            show max laugh
+            max "Great! We're going to be gym buddies!"
         "Nah, I just need you to help me train.":
             $ maximRelation -= 10
-    maxim "Fine, I'm a bit tired. Let's go to sleep."
+            show max sad
+            max "Oh, I see. That's fine too."
+    
+    show max smile 2
+    max "Fine, I'm a bit tired. Let's go to sleep."
+    
     player "Together???"
-    maxim "Ew, of course not! I'm not gay."
+    
+    show max shocked
+    max "Ew, of course not! I'm not gay."
+    
+    hide max with dissolve
     jump secondDay
-    # here
 
 label secondDay:
     play music "noir_detective.mp3" loop fadein 0.5
     scene dorm_morning with fade
+    
+    show elena smile at left with dissolve
     elena "You wake up to the sunlight filtering through the dusty dorm blinds like a scene from a low-budget detective movie."
-    elena "Your roommate Maxim is still asleep, hugging his protein shaker like it contains the secrets of the universe."    
+    
+    show elena smug
+    elena "Your roommate Maxim is still asleep, hugging his protein shaker like it contains the secrets of the universe."
+    
     # First clue about the robbery
+    show elena shocked
     elena "Your phone buzzes with a UTM news alert: 'Local Bank Robbed - Authorities Suspect Student Involvement'"
+    
     # Player notices something
     player "(That's strange... didn't Islam mention something about 'making money quickly' yesterday?)"
-    show maxim sleeping at center:
+    
+    show max smile at right with dissolve:
         zoom 0.9
     
     menu:
         "Wake up Maxim and show him the news":
             player "Hey, Muscle Mountain, wake up! Check out this crazy news!"
-            show maxim yawn at center
-            maxim "Ughhh... what time is it? This better be important or I'll bench press you."
+            
+            show max sad
+            max "Ughhh... what time is it? This better be important or I'll bench press you."
+            
             player "Someone robbed Moldova National Bank yesterday. Police think it was a student."
-            maxim "Seriously? That's wild. Probably some desperate guy who couldn't afford the cafeteria prices."
-            maxim "Though I did see Bozadji counting a lot of cash yesterday after class..."
+            
+            show max shocked
+            max "Seriously? That's wild. Probably some desperate guy who couldn't afford the cafeteria prices."
+            
+            show max smug
+            max "Though I did see Bozadji counting a lot of cash yesterday after class..."
+            
             # New clue
             $ clue_bozadji_cash = True
+            
+            show elena smile 2
             elena "You make a mental note about Bozadji having suspicious amounts of cash."
-            maxim "Anyway, we should get going. Cristofor's lecture starts in 30 minutes, and rumor has it he knows something about the robbery."
+            
+            show max smile
+            max "Anyway, we should get going. Cristofor's lecture starts in 30 minutes, and rumor has it he knows something about the robbery."
+            
         "Let Maxim sleep and investigate alone":
             $ maximRelation -= 5
+            
+            hide max with dissolve
+            
+            show elena smile
             elena "You decide to let your muscle-bound roommate continue his beauty sleep. After all, crime waits for no one!"
+            
+            show elena shocked
             elena "As you get dressed, you notice a small mud stain on your roommate's shoes that wasn't there yesterday."
+            
             # New clue
             $ clue_maxim_shoes = True
+            
             player "(Hmm, that's odd. Wasn't the news report saying the robbers escaped through the muddy construction site?)"
+            
+            show elena smug
             elena "You quietly leave the room, your mind racing with possibilities and accusations that would make Sherlock Holmes proud... or concerned for your mental health."
+            
         "Continue sleeping, crime can wait":
             $ karma -= 10
+            
+            hide max with dissolve
+            
+            show elena sleepy
             elena "You decide that becoming an amateur detective can definitely wait until after you've had your full eight hours. After all, Batman doesn't have to deal with morning classes."
+            
+            show elena shocked
             elena "Unfortunately, your dreams of peaceful slumber are interrupted by something even more terrifying than crime - your roommate's morning workout routine."
-            show maxim exercise at center:
+            
+            show max angry at right with dissolve:
                 zoom 0.9
-            maxim "RISE AND GRIND, ROOMIE! IT'S CHEST DAY! ONE! TWO! THREE!"
+            
+            max "RISE AND GRIND, ROOMIE! IT'S CHEST DAY! ONE! TWO! THREE!"
+            
+            show elena annoyed
             elena "The entire room shakes with each push-up as Maxim counts loudly enough to wake the dead - or worse, hungover students."
+            
             player "What time is it? And why does it feel like I'm in an earthquake simulator?"
-            maxim "It's GAINS o'clock! I've already done 100 push-ups, 100 sit-ups, and I'm about to head out for a 10km run!"
+            
+            show max smile 3
+            max "It's GAINS o'clock! I've already done 100 push-ups, 100 sit-ups, and I'm about to head out for a 10km run!"
+            
             player "Are you training to be a hero for fun or something?"
-            maxim "No time for jokes! There's an emergency assembly at school. Something about a crime and a special announcement."
+            
+            show max smug
+            max "No time for jokes! There's an emergency assembly at school. Something about a crime and a special announcement."
+            
             player "Ugh, fine. But this better be worth missing breakfast for."
-            maxim "Don't worry, I made you a protein shake! It's only slightly chunky."
+            
+            show max smile
+            max "Don't worry, I made you a protein shake! It's only slightly chunky."
+            
+            show elena smug
             elena "You eye the mysterious brown liquid with the same suspicion normally reserved for UTM cafeteria food."
+            
             player "I think I'd rather face the criminal."
+    
+    hide max with dissolve
+    hide elena with dissolve
     jump ilicoMeeting2
 
 
 label ilicoMeeting2:
-    # shizofrenia music
-    # corridor
-    elena "You go down the corridor and you see again this weird curly blond person around 113 cabinet."
-    elena "But this time he is not upset, he has mad face expression."
+    # Play schizophrenia music
+    # Scene: corridor
+    show elena
+    elena "You go down the corridor and you see again this weird curly blond person around cabinet 113."
+    show elena annoyed
+    elena "But this time he is not upset. He has a mad facial expression."
     play music "creepyMusic.mp3" loop fadein 0.5
+    show ilico angry
     menu:
         "Go to him and ask about his mood":
             $ ilicoRelation += 10
             player "Hi, how are you?"
             ilico "I am busy right now."
-            elena "You see how he very fastly writes some weird simbols on his notebook with strengh and mad eyes."
+            show elena shocked
+            elena "You see how he very quickly writes some weird symbols on his notebook with strength and mad eyes."
             player "What are you doing?"
-            ilico "I am improving my traiding strategy, I almost have the ideal market strategy BUT there is a small detail missing. I CAN'T FIND IT."
+            show ilico angry 2
+            ilico "I am improving my trading strategy. I almost have the ideal market strategy BUT there is a small detail missing. I CAN'T FIND IT."
             player "What are you talking about?"
-            elena "Actively swinging he plunges into his thoughts."
+            show elena
+            elena "Actively swinging, he plunges into his thoughts."
+            show ilico shocked
             ilico "MM... Arbitrage... Slippage... Pump and dump... Dark pools... OH! Maybe it's the liquidity trap?! No... NO! The flash crash paradox?!"
+            show elena shocked
             elena "His eyes shine as he keeps muttering."
+            show ilico angry 2
             ilico "AHH! It's the MARKET MAKER'S REVENGE! OR... OR... THE DEAD CAT BOUNCE?!"
             player "I have no idea what you're saying."
+            show ilico angry
             ilico "HEDGE! HEDGE EVERYTHING! THE TREND IS YOUR FRIEND UNTIL IT'S NOT!"
+            show elena shocked
             elena "He starts aggressively drawing candlestick patterns in the air."
             player "Are you okay?"
+            show ilico shocked
             ilico "OF COURSE NOT! I'M IN A BEAR MARKET OF EMOTIONS!"
+            show elena
             elena "You decide to leave him to his thoughts."
         "Move on":
             $ ilicoRelation -= 10
+            show ilico smug
             ilico "MMMmMMmMMmMm"
     jump cristoforLecture
 
@@ -408,20 +587,26 @@ label cristoforLecture:
     # heels
     play music "funnyMusic2.mp3" loop fadein 0.5
     play sound "heels.wav" fadein 0.5
+    show gogoi happy
     gogoi "Good morning, Fafers!"
-    gogoi "guess what? Cristofor will grade you based on your lab presentations for the second midterm!"
+    show gogoi smile
+    gogoi "Guess what? Cristofor will grade you based on your lab presentations for the second midterm!"
+    show gogoi happy 2
     gogoi "Good luck!"
 
-    show elena smile
+    show elena smile 2
+    show gogoi smile 2
     gogoi "Today is an important day because we can finally present labs to Cristofor."
   
     scene bg classroom 118
     show elena angry
+    show gogoi angry
 
     gogoi "It's 8:15! WHERE IS CRISTOFOR?!"
 
     show elena annoyed
-    player "Ugh, I didn’t sleep all night, and now this? I better ask Islam. Maybe he knows something. He’s always lurking around like a shadow anyway."
+    hide gogoi
+    player "Ugh, I didn't sleep all night, and now this? I better ask Islam. Maybe he knows something. He's always lurking around like a shadow anyway."
 
     # Scene 2: The Mysterious Sleepless Islam
     scene bg hallway with fade
@@ -429,107 +614,128 @@ label cristoforLecture:
 
     player "Hey, Islam! How are you? Do you know where Cristofor is?"
     
+    show islam sad
     islam "بدلاً من أن أسرق بنكاً، قمت بعمله المعملي!!! وأين هو؟؟"
     play sound "islam.wav" fadein 0.5
-    player "I didn’t sleep last night, but Islam..."
-    player "I’m not sure if he slept this entire semester..."
-    player "I wont disturb him... He is hallucinating and thinking he is in Jordania?"
+    player "I didn't sleep last night, but Islam..."
+    show islam sleepy
+    player "I'm not sure if he slept this entire semester..."
+    player "I won't disturb him... He is hallucinating and thinking he is in Jordania?"
 
-
+    show elena annoyed
     elena "Cristofor is late again. Typical."
 
     # Scene 3: The Late Bozadji
-    # scene bg corridor with bozadji
-    # show bozadji neutral with fade
+    show bozadji with fade
+    hide islam
 
-    elena "Suddenly, the door open and walks Artiom Bozadji, late as always."
+    show elena smug
+    elena "Suddenly, the door opens and walks Artiom Bozadji, late as always."
   
     player "Hi! Are you prepared to present your labs? And do you know where Cristofor is?"
 
-    bozadji "Privet! Wait, what? He’s not here? Ugh, he’s wasting my time. I could be making money right now instead of waiting"
+    show bozadji smug
+    bozadji "Privet! Wait, what? He's not here? Ugh, he's wasting my time. I could be making money right now instead of waiting"
     play music "monkeyBusines.wav" loop fadein 0.5
     player "Totally agree with you"
 
     # Scene 4: The Mirage of Cristofor
-    # scene bg hallway with fade
+    hide bozadji
     show elena shocked
     
-    elena "Just as you’re about to give up hope, you see a silhouette at the end of the corridor. Is it... Cristofor? Could it be?"
+    elena "Just as you're about to give up hope, you see a silhouette at the end of the corridor. Is it... Cristofor? Could it be?"
     play music "cristofor.mp3" loop fadein 0.5
-    elena "Your heart skips a beat and you squint your sleep deprived eyes to get a better look."
+    show elena sad
+    elena "Your heart skips a beat and you squint your sleep-deprived eyes to get a better look."
 
     player "Wait... is that him? Or is it just a mirage? Am I hallucinating from lack of sleep?"
 
-    elena "The silhouette stands still, unmoving. You realize it’s not Cristofor. It’s just a suspiciously Cristofor-shaped coat."
+    show elena shocked
+    elena "The silhouette stands still, unmoving. You realize it's not Cristofor. It's just a suspiciously Cristofor-shaped coat."
 
     player "kms"
 
-    # Scene 5: Bozadji’s Disappearance
-    # scene bg hallway with fade
+    # Scene 5: Bozadji's Disappearance
     show elena annoyed
 
-    elena "You turn to Bozadji to share your disappointment, but... he’s gone... Vanished..."
+    elena "You turn to Bozadji to share your disappointment, but... he's gone... Vanished..."
     play sound "creepyMusic.mp3" fadein 0.5
-    elena "Bozadji dissapeared..."
+    show elena shocked
+    elena "Bozadji disappeared..."
 
     # Scene 6: The Discord Bomb
-    # scene bg classroom with fade
+    scene bg classroom with fade
     show elena shocked
 
-    elena "Just as you’re about to give up and kys, your phone buzzes. It’s a notification from Discord. Cristofor has finally spoken."
+    elena "Just as you're about to give up and kys, your phone buzzes. It's a notification from Discord. Cristofor has finally spoken."
 
-    show cristofor discord
-    cristofor "Good morning, everyone! Sorry for the delay. There was ahorrible traffic jam."
-    cristofor "Anyway, here’s your choice for presenting the labs:"
+    show cristofor smile
+    cristofor "Good morning, everyone! Sorry for the delay. There was a horrible traffic jam."
+    show cristofor smug
+    cristofor "Anyway, here's your choice for presenting the labs:"
     cristofor "- Next lesson at 15:00"
     cristofor "- Or at 17:30"
+    show cristofor smile 3
     cristofor "Choose wisely!"
 
-    player "Wait, what? 15:00 or 17:30? That’s not a choice that’s a trap!"
+    player "Wait, what? 15:00 or 17:30? That's not a choice that's a trap!"
 
-    elena "But before you can react, the Discord bot auto-selects 21:00 for you. Congratulations! You’re now presenting your labs at 9 PM."
+    show elena shocked
+    show cristofor smile 2
+    elena "But before you can react, the Discord bot auto-selects 21:00 for you. Congratulations! You're now presenting your labs at 9 PM."
     play music "cristofor.mp3" loop fadein 0.5
-    player "What the fistic?#$!?! With this timing, we’ll never be ready for the midterms!"
+    player "What the fistic?#$!?! With this timing, we'll never be ready for the midterms!"
 
     # Scene 7: The Ilico Meltdown
-    # scene bg classroom with fade
-    show ilico stressed with fade
+    scene bg classroom with fade
+    show ilico angry with fade
 
-    elena "you hear a familiar voice"
+    show elena smile 2
+    elena "You hear a familiar voice"
   
-    elena "It’s Artemie!!! You are heading to him to complain about laboratories!"
-    play music "creepyMusic.mp3" fadein 0.5
+    show elena happy
+    elena "It's Artemie!!! You are heading to him to complain about laboratories!"
+    play music "creepyMusic.mp3" loop fadein 0.5
+    show ilico shocked
     ilico "NOOOOOOOOOOOOOOO!"
-    ilico " What if the market crashes before I present my labs?!"
+    show ilico angry 2
+    ilico "What if the market crashes before I present my labs?!"
 
-    player "Hey, calm down. The only thing crashing right now is my will to live. What’s wrong?"
+    player "Hey, calm down. The only thing crashing right now is my will to live. What's wrong?"
 
-    ilico "I can’t focus on my labs because I’m too busy calculating the risk-reward ratio of presenting early versus late."
+    show ilico sad
+    ilico "I can't focus on my labs because I'm too busy calculating the risk-reward ratio of presenting early versus late."
     player "I have no words..."
 
     # Scene 9: The Final 
-    # scene bg classroom with fade
-    show elena smile
+    scene bg classroom with fade
+    show elena smile 2
 
     elena "As the clock strikes 21:00, Cristofor finally arrives"
     play sound "cristofor.mp3" fadein 0.5
-    cristofor "Alright, let’s check these labs! All 15 groups at once!"
+    show cristofor smile
+    cristofor "Alright, let's check these labs! All 15 groups at once!"
 
-    show cristofor neutral with fade
-    cristofor "I’ll ask each of you a question. If you answer correctly, you pass. If not... well, let’s just say the universe is cruel."
+    show cristofor smug with fade
+    cristofor "I'll ask each of you a question. If you answer correctly, you pass. If not... well, let's just say the universe is cruel."
     play music "creepyMusic.mp3" loop fadein 0.5
     # The Probability Theory Question
+    show cristofor smile 3
     cristofor "First question: Which probability theory concept is the most important for understanding randomness?"
+    show cristofor smug
     cristofor "Choose wisely. Your grade depends on it."
 
     menu:
         "Pigeonhole Principle":
+            show cristofor laugh
             cristofor "Incorrect! The correct answer is... Martingale. But since you tried, you tried :)"
             $ karma -= 10
         "Martingale":
-            cristofor "Incorrect! The correct answer is... Probabilistic Deviation Propagation. But don’t worry, I’ll be generous, 5 is too a positive grade)"
+            show cristofor smile 2
+            cristofor "Incorrect! The correct answer is... Probabilistic Deviation Propagation. But don't worry, I'll be generous, 5 is too a positive grade)"
             $ karma -= 10
         "Probabilistic Deviation Propagation":
+            show cristofor smile 3
             cristofor "Incorrect! The correct answer is... Pigeonhole Principle. Curlu-Curlu!"
             $ karma -= 10
 
@@ -537,20 +743,28 @@ label cristoforLecture:
 
     elena "Cristofor pulls out a giant slot machine and starts spinning it to determine your lab marks."
 
+    show cristofor smile
     cristofor "Next group! Same question. Choose wisely."
 
-    cristofor "You got a huge marks lately"
+    show cristofor smile 2
+    cristofor "You got huge marks lately"
+    show cristofor smug
     cristofor "Mr. Pumpkin asked me to do Gaussean Distribution"
+    show cristofor smile 3
     cristofor "Reverse Gaussean Distribution..."
+    show cristofor laugh
     cristofor "80%% fail..."
 
+    show cristofor smile
     cristofor "The universe works in mysterious ways! Next group!"
 
+    show elena sad
     elena "You finally finish presenting your labs at 23:00. Your brain feels like..."
+    show elena sleepy
     elena "Sorry, Your brain feels nothing"
     play music "sadMusic.mp3" loop fadein 0.5
     player "I just spent hours presenting labs to a man who grades us with a slot machine. What am I even doing with my life?"
-    player "If this is how it’s going to be, I’m never going to make money. I need to start doing something."
+    player "If this is how it's going to be, I'm never going to make money. I need to start doing something."
     player "Artemie is talking a lot about market and the big player is bank"
     player "Maybe I can do something useful to them?"
     player "Optimize database, Legacy system, slow transactions?"
@@ -560,41 +774,54 @@ label cristoforLecture:
 label furduiLaboratory:
     # Set the scene
     scene bg classroom  # Ensure you have a classroom background
-    elena "Today you have lecture with Furdui, be prepared to his question.."
+    show elena
+    elena "Today you have lecture with Furdui, be prepared for his questions..."
+    
     # Initial interaction
     play sound "thunder.wav" fadein 0.5
     play music "troll.wav" fadein 0.5
+    
+    show furudui with fade
     player "Good morning, Professor Furdui. I'm here to present my merge sort laboratory work."
 
+    show furudui smug
     furdui "Ah, Elena. Another student hoping to pass with minimal effort, I see."
 
     player "No, professor. I've worked hard on this lab and I'm prepared to demonstrate my understanding."
 
+    show furudui angry
     furdui "Hard work? In this generation? Let's see about that. Your punctuality is already a problem."
 
     player "I know I'm a bit late, but I promise my work meets the requirements."
 
+    show furudui angry 2
     furdui "Late submissions are the first sign of academic negligence. But go on, convince me."
     play music "creepyMusic.mp3" loop fadein 0.5
+    
     menu:
         "Apologize sincerely":
             player "I sincerely apologize for the delay. I understand the importance of deadlines."
             $ karma += 5
+            show furudui smile
             furdui "At least you show some understanding."
 
         "Make an excuse":
             player "There were some unexpected complications with my computer..."
             $ karma -= 5
+            show furudui angry
             furdui "Excuses, always excuses. The real world doesn't accept such nonsense."
 
+    show furudui smug
     furdui "Before we discuss your merge sort implementation, you'll need to prove your understanding."
 
     player "I'm ready for any questions you have, professor."
 
     # Merge Sort Quiz
+    show furudui smile 3
     furdui "Let's begin with a comprehensive quiz about merge sort. Each incorrect answer will cost you."
 
     # Question 1: Basic Concept
+    show furudui
     player "First question: What is the primary strategy of the merge sort algorithm?"
 
     menu:
@@ -602,39 +829,47 @@ label furduiLaboratory:
             player "Divide and Conquer! The algorithm breaks down the problem into smaller, more manageable sub-problems."
             $ quiz_score += 1
             $ karma += 3
+            show furudui smile
             furdui "Correct. A promising start."
 
         "Bubble Sorting":
             player "Um... Bubble Sorting?"
             $ karma -= 5
+            show furudui laugh
             furdui "Incorrect. Bubble sort is an entirely different, less efficient sorting method."
 
         "Random Shuffling":
             player "Random Shuffling?"
             $ karma -= 5
+            show furudui angry 2
             furdui "Completely wrong. This shows a fundamental misunderstanding."
 
     # Question 2: Time Complexity
+    show furudui smug
     furdui "What is the time complexity of merge sort?"
 
     menu:
         "O(n²)":
             player "O(n²), like insertion sort?"
             $ karma -= 5
+            show furudui angry
             furdui "Incorrect. Merge sort is more efficient than that."
 
         "O(n log n)":
             player "O(n log n)! It maintains this complexity in all cases - best, average, and worst."
             $ quiz_score += 1
             $ karma += 3
+            show furudui smile 2
             furdui "Correct. You're showing some actual knowledge."
 
         "O(1)":
             player "O(1)?"
             $ karma -= 5
+            show furudui shocked
             furdui "Ridiculous. That's constant time, impossible for sorting."
 
     # Question 3: Implementation Details
+    show furudui smile 3
     furdui "Describe the key steps in implementing merge sort."
 
     menu:
@@ -642,38 +877,48 @@ label furduiLaboratory:
             player "First, recursively divide the array into two halves, sort those sub-arrays, and then merge them back together."
             $ quiz_score += 1
             $ karma += 3
+            show furudui smile
             furdui "Precise explanation. You've clearly studied."
 
         "Swap adjacent elements":
             player "Swap adjacent elements?"
             $ karma -= 5
+            show furudui angry
             furdui "No! That's more akin to bubble sort. Completely incorrect."
 
         "Sort from left to right in one pass":
             player "Sort from left to right in one pass?"
             $ karma -= 5
+            show furudui angry 2
             furdui "Absurd. Merge sort is not a single-pass algorithm."
 
-                # Final Quiz Assessment
+    # Final Quiz Assessment
     if quiz_score >= 2:
+        show furudui smile 2
         furdui "Not entirely terrible. Your theoretical understanding shows promise."
         $ karma += 10
     else:
+        show furudui sad
         furdui "Your performance is disappointing. Theory is the foundation of practical implementation."
         $ karma -= 10
 
     # Closing Dialogue
     player "May I now present my actual implementation, professor?"
 
+    show furudui smug
     furdui "Go ahead. But remember, theory without perfect implementation means nothing."
 
     # Final Karma and Score Determination
     if karma >= 60:
+        show furudui smile
         furdui "You've barely scraped through. 8 out of 10. Do better next time."
     elif karma >= 50:
+        show furudui
         furdui "Mediocre performance. 5 out of 10. Improvement is mandatory."
     else:
+        show furudui angry
         furdui "Unsatisfactory. 3 out of 10. You need serious remedial work."
+    
     jump cristoforLecture2
 
 # Cristofor class
@@ -681,146 +926,263 @@ label furduiLaboratory:
 label cristoforLecture2:
     play music "sadMusic.mp3" loop fadein 0.5
     play sound "heels.wav" fadein 0.5
-    elena "Today, you have another one lecture with Cristofor."  
+    
+    scene bg classroom with fade
+    show elena
+    elena "Today, you have another lecture with Cristofor."  
     # 113 cabinet maybe, or think of something else  
+    show elena curious
     elena "You enter the classroom and see a very elegant person in a suit with long black hair."
+    
     play sound "cristofor.mp3" fadein 0.5
-    elena "Unexpectedly, Elena Gogoi enters with a frightened expression on her face."  
+    show elena shocked
+    elena "Unexpectedly, Elena Gogoi enters with a frightened expression on her face."
+    
+    show gogoi shocked with fade
     play music "creepyMusic.mp3" loop fadein 0.5
-    gogoi "There is news that one of the students from FAF took part in a bank robbery. The police are trying to find him, but all attempts have failed. He is very skilled at stealth."  
-    gogoi "Today's lectures are canceled, so everyone is free. However, tomorrow all classes will take place as scheduled, so don't be late."  
-    elena "You look around the room after hearing this news and notice some strange reactions."  
-    elena "A curly blond student’s eyes dart around the room rapidly—though, to be fair, that might just be his usual behavior."  
-    elena "A dark-skinned guy with a Jordanian appearance tries to hide his face under his sweater—maybe he just smelled something bad."  
-    elena "However, you can’t see your neighbor, Maxim. He was at this lecture, but somehow, he has disappeared."  
-    elena "And, of course, Bozadji, the first-year student who works in the cybersecurity department, is absent too."  
-    elena "Each of these people seems weird and suspicious. Ugh, this is so exhausting. I'll just go home and relax..."  
-    jump thirdDay  
+    gogoi "There is news that one of the students from FAF took part in a bank robbery. The police are trying to find him, but all attempts have failed. He is very skilled at stealth."
+    
+    show gogoi sad
+    gogoi "Today's lectures are canceled, so everyone is free. However, tomorrow all classes will take place as scheduled, so don't be late."
+    
+    show elena smug
+    elena "You look around the room after hearing this news and notice some strange reactions."
+    
+    show elena smile 2
+    elena "A curly blond student's eyes dart around the room rapidly—though, to be fair, that might just be his usual behavior."
+    
+    show elena shocked
+    elena "A dark-skinned guy with a Jordanian appearance tries to hide his face under his sweater—maybe he just smelled something bad."
+    
+    show elena annoyed
+    elena "However, you can't see your neighbor, Maxim. He was at this lecture, but somehow, he has disappeared."
+    
+    show elena angry
+    elena "And, of course, Bozadji, the first-year student who works in the cybersecurity department, is absent too."
+    
+    show elena sleepy
+    elena "Each of these people seems weird and suspicious. Ugh, this is so exhausting. I'll just go home and relax..."
+    
+    jump thirdDay
 
 label thirdDay:  
     # Dormitory  
     play music "sadMusic.mp3" loop fadein 0.5
-    maxim "Good morning, my friend."  
+    scene dormitory with fade
+
+    show max smile
+    max "Good morning, my friend."  
+
     player "How did you get here?"  
-    maxim "I was a bit busy yesterday because I was working on another project."  
+
+    show max smug
+    max "I was a bit busy yesterday because I was working on another project."  
+
     player "Oh, cool. Did you hear the latest news at the university?"  
-    maxim "Oh no, what are you talking about?"  
-    player "Yesterday, one of the students from our group took part in a bank robbery."  
-    maxim "Oh, really?? I always knew that Arabic guy looked like a robber."  
+
+    show max shocked
+    max "Oh no, what are you talking about?"  
+
+    player "Yesterday, one of the students from our group was involved in a bank robbery."  
+
+    show max angry 2
+    max "Oh, really?? I always knew that Arabic guy looked suspicious."  
+
     play music "creepyMusic.mp3" loop fadein 0.5
     menu:  
         "Yeah, he is very weird.":  
             $ islamRelation -= 10  
             $ maximRelation += 10  
+            show max smug  
         "No, he is a good guy with a handsome appearance.":  
             $ islamRelation += 10  
             $ maximRelation -= 10  
+            show max annoyed  
+
+    show elena smug with fade
     elena "Suddenly, you notice a Rolex watch on Maxim’s wrist. Hmm… very suspicious."  
+
     play sound "thunder.wav" fadein 0.5
     menu:  
         "Ask him about it?":  
             $ maximRelation -= 10  
             $ karma += 10  
             player "Where did you get that watch?"  
-            maxim "*nervously scratches his head* Oh... I got my salary from my project yesterday... Never mind."  
+
+            show max sad
+            max "*nervously scratches his head* Oh... I got my salary from my project yesterday... Never mind."  
+
         "Ignore this fact":  
             $ maximRelation += 5  
             $ karma -= 5  
+
     player "Let's go to the university and find out the latest news."  
-    maxim "Yeah, let's go."  
+
+    show max smile 2
+    max "Yeah, let's go."  
+
     # University  
     jump universityFourthDay  
 
+
 label universityFourthDay:
-    # scene university with policemen
+    # Scene: University with Policemen
+    scene university with fade
     play sound "policy.wav" fadein 0.5
+
+    show elena shocked
     elena "The next day, the police arrive at the university, questioning students."
+
+    show kulev smug
     kulev "Attention, everyone! The police are investigating last night's bank robbery. If you have any information, please cooperate."
+
     player "This is getting serious..."
+
     # Islam A
     play sound "islam.wav" fadein 0.5
+    show police
     kulev "Islam, where were you at the time of the robbery?"
-    islam "I was praying at home and then making labs for university."
+
+    show islam smug
+    islam "I was praying at home and then working on my university labs."
+
+    show kulev angry
     kulev "Can someone confirm this?"
-    islam "Unfortunately, only Allah"
-    islam "Oh, and the teacher who has access to ELSE and can see my lab submission at that time interval."
+
+    show islam smug
+    islam "Unfortunately, only Allah... Oh, and the teacher who has access to ELSE and can see my lab submission at that time."
+
     play music "creepyMusic.mp3" loop fadein 0.5
     menu:
-        elena "How do you think, is it true or is he a good liar?"
+        elena "Do you think he's telling the truth or just a good liar?"
         "I BELIEVE HIM":
             $ islamRelation += 25
-            elena "policeman2 goes to the Decanat to verify Islams submission."
+            show elena smile
+            elena "A policeman heads to the Decanat to verify Islam’s submission."
             if islamRelation > min(bozadjiRelation, ilicoRelation, maximRelation):
+                show kulev smug
                 kulev "Yes, there really was a submission at that time."
             else:
-                kulev "No, there are no submissions. You are a liar."
+                show kulev angry
+                kulev "No, there are no submissions. You are lying."
                 play sound "thunder.wav" fadein 0.5
         "HE IS A LIAR":
             $ islamRelation -= 25
+            show kulev smug
             kulev "We will verify this information."
+
     # Artemie B
+    show kulev smug
     kulev "Artemie B, where were you at the time of the robbery?"
-    bozadji "I was working at the bank s cybersecurity department on the night shift."
+
+    show bozadji smug
+    bozadji "I was working at the bank's cybersecurity department on the night shift."
+
+    show kulev angry
     kulev "Can someone confirm this?"
+
+    show bozadji smug
     bozadji "Yes, the security cameras at the bank."
-    elena "policeman2 returns"
-    policeman2 "Chief, all recordings from the cameras are deleted."
-    bozadji "It can't be real, it's not my fault! Check my computer logs. My laptop is in my car, I'll go get it."
+
+    show elena shocked
+    elena "A policeman returns."
+
+    show police
+    policeman "Chief, all recordings from the cameras have been deleted."
+
+    show bozadji shocked
+    bozadji "That can't be real! It’s not my fault! Check my computer logs. My laptop is in my car, I’ll go get it."
+
     menu:
-        elena "How do you think, is it true or is he lying?"
+        elena "Do you believe him?"
         "I BELIEVE HIM":
             $ bozadjiRelation += 25
             if bozadjiRelation > min(islamRelation, ilicoRelation, maximRelation):
-                scene parking_lot
-                elena "Artemie B returns with the laptop, proving his innocence."
+                scene parking_lot with fade
+                show elena smile
+                elena "Artemie B returns with his laptop, proving his innocence."
             else:
-                scene empty_parking_lot
+                scene empty_parking_lot with fade
+                show elena shocked
                 elena "Artemie B never returns... He was the thief!"
                 play sound "thunder.wav" fadein 0.5
                 jump retrospectiveBozadji
         "HE IS A LIAR":
             $ bozadjiRelation -= 25
+            show kulev smug
             kulev "We will investigate further."
+
     # Artemie I
+    show kulev smug
     kulev "Artemie I, where were you at the time of the robbery?"
+
+    show ilico smug
     ilico "I was studying new trading strategies in the UTM library. You can ask Ms. Valentina, the security guard."
+
+    show kulev angry
     kulev "Ms. Valentina is on vacation for two weeks..."
-    ilico "No, that isn't true! Maybe she took extra shifts. Go ask her."
-    elena "Policeman goes to Ms. Valentina."
+
+    show ilico shocked
+    ilico "No, that isn’t true! Maybe she took extra shifts. Go ask her."
+
+    show elena shocked
+    elena "A policeman goes to Ms. Valentina."
+
     menu:
         elena "Do you believe him?"
         "I BELIEVE HIM":
             $ ilicoRelation += 25
             if ilicoRelation > min(islamRelation, bozadjiRelation, maximRelation):
+                show kulev smug
                 kulev "Ms. Valentina confirmed that she saw you reading in the library."
             else:
+                show kulev angry
                 kulev "Ms. Valentina denies even being at the university that night."
+                show elena shocked
                 elena "Artemie I is the thief!"
                 play sound "thunder.wav" fadein 0.5
                 jump retrospectiveIlico
         "HE IS A LIAR":
             $ ilicoRelation -= 25
+            show kulev smug
             kulev "We will confirm your alibi."
+
     # Maxim R
-    policeman1 "Maxim, where were you at the time of robbery?"
-    maxim "I was deliverying food at glovo"
-    policeman1 "in what area?"
-    maxim "in the city center of the town"
-    policeman2 "the bank that was robbed is situated in the citycenter of the town😱😱😱, someone has seen you, can you prove that you were delivering the food?"
-    maxim "Maybe my manager can, you should contant him"
+    show police
+    policeman "Maxim, where were you at the time of the robbery?"
+
+    show max smug
+    maxim "I was delivering food for Glovo."
+
+    show police
+    policeman "In what area?"
+
+    show max smug
+    maxim "In the city center."
+
+    show police
+    policeman "The bank that was robbed is in the city center. 😱😱😱 Someone saw you! Can you prove you were delivering food?"
+
+    show max shocked
+    maxim "Maybe my manager can. You should contact him."
+
     menu:
         elena "Do you believe him?"
         "I BELIEVE HIM":
             $ maximRelation += 25
             if maximRelation > min(islamRelation, bozadjiRelation, maximRelation):
-                policeman2 "Administrator confirmed that you where picking up orders in that time-frimes"
+                show police
+                policeman "The administrator confirmed that you were picking up orders at that time."
             else:
-                policeman2 "You dont even work at glovo, no-one knows you there"
+                show police
+                policeman "You don’t even work for Glovo. No one knows you there!"
+                show elena shocked
                 elena "Maxim R is the thief!"
                 play sound "thunder.wav" fadein 0.5
                 jump retrospectiveMaxim
         "HE IS A LIAR":
             $ maximRelation -= 25
+            show kulev smug
             kulev "We will investigate further."
 
 label retrospectiveIlico:
@@ -873,7 +1235,7 @@ label retrospectiveBozadji:
     elena "Now that you think about it, something doesn’t add up..."
 
     scene bg university_night with fade
-    show bozadji neutral with dissolve
+    show bozadji with dissolve
 
     elena "Bozadji—a first-year student—casually lands a job in the cybersecurity department of a bank? Yeah, right."
     elena "You always thought he was just a guy who lucked out by using ChatGPT in interviews, but now... things are looking way too convenient."
@@ -888,16 +1250,16 @@ label retrospectiveBozadji:
     elena "And who was suspiciously absent? Bozadji."
     
     scene bg police_station with fade
-    show kulev neutral with dissolve
+    show kulev  with dissolve
 
     kulev "Bozadji, where were you at the time of the robbery?"
     
-    show bozadji neutral with dissolve
+    show bozadji  with dissolve
     bozadji "I was working the night shift at the bank's cybersecurity department."
     
     elena "Oh, how convenient. A cybersecurity guy working *at the exact bank that got robbed*? That’s like finding out the guy in charge of the cookie jar is also the only one with crumbs on his shirt."
     
-    show policeman2 neutral with dissolve
+    show policeman2  with dissolve
     policeman2 "Chief, all the recordings from the security cameras are deleted."
     
     show bozadji surprised with dissolve
