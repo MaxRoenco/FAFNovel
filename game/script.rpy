@@ -87,24 +87,47 @@ label schoolStory:
 
 label utm:
     scene aula3 with fade
+    
     show bostan:
         zoom 0.9
-        # scary lauighing
+        ease 0.3 ypos 10
+        ease 0.3 ypos 0
+    
     play sound "thunder.wav" fadein 0.5
-    play music "troll.wav"  fadein 0.5
-    bostan "Hello! Welcome to FAF. Bla bla bla... a very cool but cruel place."
-    bostan "You should know that only 60%% of students survive here, so I will give you one last chance to change your mind."
+    play music "troll.wav" fadein 0.5
+    
+    bostan "Hello! Welcome to FAF. Today marks the beginning of your journey into a very fun and interesting, but also somewhat cruel place."
+    pause 0.5
+    bostan "Here you will discover many useful things like mathematics, algorithms, and the art of staying awake for 48 hours straight!"
+    bostan "You'll find kindred spirits who share your passion for debugging code at 3 AM and who understand why semicolons are both your best friend and worst enemy."
+    show bostan:
+        ease 0.2 zoom 1.0
+
+    bostan "On the other hand, prepare yourself for countless sleepless nights with assignments that will make you question your life choices."
+    bostan "Your social life? Consider it deprecated. Your sleep schedule? That's now a legacy system."
+    bostan "You should know that only 60% of students survive here. The rest? Let's just say they've been garbage collected."
+    pause 1.0
+    bostan "So I'll give you one last chance to change your mind before you commit to this repository of knowledge with no rollback option."
     play music "creepyMusic.mp3" loop fadein 0.5
     menu:
-        "Give up":
+        "Give up and pursue a normal, well-rested life":
             jump give_up
-        "Become part of the FAF community":
+        "Become part of the FAF community (side effects may include caffeine addiction)":
             play sound "thunder.wav" fadein 0.5
-            play music "troll.wav"  fadein 0.5
-            bostan "Congratulations!!! Today marks the beginning of the worst days of your life."
-            bostan "Good luck surviving in FAF! UA-HA-HA-HA-HA"
+            play music "troll.wav" fadein 0.5
+
+            show bostan:
+                ease 0.2 zoom 1.1
+                ease 0.1 xpos 5
+                ease 0.1 xpos -5
+                ease 0.1 xpos 0
+            bostan "Congratulations!!! Today marks the beginning of the worst days of your life. But don't worry, they'll also be the best!"
+            bostan "Good luck surviving in FAF! UA-HA-HA-HA-HA!"
+            bostan "(You'll need it when Object-Oriented Programming comes around...)"
             jump pc_class
+    
     return
+
 
 label give_up:
     play music "creepyMusic.mp3" loop fadein 0.5
@@ -215,6 +238,8 @@ label bozadjiMeeting:
 
 label next_class:
     # heels
+    stop music
+    play sound "heels.wav" fadein 0.5
     show gogoi smile with fade
     gogoi "Today, after dinner, you have one more lecture with me in room 113"
     show gogoi smug
