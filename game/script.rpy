@@ -50,8 +50,8 @@ label start:
     $ renpy.music.set_volume(0.1, channel="sound")
     play music "funnyMusic2.mp3" loop fadein 0.5
 
-    jump schoolStory
-    # jump furduiLaboratory
+    # jump schoolStory
+    jump finishedFirstDay
     return
 
 label schoolStory:
@@ -280,17 +280,27 @@ label finishedFirstDay:
     play sound "cristofor.mp3" fadein 0.5
     # islam change meeting with Maxim
     elena "You see a blond, athletic guy with entering the room."
-    maxim "What's up? Is this room 318?"
+    maxim "Hey there"
+    maxim "Is this room 318?"
     player "Umm... Yes. Who are you?"
-    maxim "I live here. What about you? Who are you?"
-    player "Oh, I live here too. You look like a very cool person. Why are you staying in a dorm?"
-    maxim "I have a very sad story about how I ended up here. Do you want to hear it?"
+    maxim "My name is Maxim, I will be living in this room."
+    player "Oh me too"
+    player "Why did you decide to live in a dormitory?"
+    maxim "Because there is a gym nearby, I need to live as close to it as possible."
+    player "You look buff already, why do you need to train more?"
+    maxim "ITS NEVER ENOUGH! I NEED TO BECOME EVEN STRONGER"
+    player "Uhhh.. alright, please don't kill me"
+    maxim "Don't worry, I don't bully weak chushpan kids."
+    maxim "Anyways wanna go to the gym with me sometime? You look like a fricking tryapka"
     menu:
-        "Of course not, nobody cares about your story.":
+        "Nah, I don't want to become a gym rat.":
             $ maximRelation -= 10
-            maxim "Bro, you are a very rude person."
-        "Yeah, I want to hear your story.":
+            maxim "Pfft, well don't blame me when you get bullied."
+        "Yes! I wanna be muscular like you.":
             $ maximRelation += 10
+            maxim "I like your enthusiasm, maybe you are not as weak as I thought."
+            maxim "Maybe we can be friends?"
+
             jump maximStory
 
     elena "You were very tired from today's events."
@@ -299,18 +309,11 @@ label finishedFirstDay:
 
 label maximStory:
     # sad music
-    play music "creepyMusic.mp3" loop fadein 0.5
-    maxim "When I was a child, I had a best friend. We would constantly play, watch movies, and imagine that we would be rich and successful in the future."
-    maxim "We even created a plan on how to achieve this success, but one day he told me that he was leaving with his family for another country."
-    maxim "I lost my only friend, and it affected me deeply."
-    maxim "After that, I became obsessed with making money. However, I can't make friends anymore."
-    maxim "Not long ago, I earned a large sum of money, so I don’t need money anymore."
-    maxim "But there's one goal I haven't achieved—I want to find good friends."
-    maxim "Let's be friends?"
+    # play music "creepyMusic.mp3" loop fadein 0.5
     menu:
-        "Yeah, of course. I will help you with your goals.":
+        "Sure!":
             $ maximRelation += 10
-        "No, you sound like a little kid with psychological trauma.":
+        "Nah, I just need you to help me train.":
             $ maximRelation -= 10
     maxim "Fine, I'm a bit tired. Let's go to sleep."
     player "Together???"
