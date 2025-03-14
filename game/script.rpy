@@ -1039,7 +1039,7 @@ label thirdDay:
         "No, he is a good guy with a handsome appearance.":  
             $ islamRelation += 10  
             $ maximRelation -= 10  
-            show maxim annoyed  
+            show maxim sad  
     hide maxim
     show elena smug with fade
     elena "Suddenly, you notice a Rolex watch on Maxim’s wrist. Hmm… very suspicious."  
