@@ -670,138 +670,138 @@ label cristoforLecture:
 
     # Scene 3: The Late Bozadji
 
-    show elena smug
+    show elena smug at right
     elena "Suddenly, the door opens and walks Artiom Bozadji, late as always."
   
     player "Hi! Are you prepared to present your labs? And do you know where Cristofor is?"
 
-    show bozadji smug
+    show bozadji smug at left
     bozadji "Privet! Wait, what? He's not here? Ugh, he's wasting my time. I could be making money right now instead of waiting"
     play music "monkeyBusines.wav" loop fadein 0.5
     player "Totally agree with you"
 
     # Scene 4: The Mirage of Cristofor
     hide bozadji
-    show elena shocked
+    show elena shocked at right
     
     elena "Just as you're about to give up hope, you see a silhouette at the end of the corridor. Is it... Cristofor? Could it be?"
     play music "cristofor.mp3" loop fadein 0.5
-    show elena sad
+    show elena sad at right
     elena "Your heart skips a beat and you squint your sleep-deprived eyes to get a better look."
 
     player "Wait... is that him? Or is it just a mirage? Am I hallucinating from lack of sleep?"
 
-    show elena shocked
+    show elena shocked at right
     elena "The silhouette stands still, unmoving. You realize it's not Cristofor. It's just a suspiciously Cristofor-shaped coat."
 
     player "kms"
 
     # Scene 5: Bozadji's Disappearance
-    show elena annoyed
+    show elena annoyed at right
 
     elena "You turn to Bozadji to share your disappointment, but... he's gone... Vanished..."
     play sound "creepyMusic.mp3" fadein 0.5
-    show elena shocked
+    show elena shocked at right
     elena "Bozadji disappeared..."
 
     # Scene 6: The Discord Bomb
     scene cab with fade
-    show elena shocked
+    show elena shocked at right
 
     elena "Just as you're about to give up and kys, your phone buzzes. It's a notification from Discord. Cristofor has finally spoken."
 
-    show cristofor smile
+    show cristofor smile at left
     cristofor "Good morning, everyone! Sorry for the delay. There was a horrible traffic jam."
-    show cristofor smug
+    show cristofor smug at left
     cristofor "Anyway, here's your choice for presenting the labs:"
     cristofor "- Next lesson at 15:00"
     cristofor "- Or at 17:30"
-    show cristofor smile 3
+    show cristofor smile 3 at left
     cristofor "Choose wisely!"
 
     player "Wait, what? 15:00 or 17:30? That's not a choice that's a trap!"
 
-    show elena shocked
-    show cristofor smile 2
+    show elena shocked at right
+    show cristofor smile 2 at left
     elena "But before you can react, the Discord bot auto-selects 21:00 for you. Congratulations! You're now presenting your labs at 9 PM."
     play music "cristofor.mp3" loop fadein 0.5
     player "What the fistic?#$!?! With this timing, we'll never be ready for the midterms!"
-
+    hide cristofor
     # Scene 7: The Ilico Meltdown
     scene bg classroom with fade
     show ilico angry with fade
 
-    show elena smile 2
+    show elena smile 2 at right
     elena "You hear a familiar voice"
   
-    show elena happy
+    show elena happy at right
     elena "It's Artemie!!! You are heading to him to complain about laboratories!"
     play music "creepyMusic.mp3" loop fadein 0.5
-    show ilico shocked
+    show ilico shocked at left
     ilico "NOOOOOOOOOOOOOOO!"
-    show ilico angry 2
+    show ilico angry 2 at left
     ilico "What if the market crashes before I present my labs?!"
 
     player "Hey, calm down. The only thing crashing right now is my will to live. What's wrong?"
 
-    show ilico sad
+    show ilico sad at left
     ilico "I can't focus on my labs because I'm too busy calculating the risk-reward ratio of presenting early versus late."
     player "I have no words..."
-
+    hide ilico
     # Scene 9: The Final 
     scene bg classroom with fade
-    show elena smile 2
+    show elena smile 2 at right
 
     elena "As the clock strikes 21:00, Cristofor finally arrives"
     play sound "cristofor.mp3" fadein 0.5
-    show cristofor smile
+    show cristofor smile at left
     cristofor "Alright, let's check these labs! All 15 groups at once!"
 
-    show cristofor smug with fade
+    show cristofor smug with fade at left
     cristofor "I'll ask each of you a question. If you answer correctly, you pass. If not... well, let's just say the universe is cruel."
     play music "creepyMusic.mp3" loop fadein 0.5
     # The Probability Theory Question
-    show cristofor smile 3
+    show cristofor smile 3 at left
     cristofor "First question: Which probability theory concept is the most important for understanding randomness?"
-    show cristofor smug
+    show cristofor smug at left
     cristofor "Choose wisely. Your grade depends on it."
 
     menu:
         "Pigeonhole Principle":
-            show cristofor laugh
+            show cristofor laugh at left
             cristofor "Incorrect! The correct answer is... Martingale. But since you tried, you tried :)"
             $ karma -= 10
         "Martingale":
-            show cristofor smile 2
+            show cristofor smile 2 at left
             cristofor "Incorrect! The correct answer is... Probabilistic Deviation Propagation. But don't worry, I'll be generous, 5 is too a positive grade)"
             $ karma -= 10
         "Probabilistic Deviation Propagation":
-            show cristofor smile 3
+            show cristofor smile 3 at left
             cristofor "Incorrect! The correct answer is... Pigeonhole Principle. Curlu-Curlu!"
             $ karma -= 10
 
-    show elena shocked
+    show elena shocked at right
 
     elena "Cristofor pulls out a giant slot machine and starts spinning it to determine your lab marks."
 
-    show cristofor smile
+    show cristofor smile at left
     cristofor "Next group! Same question. Choose wisely."
 
-    show cristofor smile 2
+    show cristofor smile 2 at left
     cristofor "You got huge marks lately"
-    show cristofor smug
+    show cristofor smug at left
     cristofor "Mr. Pumpkin asked me to do Gaussean Distribution"
-    show cristofor smile 3
+    show cristofor smile 3 at left
     cristofor "Reverse Gaussean Distribution..."
-    show cristofor laugh
+    show cristofor laugh at left
     cristofor "80%% fail..."
 
-    show cristofor smile
+    show cristofor smile at left
     cristofor "The universe works in mysterious ways! Next group!"
 
-    show elena sad
+    show elena sad at right
     elena "You finally finish presenting your labs at 23:00. Your brain feels like..."
-    show elena sleepy
+    show elena sleepy at right
     elena "Sorry, Your brain feels nothing"
     play music "sadMusic.mp3" loop fadein 0.5
     player "I just spent hours presenting labs to a man who grades us with a slot machine. What am I even doing with my life?"
