@@ -378,6 +378,8 @@ label finishedFirstDay:
     
     show elena shocked at left with dissolve
     elena "You see a blond, athletic guy entering the room."
+
+    hide elena
     
     show maxim smile at right with dissolve
     maxim "Hey there."
@@ -585,6 +587,7 @@ label ilicoMeeting2:
     show elena annoyed
     elena "But this time he is not upset. He has a mad facial expression."
     play music "creepyMusic.mp3" loop fadein 0.5
+    hide elena
     show ilico angry
     menu:
         "Go to him and ask about his mood":
@@ -626,6 +629,7 @@ label cristoforLecture:
     # heels
     play music "funnyMusic2.mp3" loop fadein 0.5
     play sound "heels.wav" fadein 0.5
+    hide elena
     show gogoi happy
     gogoi "Good morning, Fafers!"
     show gogoi smile
@@ -657,7 +661,7 @@ label cristoforLecture:
     islam "بدلاً من أن أسرق بنكاً، قمت بعمله المعملي!!! وأين هو؟؟"
     play sound "islam.wav" fadein 0.5
     player "I didn't sleep last night, but Islam..."
-    show islam sleepy
+    show islam
     player "I'm not sure if he slept this entire semester..."
     player "I won't disturb him... He is hallucinating and thinking he is in Jordania?"
 
