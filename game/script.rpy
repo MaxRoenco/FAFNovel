@@ -1353,7 +1353,7 @@ label retrospectiveBozadji:
     
     elena "Oh, how convenient. A cybersecurity guy working *at the exact bank that got robbed*? That’s like finding out the guy in charge of the cookie jar is also the only one with crumbs on his shirt."
     
-    show policeman2  with dissolve
+    show police  with dissolve
     policeman2 "Chief, all the recordings from the security cameras are deleted."
     
     show bozadji surprised with dissolve
