@@ -1290,29 +1290,29 @@ label retrospectiveIlico:
     "At first, it seemed like just another one of Ilico's existential meltdowns—one of many, really. The guy had been stressed since day one, convinced exams were lurking behind every corner like debt collectors."
     "But then there was that day in the corridor. The way he muttered about arbitrage and slippage while violently stabbing his notebook with his pen, his pupils dilated like a day trader who just shorted Tesla at the wrong time."
     
-    show ilico stressed with fade
+    show ilico sad with fade
     ilico "THE MARKET MAKER'S REVENGE!"
     
     "He had shouted, eyes glinting with dangerous enthusiasm. It seemed like gibberish at the time—like most of his monologues—but what if it wasn’t?"
-    "What if, hidden in those notes, there were calculations far beyond your comprehension? What if, amidst all the candlestick patterns and Fibonacci sequences, there was a blueprint... not for a trading strategy, but for an escape route?"
+    "What if, hidden in thoseR notes, there were calculations far beyond your comprehension? What if, amidst all the candlestick patterns and Fibonacci sequences, there was a blueprint... not for a trading strategy, but for an escape route?"
     
-    scene lecture_hall with fade
+    scene aula3 with fade
     # show gogoi worried
     
     gogoi "A student from FAF took part in a bank robbery!"
     
     "The words echoed through the room, bouncing off the walls and crashing directly into your already overworked brain. And then... the reactions."
     
-    show ilico nervous
+    show ilico sad
     "Ilico's eyes darted around the room at hyperspeed. But then again, that was kind of his default setting."
     
-    show jordanian_student suspicious
+    show islam smug
     "A Jordanian-looking guy was pulling his sweater up to his nose. Suspicious? Maybe. But given how the lecture hall smelled after a full day of classes, understandable."
     
-    show maxim missing
+    show maxim shocked
     "Maxim, your neighbor? Gone. Just—poof. Evaporated like your motivation after the first week of university."
     
-    show bozadji absent
+    show bozadji 
     "Bozadji, the cybersecurity guy? Also missing. Classic hacker move."
     
     "Was it all just a coincidence? Maybe. But maybe, just maybe, the real market he was analyzing wasn't the financial one—it was the underground one."
@@ -1328,22 +1328,22 @@ label retrospectiveBozadji:
 
     elena "Now that you think about it, something doesn’t add up..."
 
-    scene bg university_night with fade
+    scene aula3 with fade
     show bozadji with dissolve
 
     elena "Bozadji—a first-year student—casually lands a job in the cybersecurity department of a bank? Yeah, right."
     elena "You always thought he was just a guy who lucked out by using ChatGPT in interviews, but now... things are looking way too convenient."
     
-    scene bg lecture_hall with fade
+    scene aula3 with fade
     show gogoi shocked with dissolve
     
     elena "Then came that lecture, the one where Gogoi burst in, looking like she just realized the exam was today instead of next week."
     gogoi "A bank robbery! A student from FAF is involved! The police can’t find him!"
     
-    scene bg empty_classroom with fade
+    scene cab with fade
     elena "And who was suspiciously absent? Bozadji."
     
-    scene bg police_station with fade
+    scene aula3 with fade
     show kulev  with dissolve
 
     kulev "Bozadji, where were you at the time of the robbery?"
@@ -1356,7 +1356,7 @@ label retrospectiveBozadji:
     show police  with dissolve
     policeman2 "Chief, all the recordings from the security cameras are deleted."
     
-    show bozadji surprised with dissolve
+    show bozadji shocked with dissolve
     bozadji "It can't be real, it's not my fault! Check my computer logs! My laptop is in my car, I'll go get it."
     
     scene parking with fade
@@ -1365,14 +1365,14 @@ label retrospectiveBozadji:
     elena "And waited."
     elena "And... he never came back."
     
-    scene bg dark with fade
+    scene dark with fade
     elena "Now it all makes sense."
     elena "Works in cybersecurity? Check."
     elena "Has access to bank systems? Check."
     elena "Knows how to wipe security footage? Big check."
     elena "Magically disappears when asked to prove innocence? Yeah, that’s a wrap."
     
-    scene bg city_night with fade
+    scene parking with fade
     elena "Bozadji didn’t just *get* a job at the bank. He was planning something all along."
     elena "Maybe university *was* just for fun. But hacking into a bank? That was the *real* assignment."
     
@@ -1387,25 +1387,25 @@ label retrospectiveMaxim:
     
     "From the day you met him, something about Maxim was... off. Not in the usual 'gym bro' way - though there was plenty of that too. It was something else."
     
-    scene dorm_flashback with fade
+    scene dorm with fade
     
     "Remember when you first met? 'I need to be close to the gym,' he said. What gym is conveniently located near Moldova National Bank? That's right - FitLife Center, the 24-hour establishment that would make the perfect alibi."
     
-    show maxim flex with fade
+    show maxim angry with fade
     maxim "ITS NEVER ENOUGH! I NEED TO BECOME EVEN STRONGER!"
     
     "Stronger for what, Maxim? For carrying bags of cash? For breaking into bank vaults? For fighting off security guards?"
     
     "Then there was his mysterious 'project' - the one he was always 'working on.' Strange how this project never had a name, a deadline, or any tangible results beyond a sudden influx of cash."
     
-    scene dorm_morning with fade
+    scene dorm with fade
     
     "The morning after the robbery, you found mud on his shoes. The escape route through the construction site behind the bank would have been muddy after the previous night's rain."
     
     "And then, the most damning evidence of all..."
     
-    scene dorm_night with fade
-    show maxim sleep_talking with dissolve
+    scene dorm with fade
+    show maxim sad with dissolve
     
     "Remember that night you heard him sleep-talking? You thought it was just another dream about protein powder and bench press PRs."
     
@@ -1415,16 +1415,16 @@ label retrospectiveMaxim:
     
     "But now it all connects. The sudden appearance of a Rolex watch. The mysterious late-night 'workouts' that left him exhausted but with no visible pump. The way he always seemed to have cash despite claiming to be a broke student."
     
-    scene university_corridor with fade
+    scene coridor with fade
     
     "And let's not forget his reaction when you told him about the robbery:"
     
-    show maxim nervous with dissolve
+    show maxim smug with dissolve
     maxim "Oh, really?? I always knew that Arabic guy looked like a robber."
     
     "Classic misdirection. Point the finger at someone else - preferably someone who already faces unfair stereotypes. The oldest trick in the criminal playbook."
     
-    scene gym with fade
+    scene aula3 with fade
     
     "All those hours 'training' - was he actually casing the joint? Was each rep a rehearsal for the big heist? Was his protein shake bottle actually filled with lock-picking tools?"
     
@@ -1432,7 +1432,7 @@ label retrospectiveMaxim:
     
     "The police were looking for a mastermind hacker or a desperate student. They weren't looking for someone whose biceps were bigger than their student debt."
     
-    scene police_lineup with fade
+    scene aula3 with fade
     
     "In the end, it wasn't his training regimen that failed him - it was his cover story. No Glovo manager remembered him because Maxim had never delivered anything except, apparently, a perfect bank heist."
     
