@@ -728,7 +728,7 @@ label cristoforLecture:
     player "What the fistic?#$!?! With this timing, we'll never be ready for the midterms!"
     hide cristofor
     # Scene 7: The Ilico Meltdown
-    scene bg classroom with fade
+    scene bg cab with fade
     show ilico angry with fade
 
     show elena smile 2 at right
@@ -760,6 +760,7 @@ label cristoforLecture:
     show cristofor smug at left
     cristofor "I'll ask each of you a question. If you answer correctly, you pass. If not... well, let's just say the universe is cruel."
     play music "creepyMusic.mp3" loop fadein 0.5
+
     # The Probability Theory Question
     show cristofor smile 3 at left
     cristofor "First question: Which probability theory concept is the most important for understanding randomness?"
