@@ -39,6 +39,26 @@ image aula3:
     "aula3.jpg"
     xysize(1920,1080)
 
+image parking:
+    "parking.png"
+    xysize(1920,1080)
+
+image usmf:
+    "usmf.png"
+    xysize(1920,1080)
+
+image cab:
+    "cab.png"
+    xysize(1920,1080)
+
+image coridor:
+    "coridor.png"
+    xysize(1920,1080)
+
+image biblioteca:
+    "coridor.png"
+    xysize(1920,1080)
+
 image Army = "Army.png"
 
 image bbg:
@@ -93,7 +113,7 @@ label utm:
     play sound "thunder.wav" fadein 0.5
     play music "troll.wav"  fadein 0.5
     bostan "Hello! Welcome to FAF. Bla bla bla... a very cool but cruel place."
-    bostan "You should know that only 60% of students survive here, so I will give you one last chance to change your mind."
+    bostan "You should know that only 60%% of students survive here, so I will give you one last chance to change your mind."
     play music "creepyMusic.mp3" loop fadein 0.5
     menu:
         "Give up":
@@ -116,6 +136,7 @@ label give_up:
     return
 
 label pc_class:
+    scene cab with fade
     hide bostan
     # heels
     show gogoi happy 2
@@ -142,6 +163,7 @@ label pc_class:
 # islam meeting
 
 label islamMeeting:
+    scene aula3 with fade
     show islam smile
     play sound "islam.wav" fadein 0.5
     islam "Salam, Marhaba. Ke fac?"
@@ -188,6 +210,7 @@ label islamMeeting:
     return
 
 label leave_pc:
+    scene parking with fade
     elena "You are walking down the street when you see someone who was also at the initiation for FAFT students."
     play music "creepyMusic.mp3" loop fadein 0.5
     menu:
@@ -202,8 +225,7 @@ label leave_pc:
 
 label bozadjiMeeting:
     play music "monkeyBusines.wav" loop fadein 0.5
-    
-    scene university_hallway with fade
+
     show bozadji smile at center with dissolve
     
     player "Hello, I saw you at the previous lecture."
@@ -232,7 +254,7 @@ label bozadjiMeeting:
     
     $ bozadjiRelation += 10
     
-    scene university_corridor with fade
+    scene coridor with fade
     show elena smile at center with dissolve
     
     elena "You decide to return to the university and wait for the next lecture."
@@ -242,6 +264,7 @@ label bozadjiMeeting:
     jump next_class
 
 label next_class:
+    scene cab with fade
     show gogoi smile with fade
     play sound "heels.wav" fadein 0.5
     gogoi "Today, after dinner, you have one more lecture with me in room 113"
@@ -261,7 +284,7 @@ label ilicoMeeting:
     # sad music
     play music "sad_theme.wav" loop fadein 0.5
     
-    scene university_hallway with fade
+    scene cab with fade
     show ilico sad at center with dissolve
     
     player "Hi, why are you so upset?"
@@ -299,30 +322,45 @@ label ilicoMeeting:
 # Gogoi's class
 
 label gogoiLecture:
-    scene bg classroom with fade
+    scene cab with fade
     play music "funnyMusic2.mp3" loop fadein 0.5
     play sound "heels.wav" fadein 0.5
+
+    show gogoi smile
     gogoi "Hello, everyone. Today, we will analyze ourselves and reflect a bit."
+
+    show gogoi smug
     gogoi "I wrote down some activities on the table. Please choose one."
+
+    show gogoi happy
     gogoi "So, let's do an activity!"
+
     play sound "geese.mp3" fadein 0.5
     menu:
         "Johari Window":
+            show gogoi impressed
             gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
         "MBTI Personality Test":
+            show gogoi impressed
             gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
         "Europass CV":
+            show gogoi impressed
             gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
         "Emotional Intelligence":
+            show gogoi impressed
             gogoi "GREAT CHOICE! NOW, DO ALL OF THEM."
-    player "Omg, my mental health get affected."
+
+    show gogoi smug
+    player "Omg, my mental health is getting affected."
+
     jump finishedFirstDay
+
 
 label finishedFirstDay:
     play music "sadMusic.mp3" loop fadein 0.5
     # relax music
     
-    scene dormitory_room with fade
+    scene dorm with fade
     show elena smile at center with dissolve
     
     elena "The last lecture of the day has ended, and everyone is heading home to relax."
@@ -341,58 +379,58 @@ label finishedFirstDay:
     show elena shocked at left with dissolve
     elena "You see a blond, athletic guy entering the room."
     
-    show max smile at right with dissolve
-    max "Hey there."
+    show maxim smile at right with dissolve
+    maxim "Hey there."
     
-    show max smile 2
-    max "Is this room 318?"
+    show maxim smile 2
+    maxim "Is this room 318?"
     
     player "Umm... Yes. Who are you?"
     
-    show max smile
-    max "My name is Maxim, I will be living in this room."
+    show maxim smile
+    maxim "My name is Maxim, I will be living in this room."
     
     player "Oh me too."
     
     player "Why did you decide to live in a dormitory?"
     
-    show max smug
-    max "Because there is a gym nearby, I need to live as close to it as possible."
+    show maxim smug
+    maxim "Because there is a gym nearby, I need to live as close to it as possible."
     
     player "You look buff already, why do you need to train more?"
     
-    show max angry
-    max "ITS NEVER ENOUGH! I NEED TO BECOME EVEN STRONGER!"
+    show maxim angry
+    maxim "ITS NEVER ENOUGH! I NEED TO BECOME EVEN STRONGER!"
     
     player "Uhhh.. alright, please don't kill me."
     
-    show max smile 3
-    max "Don't worry, I don't bully weak chushpan kids."
+    show maxim smile 3
+    maxim "Don't worry, I don't bully weak chushpan kids."
     
-    show max smug
-    max "Anyways, wanna go to the gym with me sometime? You look like a fricking tryapka."
+    show maxim smug
+    maxim "Anyways, wanna go to the gym with me sometime? You look like a fricking tryapka."
     
     menu:
         "Nah, I don't want to become a gym rat.":
             $ maximRelation -= 10
             
-            show max angry 2
-            max "Pfft, well don't blame me when you get bullied."
+            show maxim angry 2
+            maxim "Pfft, well don't blame me when you get bullied."
             
         "Yes! I wanna be muscular like you.":
             $ maximRelation += 10
             
-            show max laugh
-            max "I like your enthusiasm, maybe you are not as weak as I thought."
+            show maxim laugh
+            maxim "I like your enthusiasm, maybe you are not as weak as I thought."
             
-            show max smile
-            max "Maybe we can be friends?"
+            show maxim smile
+            maxim "Maybe we can be friends?"
             
-            hide max with dissolve
+            hide maxim with dissolve
             hide elena with dissolve
             jump maximStory
     
-    hide max with dissolve
+    hide maxim with dissolve
     
     show elena smile at center with dissolve
     elena "You were very tired from today's events."
@@ -407,33 +445,33 @@ label maximStory:
     # sad music
     play music "relaxing_tune.mp3" loop fadein 0.5
     
-    scene dormitory_room with fade
-    show max smile at center with dissolve
+    scene dorm with fade
+    show maxim smile at center with dissolve
     
     menu:
         "Sure!":
             $ maximRelation += 10
-            show max laugh
-            max "Great! We're going to be gym buddies!"
+            show maxim laugh
+            maxim "Great! We're going to be gym buddies!"
         "Nah, I just need you to help me train.":
             $ maximRelation -= 10
-            show max sad
-            max "Oh, I see. That's fine too."
+            show maxim sad
+            maxim "Oh, I see. That's fine too."
     
-    show max smile 2
-    max "Fine, I'm a bit tired. Let's go to sleep."
+    show maxim smile 2
+    maxim "Fine, I'm a bit tired. Let's go to sleep."
     
     player "Together???"
     
-    show max shocked
-    max "Ew, of course not! I'm not gay."
+    show maxim shocked
+    maxim "Ew, of course not! I'm not gay."
     
-    hide max with dissolve
+    hide maxim with dissolve
     jump secondDay
 
 label secondDay:
     play music "noir_detective.mp3" loop fadein 0.5
-    scene dorm_morning with fade
+    scene dorm with fade
     
     show elena smile at left with dissolve
     elena "You wake up to the sunlight filtering through the dusty dorm blinds like a scene from a low-budget detective movie."
@@ -448,23 +486,23 @@ label secondDay:
     # Player notices something
     player "(That's strange... didn't Islam mention something about 'making money quickly' yesterday?)"
     
-    show max smile at right with dissolve:
+    show maxim smile at right with dissolve:
         zoom 0.9
     
     menu:
         "Wake up Maxim and show him the news":
             player "Hey, Muscle Mountain, wake up! Check out this crazy news!"
             
-            show max sad
-            max "Ughhh... what time is it? This better be important or I'll bench press you."
+            show maxim sad
+            maxim "Ughhh... what time is it? This better be important or I'll bench press you."
             
             player "Someone robbed Moldova National Bank yesterday. Police think it was a student."
             
-            show max shocked
-            max "Seriously? That's wild. Probably some desperate guy who couldn't afford the cafeteria prices."
+            show maxim shocked
+            maxim "Seriously? That's wild. Probably some desperate guy who couldn't afford the cafeteria prices."
             
-            show max smug
-            max "Though I did see Bozadji counting a lot of cash yesterday after class..."
+            show maxim smug
+            maxim "Though I did see Bozadji counting a lot of cash yesterday after class..."
             
             # New clue
             $ clue_bozadji_cash = True
@@ -472,13 +510,13 @@ label secondDay:
             show elena smile 2
             elena "You make a mental note about Bozadji having suspicious amounts of cash."
             
-            show max smile
-            max "Anyway, we should get going. Cristofor's lecture starts in 30 minutes, and rumor has it he knows something about the robbery."
+            show maxim smile
+            maxim "Anyway, we should get going. Cristofor's lecture starts in 30 minutes, and rumor has it he knows something about the robbery."
             
         "Let Maxim sleep and investigate alone":
             $ maximRelation -= 5
             
-            hide max with dissolve
+            hide maxim with dissolve
             
             show elena smile
             elena "You decide to let your muscle-bound roommate continue his beauty sleep. After all, crime waits for no one!"
@@ -497,7 +535,7 @@ label secondDay:
         "Continue sleeping, crime can wait":
             $ karma -= 10
             
-            hide max with dissolve
+            hide maxim with dissolve
             
             show elena sleepy
             elena "You decide that becoming an amateur detective can definitely wait until after you've had your full eight hours. After all, Batman doesn't have to deal with morning classes."
@@ -505,35 +543,35 @@ label secondDay:
             show elena shocked
             elena "Unfortunately, your dreams of peaceful slumber are interrupted by something even more terrifying than crime - your roommate's morning workout routine."
             
-            show max angry at right with dissolve:
+            show maxim angry at right with dissolve:
                 zoom 0.9
             
-            max "RISE AND GRIND, ROOMIE! IT'S CHEST DAY! ONE! TWO! THREE!"
+            maxim "RISE AND GRIND, ROOMIE! IT'S CHEST DAY! ONE! TWO! THREE!"
             
             show elena annoyed
             elena "The entire room shakes with each push-up as Maxim counts loudly enough to wake the dead - or worse, hungover students."
             
             player "What time is it? And why does it feel like I'm in an earthquake simulator?"
             
-            show max smile 3
-            max "It's GAINS o'clock! I've already done 100 push-ups, 100 sit-ups, and I'm about to head out for a 10km run!"
+            show maxim smile 3
+            maxim "It's GAINS o'clock! I've already done 100 push-ups, 100 sit-ups, and I'm about to head out for a 10km run!"
             
             player "Are you training to be a hero for fun or something?"
             
-            show max smug
-            max "No time for jokes! There's an emergency assembly at school. Something about a crime and a special announcement."
+            show maxim smug
+            maxim "No time for jokes! There's an emergency assembly at school. Something about a crime and a special announcement."
             
             player "Ugh, fine. But this better be worth missing breakfast for."
             
-            show max smile
-            max "Don't worry, I made you a protein shake! It's only slightly chunky."
+            show maxim smile
+            maxim "Don't worry, I made you a protein shake! It's only slightly chunky."
             
             show elena smug
             elena "You eye the mysterious brown liquid with the same suspicion normally reserved for UTM cafeteria food."
             
             player "I think I'd rather face the criminal."
     
-    hide max with dissolve
+    hide maxim with dissolve
     hide elena with dissolve
     jump ilicoMeeting2
 
@@ -541,6 +579,7 @@ label secondDay:
 label ilicoMeeting2:
     # Play schizophrenia music
     # Scene: corridor
+    scene coridor with fade
     show elena
     elena "You go down the corridor and you see again this weird curly blond person around cabinet 113."
     show elena annoyed
@@ -582,7 +621,7 @@ label ilicoMeeting2:
             ilico "MMMmMMmMMmMm"
     jump cristoforLecture
 label cristoforLecture:
-    scene bg classroom with fade
+    scene cab with fade
     show elena happy with fade
     # heels
     play music "funnyMusic2.mp3" loop fadein 0.5
@@ -598,7 +637,7 @@ label cristoforLecture:
     show gogoi smile 2
     gogoi "Today is an important day because we can finally present labs to Cristofor."
   
-    scene bg classroom 118
+    scene cab with fade
     show elena angry
     show gogoi angry
 
@@ -773,7 +812,7 @@ label cristoforLecture:
 # Scene Label
 label furduiLaboratory:
     # Set the scene
-    scene bg classroom  # Ensure you have a classroom background
+    scene cab  # Ensure you have a classroom background
     show elena
     elena "Today you have lecture with Furdui, be prepared for his questions..."
     
@@ -927,7 +966,7 @@ label cristoforLecture2:
     play music "sadMusic.mp3" loop fadein 0.5
     play sound "heels.wav" fadein 0.5
     
-    scene bg classroom with fade
+    scene cab with fade
     show elena
     elena "Today, you have another lecture with Cristofor."  
     # 113 cabinet maybe, or think of something else  
@@ -968,36 +1007,36 @@ label cristoforLecture2:
 label thirdDay:  
     # Dormitory  
     play music "sadMusic.mp3" loop fadein 0.5
-    scene dormitory with fade
+    scene dorm with fade
 
-    show max smile
-    max "Good morning, my friend."  
+    show maxim smile
+    maxim "Good morning, my friend."  
 
     player "How did you get here?"  
 
-    show max smug
-    max "I was a bit busy yesterday because I was working on another project."  
+    show maxim smug
+    maxim "I was a bit busy yesterday because I was working on another project."  
 
     player "Oh, cool. Did you hear the latest news at the university?"  
 
-    show max shocked
-    max "Oh no, what are you talking about?"  
+    show maxim shocked
+    maxim "Oh no, what are you talking about?"  
 
     player "Yesterday, one of the students from our group was involved in a bank robbery."  
 
-    show max angry 2
-    max "Oh, really?? I always knew that Arabic guy looked suspicious."  
+    show maxim angry 2
+    maxim "Oh, really?? I always knew that Arabic guy looked suspicious."  
 
     play music "creepyMusic.mp3" loop fadein 0.5
     menu:  
         "Yeah, he is very weird.":  
             $ islamRelation -= 10  
             $ maximRelation += 10  
-            show max smug  
+            show maxim smug  
         "No, he is a good guy with a handsome appearance.":  
             $ islamRelation += 10  
             $ maximRelation -= 10  
-            show max annoyed  
+            show maxim annoyed  
 
     show elena smug with fade
     elena "Suddenly, you notice a Rolex watch on Maxim’s wrist. Hmm… very suspicious."  
@@ -1009,8 +1048,8 @@ label thirdDay:
             $ karma += 10  
             player "Where did you get that watch?"  
 
-            show max sad
-            max "*nervously scratches his head* Oh... I got my salary from my project yesterday... Never mind."  
+            show maxim sad
+            maxim "*nervously scratches his head* Oh... I got my salary from my project yesterday... Never mind."  
 
         "Ignore this fact":  
             $ maximRelation += 5  
@@ -1018,8 +1057,8 @@ label thirdDay:
 
     player "Let's go to the university and find out the latest news."  
 
-    show max smile 2
-    max "Yeah, let's go."  
+    show maxim smile 2
+    maxim "Yeah, let's go."  
 
     # University  
     jump universityFourthDay  
@@ -1027,7 +1066,7 @@ label thirdDay:
 
 label universityFourthDay:
     # Scene: University with Policemen
-    scene university with fade
+    scene aula3 with fade
     play sound "policy.wav" fadein 0.5
 
     show elena shocked
@@ -1153,19 +1192,19 @@ label universityFourthDay:
     show police
     policeman "Maxim, where were you at the time of the robbery?"
 
-    show max smug
+    show maxim smug
     maxim "I was delivering food for Glovo."
 
     show police
     policeman "In what area?"
 
-    show max smug
+    show maxim smug
     maxim "In the city center."
 
     show police
     policeman "The bank that was robbed is in the city center. 😱😱😱 Someone saw you! Can you prove you were delivering food?"
 
-    show max shocked
+    show maxim shocked
     maxim "Maybe my manager can. You should contact him."
 
     menu:
@@ -1351,6 +1390,7 @@ label retrospectiveMaxim:
     return
 
 label usmf:
+    scene usmf with fade
     show bostan with fade:
         zoom 0.6
         yalign 0.2
