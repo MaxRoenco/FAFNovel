@@ -728,7 +728,7 @@ label cristoforLecture:
     player "What the fistic?#$!?! With this timing, we'll never be ready for the midterms!"
     hide cristofor
     # Scene 7: The Ilico Meltdown
-    scene bg cab with fade
+    scene cab with fade
     show ilico angry with fade
 
     show elena smile 2 at right
@@ -749,7 +749,7 @@ label cristoforLecture:
     player "I have no words..."
     hide ilico
     # Scene 9: The Final 
-    scene bg classroom with fade
+    scene cab with fade
     show elena smile 2 at right
 
     elena "As the clock strikes 21:00, Cristofor finally arrives"
@@ -816,14 +816,14 @@ label cristoforLecture:
 label furduiLaboratory:
     # Set the scene
     scene cab  # Ensure you have a classroom background
-    show elena at right
+    show elena at left
     elena "Today you have lecture with Furdui, be prepared for his questions..."
     
     # Initial interaction
     play sound "thunder.wav" fadein 0.5
     play music "troll.wav" fadein 0.5
     
-    show furudui at left
+    show furudui at right
     player "Good morning, Professor Furdui. I'm here to present my merge sort laboratory work."
 
     show furudui smug at right
@@ -979,14 +979,14 @@ label cristoforLecture2:
     play sound "cristofor.mp3" fadein 0.5
     show elena shocked
     elena "Unexpectedly, Elena Gogoi enters with a frightened expression on her face."
-    
+    hide elena
     show gogoi shocked with fade
     play music "creepyMusic.mp3" loop fadein 0.5
     gogoi "There is news that one of the students from FAF took part in a bank robbery. The police are trying to find him, but all attempts have failed. He is very skilled at stealth."
-    
+
     show gogoi sad
     gogoi "Today's lectures are canceled, so everyone is free. However, tomorrow all classes will take place as scheduled, so don't be late."
-    
+    hide gogoi
     show elena smug
     elena "You look around the room after hearing this news and notice some strange reactions."
     
@@ -1040,10 +1040,10 @@ label thirdDay:
             $ islamRelation += 10  
             $ maximRelation -= 10  
             show maxim annoyed  
-
+    hide maxim
     show elena smug with fade
     elena "Suddenly, you notice a Rolex watch on Maxim’s wrist. Hmm… very suspicious."  
-
+    hide elena
     play sound "thunder.wav" fadein 0.5
     menu:  
         "Ask him about it?":  
@@ -1074,160 +1074,210 @@ label universityFourthDay:
 
     show elena shocked
     elena "The next day, the police arrive at the university, questioning students."
-
-    show kulev smug
+    hide elena
+    
+    show kulev smug at left
     kulev "Attention, everyone! The police are investigating last night's bank robbery. If you have any information, please cooperate."
-
+    hide kulev
+    
     player "This is getting serious..."
 
     # Islam A
     play sound "islam.wav" fadein 0.5
     show police
     kulev "Islam, where were you at the time of the robbery?"
+    hide police
 
     show islam smug
     islam "I was praying at home and then working on my university labs."
-
+    hide islam
+    
     show kulev angry
     kulev "Can someone confirm this?"
-
+    hide kulev
+    
     show islam smug
     islam "Unfortunately, only Allah... Oh, and the teacher who has access to ELSE and can see my lab submission at that time."
+    hide islam
 
     play music "creepyMusic.mp3" loop fadein 0.5
+    show elena
     menu:
         elena "Do you think he's telling the truth or just a good liar?"
         "I BELIEVE HIM":
             $ islamRelation += 25
             show elena smile
-            elena "A policeman heads to the Decanat to verify Islam’s submission."
+            elena "A policeman heads to the Decanat to verify Islam's submission."
+            hide elena
             if islamRelation > min(bozadjiRelation, ilicoRelation, maximRelation):
                 show kulev smug
                 kulev "Yes, there really was a submission at that time."
+                hide kulev
                 play music "funnyMusic2.mp3" loop fadein 0.5
             else:
                 show kulev angry
                 kulev "No, there are no submissions. You are lying."
+                hide kulev
                 play sound "thunder.wav" fadein 0.5
         "HE IS A LIAR":
             $ islamRelation -= 25
+            hide elena
             show kulev smug
             kulev "We will verify this information."
+            hide kulev
 
     # Artemie B
     show kulev smug
     kulev "Artemie B, where were you at the time of the robbery?"
+    hide kulev
 
     show bozadji smug
     bozadji "I was working at the bank's cybersecurity department on the night shift."
+    hide bozadji
 
     show kulev angry
     kulev "Can someone confirm this?"
+    hide kulev
 
     show bozadji smug
     bozadji "Yes, the security cameras at the bank."
+    hide bozadji
 
     show elena shocked
     elena "A policeman returns."
+    hide elena
 
     show police
     policeman "Chief, all recordings from the cameras have been deleted."
+    hide police
 
     show bozadji shocked
-    bozadji "That can't be real! It’s not my fault! Check my computer logs. My laptop is in my car, I’ll go get it."
+    bozadji "That can't be real! It's not my fault! Check my computer logs. My laptop is in my car, I'll go get it."
+    hide bozadji
 
+    show elena
     menu:
         elena "Do you believe him?"
         "I BELIEVE HIM":
             $ bozadjiRelation += 25
+            hide elena
             if bozadjiRelation > min(islamRelation, ilicoRelation, maximRelation):
                 scene parking_lot with fade
                 show elena smile
                 elena "Artemie B returns with his laptop, proving his innocence."
+                hide elena
             else:
                 scene empty_parking_lot with fade
                 show elena shocked
                 elena "Artemie B never returns... He was the thief!"
+                hide elena
                 play sound "thunder.wav" fadein 0.5
                 jump retrospectiveBozadji
         "HE IS A LIAR":
             $ bozadjiRelation -= 25
+            hide elena
             show kulev smug
             kulev "We will investigate further."
+            hide kulev
 
     # Artemie I
     show kulev smug
     kulev "Artemie I, where were you at the time of the robbery?"
+    hide kulev
 
     show ilico smug
     ilico "I was studying new trading strategies in the UTM library. You can ask Ms. Valentina, the security guard."
+    hide ilico
 
     show kulev angry
     kulev "Ms. Valentina is on vacation for two weeks..."
+    hide kulev
 
     show ilico shocked
-    ilico "No, that isn’t true! Maybe she took extra shifts. Go ask her."
+    ilico "No, that isn't true! Maybe she took extra shifts. Go ask her."
+    hide ilico
 
     show elena shocked
     elena "A policeman goes to Ms. Valentina."
+    hide elena
 
+    show elena
     menu:
         elena "Do you believe him?"
         "I BELIEVE HIM":
             $ ilicoRelation += 25
+            hide elena
             if ilicoRelation > min(islamRelation, bozadjiRelation, maximRelation):
                 show kulev smug
                 kulev "Ms. Valentina confirmed that she saw you reading in the library."
+                hide kulev
                 play music "funnyMusic2.mp3" loop fadein 0.5
             else:
                 show kulev angry
                 kulev "Ms. Valentina denies even being at the university that night."
+                hide kulev
                 show elena shocked
                 elena "Artemie I is the thief!"
+                hide elena
                 play sound "thunder.wav" fadein 0.5
                 jump retrospectiveIlico
         "HE IS A LIAR":
             $ ilicoRelation -= 25
+            hide elena
             show kulev smug
             kulev "We will confirm your alibi."
+            hide kulev
 
     # Maxim R
     show police
     policeman "Maxim, where were you at the time of the robbery?"
+    hide police
 
     show maxim smug
     maxim "I was delivering food for Glovo."
+    hide maxim
 
     show police
     policeman "In what area?"
+    hide police
 
     show maxim smug
     maxim "In the city center."
+    hide maxim
 
     show police
     policeman "The bank that was robbed is in the city center. 😱😱😱 Someone saw you! Can you prove you were delivering food?"
+    hide police
 
     show maxim shocked
     maxim "Maybe my manager can. You should contact him."
+    hide maxim
 
+    show elena
     menu:
         elena "Do you believe him?"
         "I BELIEVE HIM":
             $ maximRelation += 25
+            hide elena
             if maximRelation > min(islamRelation, bozadjiRelation, maximRelation):
                 show police
                 policeman "The administrator confirmed that you were picking up orders at that time."
+                hide police
             else:
                 show police
-                policeman "You don’t even work for Glovo. No one knows you there!"
+                policeman "You don't even work for Glovo. No one knows you there!"
+                hide police
                 show elena shocked
                 elena "Maxim R is the thief!"
+                hide elena
                 play sound "thunder.wav" fadein 0.5
                 jump retrospectiveMaxim
         "HE IS A LIAR":
             $ maximRelation -= 25
+            hide elena
             show kulev smug
             kulev "We will investigate further."
+            hide kulev
 
 label retrospectiveIlico:
     play music "sadMusic.mp3" loop fadein 0.5
@@ -1309,7 +1359,7 @@ label retrospectiveBozadji:
     show bozadji surprised with dissolve
     bozadji "It can't be real, it's not my fault! Check my computer logs! My laptop is in my car, I'll go get it."
     
-    scene bg parking_lot with fade
+    scene parking with fade
     elena "He ran off to fetch it."
     elena "You waited."
     elena "And waited."
