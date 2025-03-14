@@ -594,29 +594,29 @@ label ilicoMeeting2:
             $ ilicoRelation += 10
             player "Hi, how are you?"
             ilico "I am busy right now."
-            show elena shocked
+            show elena shocked at right
             elena "You see how he very quickly writes some weird symbols on his notebook with strength and mad eyes."
             player "What are you doing?"
-            show ilico angry 2
+            show ilico angry 2 at left
             ilico "I am improving my trading strategy. I almost have the ideal market strategy BUT there is a small detail missing. I CAN'T FIND IT."
             player "What are you talking about?"
-            show elena
+            show elena at right
             elena "Actively swinging, he plunges into his thoughts."
-            show ilico shocked
+            show ilico shocked at left
             ilico "MM... Arbitrage... Slippage... Pump and dump... Dark pools... OH! Maybe it's the liquidity trap?! No... NO! The flash crash paradox?!"
-            show elena shocked
+            show elena shocked at right
             elena "His eyes shine as he keeps muttering."
-            show ilico angry 2
+            show ilico angry 2 at left
             ilico "AHH! It's the MARKET MAKER'S REVENGE! OR... OR... THE DEAD CAT BOUNCE?!"
             player "I have no idea what you're saying."
-            show ilico angry
+            show ilico angry at left
             ilico "HEDGE! HEDGE EVERYTHING! THE TREND IS YOUR FRIEND UNTIL IT'S NOT!"
-            show elena shocked
+            show elena shocked at right
             elena "He starts aggressively drawing candlestick patterns in the air."
             player "Are you okay?"
-            show ilico shocked
+            show ilico shocked at left
             ilico "OF COURSE NOT! I'M IN A BEAR MARKET OF EMOTIONS!"
-            show elena
+            show elena at right
             elena "You decide to leave him to his thoughts."
         "Move on":
             $ ilicoRelation -= 10
@@ -630,30 +630,30 @@ label cristoforLecture:
     play music "funnyMusic2.mp3" loop fadein 0.5
     play sound "heels.wav" fadein 0.5
     hide elena
-    show gogoi happy
+    show gogoi happy at right
     gogoi "Good morning, Fafers!"
-    show gogoi smile
+    show gogoi smile at right
     gogoi "Guess what? Cristofor will grade you based on your lab presentations for the second midterm!"
-    show gogoi happy 2
+    show gogoi happy 2 at right
     gogoi "Good luck!"
 
-    show elena smile 2
-    show gogoi smile 2
+    show elena smile 2 at left
+    show gogoi smile 2 at right
     gogoi "Today is an important day because we can finally present labs to Cristofor."
   
     scene cab with fade
-    show elena angry
-    show gogoi angry
+    show elena angry at left
+    show gogoi angry at right
 
     gogoi "It's 8:15! WHERE IS CRISTOFOR?!"
 
-    show elena annoyed
+    show elena annoyed at left
     hide gogoi
     player "Ugh, I didn't sleep all night, and now this? I better ask Islam. Maybe he knows something. He's always lurking around like a shadow anyway."
 
     # Scene 2: The Mysterious Sleepless Islam
     scene bg hallway with fade
-    show islam sleepy
+    show islam
 
     player "Hey, Islam! How are you? Do you know where Cristofor is?"
     
