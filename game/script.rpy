@@ -757,7 +757,7 @@ label cristoforLecture:
     show cristofor smile at left
     cristofor "Alright, let's check these labs! All 15 groups at once!"
 
-    show cristofor smug with fade at left
+    show cristofor smug at left
     cristofor "I'll ask each of you a question. If you answer correctly, you pass. If not... well, let's just say the universe is cruel."
     play music "creepyMusic.mp3" loop fadein 0.5
     # The Probability Theory Question
@@ -822,7 +822,7 @@ label furduiLaboratory:
     play sound "thunder.wav" fadein 0.5
     play music "troll.wav" fadein 0.5
     
-    show furudui with fade at left
+    show furudui at left
     player "Good morning, Professor Furdui. I'm here to present my merge sort laboratory work."
 
     show furudui smug at right
