@@ -1148,7 +1148,7 @@ label universityFourthDay:
     hide elena
 
     show police
-    policeman "Chief, all recordings from the cameras have been deleted."
+    policeman1 "Chief, all recordings from the cameras have been deleted."
     hide police
 
     show bozadji shocked
@@ -1230,7 +1230,7 @@ label universityFourthDay:
 
     # Maxim R
     show police
-    policeman "Maxim, where were you at the time of the robbery?"
+    policeman1 "Maxim, where were you at the time of the robbery?"
     hide police
 
     show maxim smug
@@ -1238,7 +1238,7 @@ label universityFourthDay:
     hide maxim
 
     show police
-    policeman "In what area?"
+    policeman1 "In what area?"
     hide police
 
     show maxim smug
@@ -1246,7 +1246,7 @@ label universityFourthDay:
     hide maxim
 
     show police
-    policeman "The bank that was robbed is in the city center. 😱😱😱 Someone saw you! Can you prove you were delivering food?"
+    policeman1 "The bank that was robbed is in the city center. 😱😱😱 Someone saw you! Can you prove you were delivering food?"
     hide police
 
     show maxim shocked
@@ -1261,11 +1261,11 @@ label universityFourthDay:
             hide elena
             if maximRelation > min(islamRelation, bozadjiRelation, maximRelation):
                 show police
-                policeman "The administrator confirmed that you were picking up orders at that time."
+                policeman1 "The administrator confirmed that you were picking up orders at that time."
                 hide police
             else:
                 show police
-                policeman "You don't even work for Glovo. No one knows you there!"
+                policeman1 "You don't even work for Glovo. No one knows you there!"
                 hide police
                 show elena shocked
                 elena "Maxim R is the thief!"
