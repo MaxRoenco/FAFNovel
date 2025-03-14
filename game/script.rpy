@@ -652,7 +652,7 @@ label cristoforLecture:
     player "Ugh, I didn't sleep all night, and now this? I better ask Islam. Maybe he knows something. He's always lurking around like a shadow anyway."
 
     # Scene 2: The Mysterious Sleepless Islam
-    scene bg hallway with fade
+    scene cab with fade
     show islam
 
     player "Hey, Islam! How are you? Do you know where Cristofor is?"
@@ -664,13 +664,11 @@ label cristoforLecture:
     show islam
     player "I'm not sure if he slept this entire semester..."
     player "I won't disturb him... He is hallucinating and thinking he is in Jordania?"
-
+    hide islam
     show elena annoyed
     elena "Cristofor is late again. Typical."
 
     # Scene 3: The Late Bozadji
-    show bozadji with fade
-    hide islam
 
     show elena smug
     elena "Suddenly, the door opens and walks Artiom Bozadji, late as always."
@@ -707,7 +705,7 @@ label cristoforLecture:
     elena "Bozadji disappeared..."
 
     # Scene 6: The Discord Bomb
-    scene bg classroom with fade
+    scene cab with fade
     show elena shocked
 
     elena "Just as you're about to give up and kys, your phone buzzes. It's a notification from Discord. Cristofor has finally spoken."
