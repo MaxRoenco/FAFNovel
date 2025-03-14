@@ -815,27 +815,27 @@ label cristoforLecture:
 label furduiLaboratory:
     # Set the scene
     scene cab  # Ensure you have a classroom background
-    show elena
+    show elena at right
     elena "Today you have lecture with Furdui, be prepared for his questions..."
     
     # Initial interaction
     play sound "thunder.wav" fadein 0.5
     play music "troll.wav" fadein 0.5
     
-    show furudui with fade
+    show furudui with fade at left
     player "Good morning, Professor Furdui. I'm here to present my merge sort laboratory work."
 
-    show furudui smug
+    show furudui smug at right
     furdui "Ah, Elena. Another student hoping to pass with minimal effort, I see."
 
     player "No, professor. I've worked hard on this lab and I'm prepared to demonstrate my understanding."
 
-    show furudui angry
+    show furudui angry at right
     furdui "Hard work? In this generation? Let's see about that. Your punctuality is already a problem."
 
     player "I know I'm a bit late, but I promise my work meets the requirements."
 
-    show furudui angry 2
+    show furudui angry 2 at right
     furdui "Late submissions are the first sign of academic negligence. But go on, convince me."
     play music "creepyMusic.mp3" loop fadein 0.5
     
@@ -843,26 +843,26 @@ label furduiLaboratory:
         "Apologize sincerely":
             player "I sincerely apologize for the delay. I understand the importance of deadlines."
             $ karma += 5
-            show furudui smile
+            show furudui smile at right
             furdui "At least you show some understanding."
 
         "Make an excuse":
             player "There were some unexpected complications with my computer..."
             $ karma -= 5
-            show furudui angry
+            show furudui angry at right
             furdui "Excuses, always excuses. The real world doesn't accept such nonsense."
 
-    show furudui smug
+    show furudui smug at right
     furdui "Before we discuss your merge sort implementation, you'll need to prove your understanding."
 
     player "I'm ready for any questions you have, professor."
 
     # Merge Sort Quiz
-    show furudui smile 3
+    show furudui smile 3 at right
     furdui "Let's begin with a comprehensive quiz about merge sort. Each incorrect answer will cost you."
 
     # Question 1: Basic Concept
-    show furudui
+    show furudui at right
     player "First question: What is the primary strategy of the merge sort algorithm?"
 
     menu:
@@ -870,47 +870,47 @@ label furduiLaboratory:
             player "Divide and Conquer! The algorithm breaks down the problem into smaller, more manageable sub-problems."
             $ quiz_score += 1
             $ karma += 3
-            show furudui smile
+            show furudui smile at right
             furdui "Correct. A promising start."
 
         "Bubble Sorting":
             player "Um... Bubble Sorting?"
             $ karma -= 5
-            show furudui laugh
+            show furudui laugh at right
             furdui "Incorrect. Bubble sort is an entirely different, less efficient sorting method."
 
         "Random Shuffling":
             player "Random Shuffling?"
             $ karma -= 5
-            show furudui angry 2
+            show furudui angry 2 at right
             furdui "Completely wrong. This shows a fundamental misunderstanding."
 
     # Question 2: Time Complexity
-    show furudui smug
+    show furudui smug at right
     furdui "What is the time complexity of merge sort?"
 
     menu:
         "O(n²)":
             player "O(n²), like insertion sort?"
             $ karma -= 5
-            show furudui angry
+            show furudui angry at right
             furdui "Incorrect. Merge sort is more efficient than that."
 
         "O(n log n)":
             player "O(n log n)! It maintains this complexity in all cases - best, average, and worst."
             $ quiz_score += 1
             $ karma += 3
-            show furudui smile 2
+            show furudui smile 2 at right
             furdui "Correct. You're showing some actual knowledge."
 
         "O(1)":
             player "O(1)?"
             $ karma -= 5
-            show furudui shocked
+            show furudui shocked at right
             furdui "Ridiculous. That's constant time, impossible for sorting."
 
     # Question 3: Implementation Details
-    show furudui smile 3
+    show furudui smile 3 at right
     furdui "Describe the key steps in implementing merge sort."
 
     menu:
@@ -918,46 +918,46 @@ label furduiLaboratory:
             player "First, recursively divide the array into two halves, sort those sub-arrays, and then merge them back together."
             $ quiz_score += 1
             $ karma += 3
-            show furudui smile
+            show furudui smile at right
             furdui "Precise explanation. You've clearly studied."
 
         "Swap adjacent elements":
             player "Swap adjacent elements?"
             $ karma -= 5
-            show furudui angry
+            show furudui angry at right
             furdui "No! That's more akin to bubble sort. Completely incorrect."
 
         "Sort from left to right in one pass":
             player "Sort from left to right in one pass?"
             $ karma -= 5
-            show furudui angry 2
+            show furudui angry 2 at right
             furdui "Absurd. Merge sort is not a single-pass algorithm."
 
     # Final Quiz Assessment
     if quiz_score >= 2:
-        show furudui smile 2
+        show furudui smile 2 at right
         furdui "Not entirely terrible. Your theoretical understanding shows promise."
         $ karma += 10
     else:
-        show furudui sad
+        show furudui sad at right
         furdui "Your performance is disappointing. Theory is the foundation of practical implementation."
         $ karma -= 10
 
     # Closing Dialogue
     player "May I now present my actual implementation, professor?"
 
-    show furudui smug
+    show furudui smug at right
     furdui "Go ahead. But remember, theory without perfect implementation means nothing."
 
     # Final Karma and Score Determination
     if karma >= 60:
-        show furudui smile
+        show furudui smile at right
         furdui "You've barely scraped through. 8 out of 10. Do better next time."
     elif karma >= 50:
-        show furudui
+        show furudui at right
         furdui "Mediocre performance. 5 out of 10. Improvement is mandatory."
     else:
-        show furudui angry
+        show furudui angry at right
         furdui "Unsatisfactory. 3 out of 10. You need serious remedial work."
     
     jump cristoforLecture2
@@ -972,7 +972,7 @@ label cristoforLecture2:
     show elena
     elena "Today, you have another lecture with Cristofor."  
     # 113 cabinet maybe, or think of something else  
-    show elena curious
+    show elena smug
     elena "You enter the classroom and see a very elegant person in a suit with long black hair."
     
     play sound "cristofor.mp3" fadein 0.5
